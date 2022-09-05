@@ -25,6 +25,12 @@ module.exports = function(host, server){
                 link: host  + "/data/users/password"
             },
             {
+                route:"/data/video_example",
+                methods: ["GET"],
+                description:"Get a video example streams",
+                link: host  + "/data/video_example"
+            },
+            {
                 route:"/data/video_streams",
                 methods: ["GET"],
                 description:"Get list of video streams",
@@ -35,6 +41,12 @@ module.exports = function(host, server){
                 methods: ["GET"],
                 description:"Get video stream",
                 link: host  + "/data/video_streams/1"
+            },
+            {
+                route:"/data/audio_example",
+                methods: ["GET"],
+                description:"Get an audio example streams",
+                link: host  + "/data/audio_example"
             },
             {
                 route:"/data/audio_streams",

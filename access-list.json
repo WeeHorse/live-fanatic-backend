@@ -15,9 +15,23 @@
   },
 
   {
+    "route": "/data/video_example",
+    "roles":[
+      {"role": "*", "methods": ["GET"]}      
+    ]
+  },
+
+  {
     "route": "/data/audio_streams*",
     "roles":[
-      {"role": "user", "methods": ["GET"]}
+      {"role": "*", "methods": ["GET"]}
+    ]
+  },
+
+  {
+    "route": "/data/audio_example",
+    "roles":[
+      {"role": "*", "methods": ["GET"]}
     ]
   },
 
