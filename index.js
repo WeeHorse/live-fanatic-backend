@@ -1,8 +1,59 @@
 const express = require("express");
 const server = express();
+server.use(express.json())
 const fs = require("fs");
+const db = require("./modules/db.js")('./database/live_fanatic.db')
+const port = 3333
+const host = `http://localhost:${port}`
 
-server.use('/', express.static('examples'))
+// sessions
+let cookieParser = require('cookie-parser')
+server.use(cookieParser())
+let session = require('express-session')
+server.use( session( {
+  secret: 'keyboard cat jksfj<khsdka',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: false, // set to true with https
+    httpOnly: true
+  }
+}))
+
+// ACL
+const acl = require('./services/acl.js')
+server.use(acl)
+
+// start
+server.listen(port,() => {
+  console.log(host)
+  console.log('server running on port ' + port)
+})
+
+server.use('/', express.static('whatever-directory-for-react-build')) // change 
+server.use('/examples', express.static('examples'))
+
+// custom REST API routes
+
+require('./api-description.js')(host, server)
+require('./routes/users.js')(server, db)
+require('./routes/login.js')(server, db)
+
+// generic REST API one-to-one table mappings
+
+server.get('/data/:table', (req, res)=>{ // but limit which tables to query with ACL
+  let query = "SELECT * FROM " + req.params.table
+  let result = db.prepare(query).all()
+  setResultHeaders(res, result)
+  res.json(result)
+})
+
+server.get('/data/:table/:id', (req, res)=>{ // but limit which tables to query with ACL
+  let query = "SELECT * FROM " + req.params.table + " WHERE id = @id"
+  let result = db.prepare(query).all(req.params)
+  setResultHeaders(res, result[0])
+  res.json(result[0])
+})
 
 server.get("/video", function (req, res) {
   // Ensure there is a range given for the video
