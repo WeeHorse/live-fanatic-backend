@@ -15,7 +15,7 @@ module.exports = function(server, db){
       }
 
       let encryptedPassword = encrypt(request.body.password)
-      let user = db.prepare('SELECT * FROM teachers WHERE email = ? AND password IS NOT NULL AND password = ? AND hide = 0').all([request.body.email, encryptedPassword])
+      let user = db.prepare('SELECT * FROM users WHERE email = ? AND password IS NOT NULL AND password = ?').all([request.body.email, encryptedPassword])
       user = user[0]
 
       if (request.bypassVerification) {
@@ -50,7 +50,7 @@ module.exports = function(server, db){
   server.get('/data/login', (request, response) => {
     let user
     if(request.session.user){
-      user = db.prepare('SELECT * FROM teachers WHERE email = ? AND password = ?').all([request.session.user.email, request.session.user.password])
+      user = db.prepare('SELECT * FROM users WHERE email = ? AND password = ?').all([request.session.user.email, request.session.user.password])
       user = user[0]
       user.roles = user.roles.split(',')
     }

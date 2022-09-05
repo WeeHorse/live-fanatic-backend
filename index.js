@@ -19,9 +19,12 @@ server.use( session( {
   }
 }))
 
+// bypass 2FA verification (dev only)
+server.use(function(req,res,next){req.bypassVerification = true; next()})
+
 // ACL
 const acl = require('./services/acl.js')
-// server.use(acl)
+server.use(acl)
 
 // start
 server.listen(port,() => {
