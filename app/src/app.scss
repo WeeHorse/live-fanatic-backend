@@ -1,3 +1,37 @@
-h1{
-  color: blueviolet;
+$primary-color:#deecfd;
+
+
+body{
+  background-color:$primary-color;
+  padding: 3vh 3vw;
+
+  h1{
+    font-family: 'Bevan', cursive;
+  }
+  p{
+    font-family: 'Heebo', sans-serif;
+  }
+  
 }
+
+@media screen and (min-width:760px) {
+  body{
+    padding: 2vh 2vw;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  body{
+    padding: 1.5vh 1.5vw;
+  }
+}
+
+@media screen and (min-width:1536px) {
+  body{
+    margin: 0 auto;
+    max-width: 1536px;
+    padding: none;
+  }
+  
+}
+
