@@ -4,7 +4,7 @@ import {
     Route
 } from 'react-router-dom'
 
-import ProfilePage from './components/profilePage'
+import ProfilePage from './components/ProfilePage'
 
 
 function App() {
