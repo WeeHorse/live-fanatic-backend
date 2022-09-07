@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    justify-content: center;
+
+    #profile-title {
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile-form {
+        display: flex;
+        flex-direction: column; 
+        align-content: center;
+        margin-top: 7vh;
+
+        .form-field {
+            display: flex;
+            margin: 1vh 1vw;
+            justify-content: center;
+
+            .field-name {
+                flex-grow: 1;
+                justify-self: flex-start;
+                align-self: center;
+                margin-right: 6px;
+                width: 73px;
+            }
+
+            .form-input {
+                justify-self: flex-end;
+                border-radius: 6px;
+                height: 3vh;
+            }
+        }
+
+        #update{
+            margin-top: 10vh;
+            font-size: 120%;    
+        }
+
+        #sign-out{
+            align-self: center;
+            max-width: fit-content;
+            border-radius: 6px;
+            background-color: crimson;
+            font-size: 150%;
+            margin-top: 10vh;
+        }
+    }
+}
