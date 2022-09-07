@@ -50,3 +50,7 @@ require('./routes/login.js')(server, db)
 
 // generic REST API one-to-one table mappings
 require('./routes/generic-routes.js')(server, db)
+
+server.get('*', (req, res)=>{
+  res.sendFile(__dirname + '/whatever-directory-for-react-build/index.html')
+})
