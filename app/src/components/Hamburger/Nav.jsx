@@ -1,16 +1,5 @@
 import Hamburger from './Hamburger'
-import { React, useState } from 'react'
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link
-} from 'react-router-dom'
-
-import ProfilePage from './ProfilePage';
-import EventPage from '../EventPage';
-import TicketsPage from './TicketsPage';
-import Searchbar from './Searchbar';
+import { useState } from 'react'
 
 function Nav() {
 
@@ -20,25 +9,18 @@ function Nav() {
         setHamburgerOpen(!hamburgerOpen)
     }
 
-    return <Router>
+    return (
         <div>
             <div className="navigation">
                 <div className="insideHamburger">
-                    <div className="hamburgerbutton">
-                        <Link to="/event-page" onClick={toggleHamburger}>EventPage</Link>
-                    </div>
+                    <div className="hamburgerbutton">Events</div>
 
-                    <div className="hamburgerbutton">
-                        <Link to="/tickets-page" onClick={toggleHamburger}>TicketsPage</Link>
-                    </div>
+                    <div className="hamburgerbutton">Tickets</div>
                     <div className="hamburgerbutton" id="profile">
-                        <Link to="/profile-page" onClick={toggleHamburger}>ProfilePage</Link>
                     </div>
                     <div></div>
                     <div></div>
-                    <div className="hamburgerbutton" id="searchbar">
-                        <Link to="/search-results" onClick={toggleHamburger}>Searchbar</Link>
-                    </div>
+                    <div className="hamburgerbutton" id="searchbar">Searchbar</div>
 
                 </div>
                 <div className="hamburger" onClick={toggleHamburger}>
@@ -97,14 +79,7 @@ function Nav() {
                 
             `}</style>
         </div>
-        <Routes>
-            <Route path="/event-page" element={<EventPage />} />
-            <Route path="/tickets-page" element={<TicketsPage />} />
-            <Route path="/profile-page" element={<ProfilePage />} />
-            <Route path="/search-results" element={<Searchbar />} />
-        </Routes>
-    </Router>
-
+    )
 }
 
 export default Nav

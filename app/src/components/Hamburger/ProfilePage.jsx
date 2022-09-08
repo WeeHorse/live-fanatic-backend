@@ -1,7 +1,7 @@
 function ProfilePage() {
-    return <body>
-        <h1>This is the profile page</h1>
-    </body>
+    return <>
+        This is your profile
+    </>
 }
 
 export default ProfilePage
