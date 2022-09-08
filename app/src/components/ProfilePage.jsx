@@ -4,20 +4,30 @@ import { useState } from "react"
 
 function ProfilePage() {
 
+     const [user, setUser] = useState("")
+
     // const [firstName, setFirstName] = useState("");
     // const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
+    //const [email, setEmail] = useState("");
     // const [country, setCountry] = useState("");
     // const [city, setCity] = useState("");
 
-    async function fetchUserInfo(){
-        let rawResponse = await fetch('/data/users/1')
-        let response = await rawResponse.json();
-        console.log(response);
-    }
-    
-    
-    fetchUserInfo();
+    useEffect(() => {
+        async function load(){
+            let rawResponse = await fetch('/data/login')
+            let response = await rawResponse.json();
+            setUser(response.email)
+        }
+        load()
+    },[])
+
+    // async function fetchUserInfo(){
+        
+        // console.log(response);
+        // setUser(response.email)
+    // }
+
+    //  fetchUserInfo();
 
 
     // const handleSubmit = async (e) => {
@@ -27,11 +37,12 @@ function ProfilePage() {
     //       headers: { 'Content-type': 'application/json' },
     //       body: JSON.stringify({ email}),
     //     };
-    //     let response = await fetch('/data/users', requestOptions);
+    //     let response = await fetch('/data/login', requestOptions);
     //     response = await response.json();
     //   };
-    
+
     return <>
+       
         <h1 id="profile-title">Your Profile</h1>
         <form action="" className="profile-form">
             <div className="form-field">
@@ -60,7 +71,7 @@ function ProfilePage() {
             </div>
             <button id="sign-out">Sign out</button>
         </form>
-        
+
     </>
 }
 
