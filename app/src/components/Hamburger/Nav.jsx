@@ -12,8 +12,18 @@ function Nav() {
     return (
         <div>
             <div className="navigation">
-                <ul>
-                </ul>
+                <div className="insideHamburger">
+
+                    <div id="events">
+                        <span>Events</span>
+                    </div>
+                    <div id="tickets">Tickets</div>
+                    <div id="bottomBar">
+                        <div className="profile"><span>Profile</span></div>
+                        <div className="searchbar">Searchbar</div>
+                    </div>
+
+                </div>
                 <div className="hamburger" onClick={toggleHamburger}>
                     <Hamburger isOpen={hamburgerOpen} />
                 </div>
@@ -29,6 +39,7 @@ function Nav() {
                     justify-content: flex-end;
                     width: 100%;
                     height: 50px;
+                    text-align: center;
                 }
                 
                 
@@ -44,18 +55,17 @@ function Nav() {
                     z-index: 6;
                 }
             
-               
-                .navigation ul{
-                    display: ${hamburgerOpen ? 'flex' : 'none'};
-                    right: 0;
-                    bottom: 0;
-                    background-color: white;
-                    height: 110vh;
-                    width: 100vw;
-                    margin-bottom: -10vh;
-                    position: fixed;
- 
-                }
+                .insideHamburger{
+                    display: ${hamburgerOpen ? 'grid' : 'none'};
+                                right: 0;
+                                bottom: 0;
+                                background-color: #fafafa;
+                                height: 110vh;
+                                width: 100vw;
+                                margin-bottom: -10vh;
+                                position: fixed;
+                                grid-template-rows: 3fr 3fr 1fr;
+                        }
               
                 @media (min-width: 767px){
 

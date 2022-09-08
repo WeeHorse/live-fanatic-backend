@@ -1,0 +1,34 @@
+#events {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+#tickets {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+#bottomBar {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+
+}
+
+.profile {
+
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+.searchbar {
+    border: 1px solid black;
+    border-radius: 25px;
+}
