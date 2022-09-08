@@ -8,12 +8,18 @@
     <script src="video-js.js" defer></script>
 </head>
 <body>
-    <h1>Video streaming example</h1>
-    <p>Using JS Video API</p>
-    <div id="video-list">
-        <button onclick="playVideo(2)">Canned Heat - Rolling and a tumbling.mp4</button>
-        <button onclick="playVideo(3)">Gang of four - To hell with poverty.mp4</button>
-    </div>
-    <div id="video-container"></div>
+    <main style="width:40%">
+        <h1>Video streaming example</h1>
+        <h2>Using JS Video API - programmatically</h2>
+        <div id="video-list">
+            <button onclick="playVideo(2)">Canned Heat - Rolling and a tumbling.mp4</button>
+            <button onclick="playVideo(3)">Gang of four - To hell with poverty.mp4</button>
+        </div>
+        <div id="video-container"></div>
+        <h2>Using HTML5 video element - declarative</h2>
+        <video id="videoPlayer" style="width:100%" controls muted="muted">
+            <source src="/data/video-stream/2" type="video/mp4" />
+        </video>
+    </main>
 </body>
 </html>
