@@ -59,15 +59,6 @@ function Nav() {
               
                 @media (min-width: 767px){
 
-                    .navigation ul{
-                        display:flex;
-                        flex-wrap: wrap;
-                        float: right;
-                        margin: 0px;
-                        padding: 0px;
-                        overflow: hidden;
-                    }
-
                     .hamburger{
                         display: none;
                         z-index: 6;
