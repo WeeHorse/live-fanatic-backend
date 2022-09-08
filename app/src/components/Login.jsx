@@ -27,7 +27,7 @@ function Login({ setIsLoginModalOpen }) {
       response = await response.json();
       setIsLoggedIn(true);
     } else {
-      setError('You have entered an invalid username or password');
+      setError('Invalid username or password');
     }
   };
 
@@ -35,9 +35,7 @@ function Login({ setIsLoginModalOpen }) {
     <div className='login-container'>
       <form onSubmit={handleSubmit} className='login-form'>
         {error != null && (
-          <span className='login-form__login-error'>
-            Invalid email or password
-          </span>
+          <span className='login-form__login-error'>{error}</span>
         )}
         <button
           className='login-form__close-btn'
