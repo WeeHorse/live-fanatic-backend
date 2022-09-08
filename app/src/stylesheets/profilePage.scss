@@ -34,8 +34,14 @@ body {
         }
 
         #update{
-            margin-top: 10vh;
+            display: flex;
+            flex-direction: column;
+            margin-top: 8vh;
             font-size: 120%;    
+
+            :first-child{
+                margin-bottom: 3vh;
+            }
         }
 
         #sign-out{
