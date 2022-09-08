@@ -1,4 +1,4 @@
-import Hamburger from "./Hamburger"
+import Hamburger from './Hamburger'
 import { useState } from 'react'
 
 function Nav() {
@@ -13,15 +13,14 @@ function Nav() {
         <div>
             <div className="navigation">
                 <div className="insideHamburger">
+                    <div className="hamburgerbutton">Events</div>
 
-                    <div id="events">
-                        <span>Events</span>
+                    <div className="hamburgerbutton">Tickets</div>
+                    <div className="hamburgerbutton" id="profile">
                     </div>
-                    <div id="tickets">Tickets</div>
-                    <div id="bottomBar">
-                        <div className="profile"><span>Profile</span></div>
-                        <div className="searchbar">Searchbar</div>
-                    </div>
+                    <div></div>
+                    <div></div>
+                    <div className="hamburgerbutton" id="searchbar">Searchbar</div>
 
                 </div>
                 <div className="hamburger" onClick={toggleHamburger}>
@@ -56,15 +55,15 @@ function Nav() {
                 }
             
                 .insideHamburger{
-                    display: ${hamburgerOpen ? 'grid' : 'none'};
-                                right: 0;
-                                bottom: 0;
-                                background-color: #fafafa;
-                                height: 110vh;
-                                width: 100vw;
-                                margin-bottom: -10vh;
-                                position: fixed;
-                                grid-template-rows: 3fr 3fr 1fr;
+                        display: ${hamburgerOpen ? 'grid' : 'none'};
+                        right: 0;
+                        bottom: 0;
+                        background-color: #fafafa;
+                        height: 100vh;
+                        width: 80vw;
+                              
+                        position: fixed;
+                        grid-template-rows: 2fr 2fr 2fr 2fr 2fr 1fr;
                         }
               
                 @media (min-width: 767px){
