@@ -11,3 +11,15 @@ function playVideo(id){
     videoPlayer.setAttribute('src','/data/video-stream/' + id);
   }
 }
+
+loadVideos()
+
+async function loadVideos(){
+  const response = await fetch('/data/videos/')
+  if(response.ok){
+    const videos = await response.json()
+    for(let video of videos){
+      document.querySelector('#videos').insertAdjacentHTML("beforeend", `<a href="#" onclick="playVideo(${video.id})">${video.name}</a><br>`)
+    }
+  }
+}
