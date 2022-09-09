@@ -48,5 +48,12 @@ require('./api-description.js')(host, server)
 require('./routes/users.js')(server, db)
 require('./routes/login.js')(server, db)
 
+// stream routes
+require('./routes/video-stream.js')(server, db)
+
 // generic REST API one-to-one table mappings
 require('./routes/generic-routes.js')(server, db)
+
+server.get('*', (req, res)=>{
+  res.sendFile(__dirname + '/whatever-directory-for-react-build/index.html')
+})
