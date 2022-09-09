@@ -1,30 +1,17 @@
-import { useState } from 'react';
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route
-} from 'react-router-dom'
-
-import ProfilePage from './components/ProfilePage'
-import Login from './components/Login'
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Homepage from './components/HomePage';
+import Logout from './components/Logout';
 
 function App() {
-
-    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-
-
-
-    return (<>
-        <button onClick={() => setIsLoginModalOpen(true)}>DENNA HÄR!</button>
-        {isLoginModalOpen && <Login setIsLoginModalOpen={setIsLoginModalOpen} />}
-        <Router>
-            <Routes>
-                <Route path='/profile' element={<ProfilePage />} />
-            </Routes>
-        </Router>
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Homepage />} />
+        </Routes>
+      </BrowserRouter>
     </>
-    )
+  );
 }
 
-export default App
+export default App;

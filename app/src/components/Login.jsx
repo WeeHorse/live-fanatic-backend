@@ -26,6 +26,7 @@ function Login({ setIsLoginModalOpen }) {
     if (response.ok) {
       response = await response.json();
       setIsLoggedIn(true);
+      setIsLoginModalOpen(false);
     } else {
       setError('Invalid username or password');
     }
@@ -34,9 +35,7 @@ function Login({ setIsLoginModalOpen }) {
   return (
     <div className='login-container'>
       <form onSubmit={handleSubmit} className='login-form'>
-        {error != null && (
-          <span className='login-form__login-error'>{error}</span>
-        )}
+        {error && <span className='login-form__login-error'>{error}</span>}
         <button
           className='login-form__close-btn'
           onClick={() => setIsLoginModalOpen(false)}
@@ -45,6 +44,7 @@ function Login({ setIsLoginModalOpen }) {
         </button>
         <label>Email</label>
         <input
+          className='custom-input'
           type='text'
           required
           value={email}
@@ -52,21 +52,13 @@ function Login({ setIsLoginModalOpen }) {
         />
         <label>Password</label>
         <input
+          className='custom-input'
           type='password'
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button
-          className='login-btn'
-          onClick={
-            isLoggedIn
-              ? () => setIsLoginModalOpen(false)
-              : setIsLoginModalOpen(true)
-          }
-        >
-          Login
-        </button>
+        <button className='custom-red-btn'>Login</button>
         <span className='login-form__sign-up'>
           Not a member? <a href='#'>Sign up</a>
         </span>
