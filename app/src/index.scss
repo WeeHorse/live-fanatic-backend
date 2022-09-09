@@ -1,6 +1,8 @@
 @import './stylesheets/normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Bevan&family=Heebo&display=swap');
+@import "../node_modules/bootstrap/scss/bootstrap";
 @import './app.scss';
+@import './stylesheets/login.scss';
 @import './stylesheets/hamburger.scss'
 
 //Examples for implementing in stylesheets:
