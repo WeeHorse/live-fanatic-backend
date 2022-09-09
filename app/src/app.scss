@@ -1,15 +1,17 @@
 $primary-color:#fafafa;
 
-
+*, *:after, *:before {
+  font-family: 'Heebo', sans-serif;
+  box-sizing: border-box;
+}
 body{
-  background-color:$primary-color;
-  padding: 3vh 3vw;
+  margin: 0 auto;
+  max-width: 1536px;
+  padding: none;
+  background-color: $primary-color;
 
   h1{
     font-family: 'Bevan', cursive;
-  }
-  p{
-    font-family: 'Heebo', sans-serif;
   }
   
 }
@@ -40,23 +42,12 @@ border-radius: 6px;
 }
 
 @media screen and (min-width:760px) {
-  body{
-    padding: 2vh 2vw;
-  }
 }
 
 @media screen and (min-width:1024px) {
-  body{
-    padding: 1.5vh 1.5vw;
-  }
+ 
 }
 
 @media screen and (min-width:1536px) {
-  body{
-    margin: 0 auto;
-    max-width: 1536px;
-    padding: none;
-  }
-  
+ 
 }
-
