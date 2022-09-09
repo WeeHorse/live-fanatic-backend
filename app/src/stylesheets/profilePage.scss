@@ -2,55 +2,73 @@ body {
     display: flex;
     justify-content: center;
 
-    #profile-title {
+    .page {
         display: flex;
-        justify-content: center;
-    }
+        flex-direction: column;
+        margin-top: 5vh;
 
-    .profile-form {
-        display: flex;
-        flex-direction: column; 
-        align-content: center;
-        margin-top: 7vh;
-
-        .form-field {
-            display: flex;
-            flex-direction: column;
-            margin: 1vh 1vw;
-            justify-content: center;
-
-            .field-name {
-                flex-grow: 1;
-                justify-self: flex-start;
-                align-self: left;
-                margin-right: 6px;
-                margin-bottom: 5px;
-                width: fit-content;
-            }
-
-            .form-input {
-                justify-self: flex-end;
-                border-radius: 6px;
-                height: 3vh;
-            }
+        #home-link{
+            align-self: center;
         }
 
-        #update{
+        #profile-title {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-form {
             display: flex;
             flex-direction: column;
-            margin-top: 8vh;
-            font-size: 120%;    
+            align-content: center;
+            margin-top: 7vh;
 
-            :first-child{
+            .form-field {
+                display: flex;
+                flex-direction: column;
+                margin: 1vh 1vw;
+                justify-content: center;
+
+                .field-name {
+                    flex-grow: 1;
+                    justify-self: flex-start;
+                    align-self: left;
+                    margin-right: 6px;
+                    margin-bottom: 5px;
+                    width: fit-content;
+                }
+
+                .form-input {
+                    justify-self: flex-end;
+                    border-radius: 6px;
+                    height: 3vh;
+                }
+            }
+
+            #update {
+                display: flex;
+                flex-direction: column;
+                margin-top: 8vh;
+                font-size: 120%;
                 margin-bottom: 3vh;
             }
         }
 
-        #sign-out{
+        #sign-out {
             align-self: center;
             max-width: fit-content;
-            font-size: 150%;
-            margin-top: 10vh;
+            font-size: 100%;
         }
     }
+}
+
+@media screen and (min-width:760px) {
+
+}
+
+@media screen and (min-width:1024px) {
+ 
+}
+
+@media screen and (min-width:1536px) {
+ 
 }

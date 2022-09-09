@@ -1,5 +1,8 @@
 import { useEffect } from "react"
 import { useState } from "react"
+import Logout from "./Logout";
+import HomePage from "./HomePage";
+import { Link } from 'react-router-dom';
 
 
 function ProfilePage() {
@@ -47,43 +50,45 @@ function ProfilePage() {
     }, [])
 
     return <>
+        <div className="page">
+            <Link to="/" id="home-link"> Homebutton placeholder</Link>
+            <h1 id="profile-title">Your Profile</h1>
 
-        <h1 id="profile-title">Your Profile</h1>
-
-        <form onSubmit={handleSubmit} className="profile-form">
-            <div className="form-field">
-                <label className="field-name" htmlFor="first-name">First name:</label>
-                <input className="custom-input" type="text" name="first-name" id="first-name" value={first_name} onChange={(e) => setFirstName(e.target.value)} />
-            </div>
-            <div className="form-field">
-                <label className="field-name" htmlFor="last-name">Last name:</label>
-                <input className="custom-input" type="text" name="last-name" id="last-name" value={last_name} onChange={(e) => setLastName(e.target.value)} />
-            </div>
-            <div className="form-field">
-                <label className="field-name" htmlFor="email">Email:</label>
-                <input className="custom-input" type="email" name="email" id="email" value={email} readOnly required />
-            </div>
-            <div className="form-field">
-                <label className="field-name" htmlFor="country">Country:</label>
-                <input className="custom-input" type="text" name="country" id="country" value={country} onChange={(e) => setCountry(e.target.value)} />
-            </div>
-            <div className="form-field">
-                <label className="field-name" htmlFor="city">City:</label>
-                <input className="custom-input" type="text" name="city" id="city" value={city} onChange={(e) => setCity(e.target.value)} />
-            </div>
-            <div className="form-field">
-                <label className="field-name" htmlFor="address">Address:</label>
-                <input className="custom-input" type="text" name="address" id="address" value={address} onChange={(e) => setAddress(e.target.value)} />
-            </div>
-            <div className="form-field">
-                <label className="field-name" htmlFor="post-code">Post code:</label>
-                <input className="custom-input" type="text" name="post-code" id="post-code" value={post_code} onChange={(e) => setPostCode(e.target.value)} />
-            </div>
-            <div className="form-field" id="update">
-                <input className="custom-input" type="submit" value={"Update your personal info"} />
-            </div>
-        </form>
-        <button className="custom-red-btn" id="sign-out">Sign out</button>
+            <form onSubmit={handleSubmit} className="profile-form">
+                <div className="form-field">
+                    <label className="field-name" htmlFor="first-name">First name:</label>
+                    <input className="custom-input" type="text" name="first-name" id="first-name" value={first_name} onChange={(e) => setFirstName(e.target.value)} />
+                </div>
+                <div className="form-field">
+                    <label className="field-name" htmlFor="last-name">Last name:</label>
+                    <input className="custom-input" type="text" name="last-name" id="last-name" value={last_name} onChange={(e) => setLastName(e.target.value)} />
+                </div>
+                <div className="form-field">
+                    <label className="field-name" htmlFor="email">Email:</label>
+                    <input className="custom-input" type="email" name="email" id="email" value={email} readOnly required />
+                </div>
+                <div className="form-field">
+                    <label className="field-name" htmlFor="country">Country:</label>
+                    <input className="custom-input" type="text" name="country" id="country" value={country} onChange={(e) => setCountry(e.target.value)} />
+                </div>
+                <div className="form-field">
+                    <label className="field-name" htmlFor="city">City:</label>
+                    <input className="custom-input" type="text" name="city" id="city" value={city} onChange={(e) => setCity(e.target.value)} />
+                </div>
+                <div className="form-field">
+                    <label className="field-name" htmlFor="address">Address:</label>
+                    <input className="custom-input" type="text" name="address" id="address" value={address} onChange={(e) => setAddress(e.target.value)} />
+                </div>
+                <div className="form-field">
+                    <label className="field-name" htmlFor="post-code">Post code:</label>
+                    <input className="custom-input" type="text" name="post-code" id="post-code" value={post_code} onChange={(e) => setPostCode(e.target.value)} />
+                </div>
+                <div className="form-field" id="update">
+                    <input className="custom-input" type="submit" value={"Update your personal info"} />
+                </div>
+            </form>
+            <Logout />
+        </div>
     </>
 }
 
