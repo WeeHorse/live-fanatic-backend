@@ -19,7 +19,12 @@ async function loadVideos(){
   if(response.ok){
     const videos = await response.json()
     for(let video of videos){
-      document.querySelector('#videos').insertAdjacentHTML("beforeend", `<a href="#" onclick="playVideo(${video.id})">${video.name}</a><br>`)
+      // populating the programmatic JS Video API implementation (anternative 1)
+      document.querySelector('#videos1').insertAdjacentHTML("beforeend", `<a href="#" onclick="playVideo(${video.id})">${video.name}</a><br>`)
+      // populating the declarative HTML Video element (alternative 2)
+      document.querySelector('#videos2').insertAdjacentHTML("beforeend", `<video id="videoPlayer" style="width:100%" controls muted="muted">
+        <source src="/data/video-stream/${video.id}" type="video/mp4" />
+        </video>`)
     }
   }
 }
