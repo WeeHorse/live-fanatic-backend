@@ -33,7 +33,6 @@ module.exports = function(server, db){
     })
 
     server.put('/data/:table/:id', (req, res)=>{ // limit which tables to query with ACL
-      console.log("I routen")
         req.body.id = req.params.id // move/replace the id into the body so it can be passed with the other replacements
         let query = `UPDATE ${req.params.table} SET`
         for(let key of Object.keys(req.body)){

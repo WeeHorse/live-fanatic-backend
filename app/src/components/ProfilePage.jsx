@@ -47,29 +47,28 @@ function ProfilePage() {
         <form onSubmit={handleSubmit} className="profile-form">
             <div className="form-field">
                 <label className="field-name" htmlFor="first-name">First name:</label>
-                <input className="form-input" type="text" name="first-name" id="first-name" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
+                <input className="custom-input" type="text" name="first-name" id="first-name" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
             </div>
             <div className="form-field">
                 <label className="field-name" htmlFor="last-name">Last name:</label>
-                <input className="form-input" type="text" name="last-name" id="last-name" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
+                <input className="custom-input" type="text" name="last-name" id="last-name" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
             </div>
             <div className="form-field">
                 <label className="field-name" htmlFor="email">Email:</label>
-                <input className="form-input" type="email" name="email" id="email" value={email} readOnly required />
+                <input className="custom-input" type="email" name="email" id="email" value={email} readOnly required />
             </div>
             <div className="form-field">
                 <label className="field-name" htmlFor="country">Country:</label>
-                <input className="form-input" type="text" name="country" id="country" value={country} onChange={(e) => setCountry(e.target.value)}/>
+                <input className="custom-input" type="text" name="country" id="country" value={country} onChange={(e) => setCountry(e.target.value)}/>
             </div>
             <div className="form-field">
                 <label className="field-name" htmlFor="city">City:</label>
-                <input className="form-input" type="text" name="city" id="city" value={city} onChange={(e) => setCity(e.target.value)}/>
+                <input className="custom-input" type="text" name="city" id="city" value={city} onChange={(e) => setCity(e.target.value)}/>
             </div>
             <div className="form-field" id="update">
-                <button className="form-input">Edit info</button>
-                <input className="form-input" type="submit" value={"Update your personal info"} />
+                <input className="custom-input" type="submit" value={"Update your personal info"} />
             </div>
-            <button id="sign-out">Sign out</button>
+            <button className="custom-red-btn" id="sign-out">Sign out</button>
         </form>
 
     </>

@@ -15,15 +15,17 @@ body {
 
         .form-field {
             display: flex;
+            flex-direction: column;
             margin: 1vh 1vw;
             justify-content: center;
 
             .field-name {
                 flex-grow: 1;
                 justify-self: flex-start;
-                align-self: center;
+                align-self: left;
                 margin-right: 6px;
-                width: 73px;
+                margin-bottom: 5px;
+                width: fit-content;
             }
 
             .form-input {
@@ -47,8 +49,6 @@ body {
         #sign-out{
             align-self: center;
             max-width: fit-content;
-            border-radius: 6px;
-            background-color: crimson;
             font-size: 150%;
             margin-top: 10vh;
         }
