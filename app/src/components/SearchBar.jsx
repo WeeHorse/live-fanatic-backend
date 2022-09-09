@@ -66,3 +66,4 @@ export default SearchBar;
 // import Data from './mockData/Data.json'
 // import SearchBar from './components/SearchBar'
 // <SearchBar placeholder="Enter band" data={Data} />
+// <SearchBar placeholder="Enter band" data={Data} />
