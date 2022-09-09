@@ -3,10 +3,10 @@ function Hamburger({ isOpen }) {
     return (
         <>
             <div className="hamburger" >
-                <span class="material-symbols-outlined" id="burger">
+                <span className="material-symbols-outlined" id="burger">
                     menu
                 </span>
-                <span class="material-symbols-outlined" id="cross">
+                <span className="material-symbols-outlined" id="cross">
                     close
                 </span>
             </div>

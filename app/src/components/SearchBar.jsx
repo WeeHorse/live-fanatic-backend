@@ -3,6 +3,7 @@ import "../stylesheets/searchBar.scss";
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
 
+
 function SearchBar({ placeholder, data }) {
     const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
@@ -66,4 +67,4 @@ export default SearchBar;
 // import Data from './mockData/Data.json'
 // import SearchBar from './components/SearchBar'
 // <SearchBar placeholder="Enter band" data={Data} />
-// <SearchBar placeholder="Enter band" data={Data} />
+

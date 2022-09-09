@@ -10,7 +10,9 @@ import Hamburger from './Hamburger';
 import ProfilePage from './ProfilePage';
 import EventPage from './EventPage';
 import TicketsPage from './TicketsPage';
-import SearchBar from "./SearchBar";
+import SearchPage from './SearchPage';
+
+
 
 function Nav() {
 
@@ -36,9 +38,7 @@ function Nav() {
                     <div></div>
                     <div></div>
                     <div className="hamburgerbutton" id="searchbar">
-                        <div className="Search">
-                            <SearchBar />
-                        </div>
+                        <Link to="/search-page" onClick={toggleHamburger}>Search...</Link>
                     </div>
 
                 </div>
@@ -97,6 +97,7 @@ function Nav() {
             <Route path="/event-page" element={<EventPage />} />
             <Route path="/tickets-page" element={<TicketsPage />} />
             <Route path="/profile-page" element={<ProfilePage />} />
+            <Route path="/search-page" element={<SearchPage />} />
         </Routes>
     </Router>
 }
