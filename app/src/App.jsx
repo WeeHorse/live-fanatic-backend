@@ -1,4 +1,4 @@
-import Nav from './components/Hamburger/Nav'
+import Nav from './components/Nav'
 
 function App() {
     return <>

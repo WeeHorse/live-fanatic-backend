@@ -1,35 +1,52 @@
-import Hamburger from './Hamburger'
-import { useState } from 'react'
+import { React, useState } from 'react'
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Link
+} from 'react-router-dom'
+
+import Hamburger from './Hamburger';
+import ProfilePage from './ProfilePage';
+import EventPage from './EventPage';
+import TicketsPage from './TicketsPage';
+import SearchBar from "./SearchBar";
 
 function Nav() {
 
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
-
     const toggleHamburger = () => {
         setHamburgerOpen(!hamburgerOpen)
     }
 
-    return (
+    return <Router>
         <div>
             <div className="navigation">
                 <div className="insideHamburger">
-                    <div className="hamburgerbutton">Events</div>
+                    <div className="hamburgerbutton">
+                        <Link to="/event-page" onClick={toggleHamburger}>EventPage</Link>
+                    </div>
 
-                    <div className="hamburgerbutton">Tickets</div>
+                    <div className="hamburgerbutton">
+                        <Link to="/tickets-page" onClick={toggleHamburger}>TicketsPage</Link>
+                    </div>
                     <div className="hamburgerbutton" id="profile">
+                        <Link to="/profile-page" onClick={toggleHamburger}>ProfilePage</Link>
                     </div>
                     <div></div>
                     <div></div>
-                    <div className="hamburgerbutton" id="searchbar">Searchbar</div>
+                    <div className="hamburgerbutton" id="searchbar">
+                        <div className="Search">
+                            <SearchBar />
+                        </div>
+                    </div>
 
                 </div>
                 <div className="hamburger" onClick={toggleHamburger}>
                     <Hamburger isOpen={hamburgerOpen} />
                 </div>
             </div>
-
-
-            <style jsx>{`
+            <style jsx="true">{`
                 .navigation{
                     display: flex;
                     position: absolute;
@@ -46,7 +63,6 @@ function Nav() {
                     list-style-type: none;
                     padding-right: 10px;
                 }
-
                 .hamburger{
                     display:fixed;
                     padding-top: 10px;
@@ -67,7 +83,6 @@ function Nav() {
                         }
               
                 @media (min-width: 767px){
-
                     .hamburger{
                         display: none;
                         z-index: 6;
@@ -75,11 +90,15 @@ function Nav() {
                   
                 }
                 
-               
-                
             `}</style>
         </div>
-    )
+
+        <Routes>
+            <Route path="/event-page" element={<EventPage />} />
+            <Route path="/tickets-page" element={<TicketsPage />} />
+            <Route path="/profile-page" element={<ProfilePage />} />
+        </Routes>
+    </Router>
 }
 
 export default Nav

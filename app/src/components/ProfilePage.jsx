@@ -1,6 +1,6 @@
 function ProfilePage() {
     return <>
-        This is your profile
+        <h1>PROFILE PAGE</h1>
     </>
 }
 
