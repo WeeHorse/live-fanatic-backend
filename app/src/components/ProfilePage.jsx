@@ -4,47 +4,43 @@ import { useState } from "react"
 
 function ProfilePage() {
 
-     const [user, setUser] = useState("")
+    let [user, setUser] = useState({})
 
     // const [firstName, setFirstName] = useState("");
     // const [lastName, setLastName] = useState("");
-    //const [email, setEmail] = useState("");
+    // const [email, setEmail] = useState("");
     // const [country, setCountry] = useState("");
     // const [city, setCity] = useState("");
 
     useEffect(() => {
-        async function load(){
+        async function load() {
             let rawResponse = await fetch('/data/login')
             let response = await rawResponse.json();
-            setUser(response.email)
+            if (response.ok) {
+                setUser(response)
+                console.log(user)
+            }
         }
         load()
-    },[])
+    }, [])
 
-    // async function fetchUserInfo(){
-        
-        // console.log(response);
-        // setUser(response.email)
-    // }
-
-    //  fetchUserInfo();
-
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     const requestOptions = {
-    //       method: 'POST',
-    //       headers: { 'Content-type': 'application/json' },
-    //       body: JSON.stringify({ email}),
-    //     };
-    //     let response = await fetch('/data/login', requestOptions);
-    //     response = await response.json();
-    //   };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const requestOptions = {
+            method: 'put',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({ user }),
+        };
+        let response = await fetch('/data/users', requestOptions);
+        console.log(response)
+        response = await response.json();
+        console.log(response)
+    };
 
     return <>
-       
+
         <h1 id="profile-title">Your Profile</h1>
-        <form action="" className="profile-form">
+        <form onSubmit={handleSubmit} action="" className="profile-form">
             <div className="form-field">
                 <label className="field-name" htmlFor="first-name">First name:</label>
                 <input className="form-input" type="text" name="first-name" id="first-name" />
@@ -55,7 +51,7 @@ function ProfilePage() {
             </div>
             <div className="form-field">
                 <label className="field-name" htmlFor="email">Email:</label>
-                <input className="form-input" type="email" name="email" id="email" required />
+                <input className="form-input" type="email" name="email" id="email" value={user.email} onChange={(e) => setUser(e.target.value)} required />
             </div>
             <div className="form-field">
                 <label className="field-name" htmlFor="country">Country:</label>
