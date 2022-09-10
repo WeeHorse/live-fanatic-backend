@@ -1,13 +1,17 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Card from './components/Card';
-import EventPage from './components/EventPage';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Homepage from "./components/HomePage";
+import Logout from "./components/Logout";
+import Nav from "./components/Nav";
+import Card from "./components/Card";
 
 function App() {
   return (
     <>
+      <Nav />
       <BrowserRouter>
         <Routes>
-          <Route path='/event' element={<EventPage />} />
+          <Route path="/" element={<Homepage />} />
+          <Route path="/event" element={<EventPage />} />
         </Routes>
       </BrowserRouter>
     </>
