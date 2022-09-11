@@ -1,5 +1,6 @@
 import Logout from './Logout';
 import Login from './Login';
+import Homebutton from './HomeButton';
 import { useState } from 'react';
 
 function HomePage() {
@@ -7,6 +8,7 @@ function HomePage() {
 
   return (
     <>
+      <Homebutton />
       <Logout />
       <button onClick={() => setIsLoginModalOpen(true)}>Login</button>
       {isLoginModalOpen && <Login setIsLoginModalOpen={setIsLoginModalOpen} />}
