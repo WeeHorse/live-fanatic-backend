@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 function Card() {
   // const [data] = props.data;
   return (
-    <div className="col">
+    <>
       <div className="card">
         <div className="header">
           <img
@@ -16,39 +16,7 @@ function Card() {
           <p className="info">Live at Plan B, 2022-10-08</p>
         </div>
         <a href="#" className="btn">
-          <span className="material-symbols-outlined">arrow_forward_ios</span>
-        </a>
-      </div>
-      <div className="card">
-        <div className="header">
-          <img
-            src="https://media.gq.com/photos/56bcb218cdf2db6945d2ef93/4:3/w_2000,h_1500,c_limit/bieber-coverstory-square.jpg"
-            alt="photo"
-          />
-        </div>
-        <div className="text">
-          <h1 className="title">Justin Bieber</h1>
-          <span> Tickets available:</span>
-          <p className="info">Live at Plan B, 2022-10-08</p>
-        </div>
-        <a href="#" className="btn">
-          <span className="material-symbols-outlined">arrow_forward_ios</span>
-        </a>
-      </div>
-      <div className="card">
-        <div className="header">
-          <img
-            src="https://media.gq.com/photos/56bcb218cdf2db6945d2ef93/4:3/w_2000,h_1500,c_limit/bieber-coverstory-square.jpg"
-            alt="photo"
-          />
-        </div>
-        <div className="text">
-          <h1 className="title">Justin Bieber</h1>
-          <span> Tickets available:</span>
-          <p className="info">Live at Plan B, 2022-10-08</p>
-        </div>
-        <a href="#" className="btn">
-          <span className="material-symbols-outlined">arrow_forward_ios</span>
+          <span className="material-symbols-outlined">x</span>
         </a>
       </div>
       <div className="card">
@@ -64,10 +32,10 @@ function Card() {
           <p className="info">Live at Plan B, 2022-10-08</p>
         </div>
         <a href="#" className="btn">
-          <span className="material-symbols-outlined">arrow_forward_ios</span>
+          <span className="material-symbols-outlined">x</span>
         </a>
       </div>
-    </div>
+    </>
   );
 }
 

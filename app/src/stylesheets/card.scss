@@ -17,13 +17,6 @@ $heart: #EF3E36;
    box-sizing: border-box;
 }
 
-.col{
-   display: flex;
-   flex-direction: column;
-   flex: 1;
-   height: 100%;
-}
-
 
 .card {
    display: flex;
@@ -43,15 +36,13 @@ $heart: #EF3E36;
    
    .header {
       background-size: cover;
-      // display: inherit;
-      align-items: center;
-      overflow: hidden;
       max-width: 30%;
       img {
          width: 100%;
-         height: 15vw;
+         height: 100%;
          object-fit: cover;
-         block-size: auto;
+         aspect-ratio: 16/9;
+         object-position: top center;
       }
    }
    .text {
