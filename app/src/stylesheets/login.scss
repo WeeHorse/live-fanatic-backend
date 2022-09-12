@@ -33,6 +33,16 @@
     a {
       color: crimson
     }
+    button{
+      padding-left: 4px;
+      border: none;
+      background-color: white;
+      color: crimson;
+      &:hover{
+        color: rgb(174, 0, 0);
+        text-decoration: underline;
+      }
+    }
   }
   &__close-btn{
     position: absolute;
@@ -67,11 +77,6 @@
 }
 
 @media screen and (min-width:1024px) {
- .login-form{
-    &__sign-up{
-    margin-left: 16px;
-  }
- }
 }
 
 @media screen and (min-width:1536px) {

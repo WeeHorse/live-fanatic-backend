@@ -40,12 +40,12 @@ function SignUp(setIsSignUpOpen) {
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
         {error && <span className="login-form__login-error">{error}</span>}
-        <button
+        {/* <button
           className="login-form__close-btn"
           onClick={() => setIsSignUpOpen(false)}
         >
           x
-        </button>
+        </button> */}
         <label>Email</label>
         <input
           className="custom-input"

@@ -69,7 +69,7 @@ function Login({ setIsLoginOpen, defaultAccountState }) {
           />
           <button className="custom-red-btn">Login</button>
           <span className="login-form__sign-up">
-            Not a member?{" "}
+            Not a member?
             <button onClick={() => setViewTab(SIGN_UP)}>Sign up</button>
           </span>
         </form>
