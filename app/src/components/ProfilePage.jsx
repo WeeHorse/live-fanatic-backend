@@ -51,7 +51,6 @@ function ProfilePage() {
 
     return <>
         <div className="page">
-            <HomeButton />
             <h1 id="profile-title">Your Profile</h1>
 
             <form onSubmit={handleSubmit} className="profile-form">
