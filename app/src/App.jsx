@@ -4,14 +4,15 @@ import Logout from "./components/Logout";
 import Nav from "./components/Nav";
 import EventPage from "./components/EventPage";
 import Card from "./components/Card";
+import ProfilePage from "./components/ProfilePage";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-      	<Routes>
-          <Route path='/' element={<Homepage />} />
-          <Route path='/profile' element={<ProfilePage />} />
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/event" element={<EventPage />} />
         </Routes>
       </BrowserRouter>
