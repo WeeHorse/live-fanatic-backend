@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 /*To use this component in a parent comp:
 Write in function:
@@ -22,7 +23,6 @@ function Login({ setIsLoginModalOpen }) {
   }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("hej");
     const requestOptions = {
       method: "POST",
       headers: { "Content-type": "application/json" },
@@ -66,7 +66,7 @@ function Login({ setIsLoginModalOpen }) {
         />
         <button className="custom-red-btn">Login</button>
         <span className="login-form__sign-up">
-          Not a member? <a href="#">Sign up</a>
+          Not a member? <Link to="/signup">Sign up</Link>
         </span>
       </form>
     </div>

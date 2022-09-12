@@ -29,8 +29,7 @@ function SignUp() {
     let response = await fetch("/data/users", requestOptions);
     if (response.ok) {
       response = await response.json();
-      console.log(response);
-      // navigate("/");
+      navigate("/");
     } else {
       setError(response.statusText);
     }
