@@ -10,17 +10,17 @@ function SignUp() {
 
   const navigate = useNavigate();
 
-  // const handlePasswordValidation = () => {
-  //   if (password !== verifyPassword) {
-  //     setConfirmPasswordError("Password do not match");
-  //     return confirmPasswordError;
-  //   }
-  // };
+  const handlePasswordValidation = () => {
+    setConfirmPasswordError("Password do not match");
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // handlePasswordValidation();
-    // if (!confirmPasswordError) {
+
+    if (password !== verifyPassword) {
+      handlePasswordValidation();
+      return;
+    }
     const requestOptions = {
       method: "POST",
       headers: { "Content-type": "application/json" },
@@ -57,16 +57,16 @@ function SignUp() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {/* <label>Verify password</label>
+        <label>Verify password</label>
         <input
           className="custom-input"
           type="password"
           required
           value={verifyPassword}
           onChange={(e) => setVerifyPassword(e.target.value)}
-        /> */}
+        />
         <button className="custom-red-btn">Sign up</button>
-        {/* {confirmPasswordError && <span>{confirmPasswordError}</span>} */}
+        {confirmPasswordError && <span>{confirmPasswordError}</span>}
       </form>
     </div>
   );
