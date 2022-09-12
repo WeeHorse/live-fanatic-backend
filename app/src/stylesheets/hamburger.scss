@@ -1,0 +1,34 @@
+.hamburgerbutton {
+    color: black;
+    background-color: #659dbd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(43, 43, 43);
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    border-radius: 6px;
+    margin: 16px 16px 0 16px;
+    overflow: hidden;
+    text-decoration: none;
+    min-height: 24px;
+}
+
+.hamburgerbutton>a {
+    color: black;
+    padding: 10vh 32vw;
+}
+
+#profile {
+    background-color: gray;
+}
+
+#searchbar {
+    background-color: #fafafa;
+    margin-bottom: 80px;
+}
+
+#ham-home{
+    background-color: #fafafa;
+    border: none;
+}

@@ -4,7 +4,9 @@ $primary-color:#fafafa;
   font-family: 'Heebo', sans-serif;
   box-sizing: border-box;
 }
+
 body{
+  display: flex;
   margin: 0 auto;
   max-width: 1536px;
   padding: none;
@@ -14,6 +16,31 @@ body{
     font-family: 'Bevan', cursive;
   }
   
+}
+
+custom-input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #000;
+    :focus {
+      border: 3px solid #555;
+    }
+  }
+
+.custom-red-btn {
+width: 100%;
+margin: 16px 0;
+background-color: crimson;
+color: white;
+outline: none;
+padding: 8px 16px;
+border: none;
+border-radius: 6px;
+&:hover {
+    filter: brightness(90%);
+}
 }
 
 @media screen and (min-width:760px) {
@@ -26,4 +53,3 @@ body{
 @media screen and (min-width:1536px) {
  
 }
-

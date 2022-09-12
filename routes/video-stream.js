@@ -1,9 +1,11 @@
+const fs = require('fs')
+
 module.exports = function(server, db){
 
     server.get('/data/video-stream/:id', (req, res)=>{
         let query = "SELECT * FROM videos WHERE id = @id"
-        let result = db.prepare(query).all(request.params)
-        res.json(result[0])
+        let result = db.prepare(query).all(req.params)
+        result = result[0]
 
         const range = req.headers.range;
         
@@ -11,8 +13,8 @@ module.exports = function(server, db){
             res.status(400).send("Requires Range header");
         }
 
-        const videoPath = root + "/video/Chris-Do.mp4";
-        const videoSize = fs.statSync(root + "/video/Chris-Do.mp4").size;
+        const videoPath = __dirname + "/../video/" + result.url;
+        const videoSize = fs.statSync(videoPath).size;
         
         const CHUNK_SIZE = 10 ** 6; // 1MB
         const start = Number(range.replace(/\D/g, ""));
