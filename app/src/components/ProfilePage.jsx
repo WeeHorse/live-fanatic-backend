@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Logout from "./Logout";
-import { Link } from 'react-router-dom';
-import HomeButton from './HomeButton';
 
 
 function ProfilePage() {
@@ -50,7 +48,7 @@ function ProfilePage() {
     }, [])
 
     return <>
-        <div className="page">
+        <div className="profile-page">
             <h1 id="profile-title">Your Profile</h1>
 
             <form onSubmit={handleSubmit} className="profile-form">

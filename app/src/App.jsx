@@ -6,6 +6,7 @@ import TicketsPage from './components/TicketsPage';
 import EventPage from './components/EventPage';
 import Nav from './components/Nav';
 import ArtistPage from './components/ArtistPage'
+import SignUp from './components/SignUp';
 
 function App() {
     return (
@@ -15,11 +16,12 @@ function App() {
                 <Routes>
                     <Route path='/' element={<Homepage />} />
                     <Route path='/profile' element={<ProfilePage />} />
-                    <Route path="/event-page" element={<EventPage />} />
-                    <Route path="/tickets-page" element={<TicketsPage />} />
-                    <Route path="/profile-page" element={<ProfilePage />} />
-                    <Route path="/search-page" element={<SearchPage />} />
+                    <Route path="/event" element={<EventPage />} />
+                    <Route path="/tickets" element={<TicketsPage />} />
+                    <Route path="/profile" element={<ProfilePage />} />
+                    <Route path="/search" element={<SearchPage />} />
                     <Route path='/artist' element={<ArtistPage />} />
+                    <Route path='/signup' element={<SignUp />} />
                 </Routes>
             </BrowserRouter>
         </>

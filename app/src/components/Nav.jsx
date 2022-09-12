@@ -28,12 +28,11 @@ function Nav() {
                     <div className="hamburgerbutton">
                         <Link to="/event-page" onClick={toggleHamburger}>EventPage</Link>
                     </div>
-
                     <div className="hamburgerbutton">
                         <Link to="/tickets-page" onClick={toggleHamburger}>TicketsPage</Link>
                     </div>
                     <div className="hamburgerbutton" id="profile">
-                        <Link to="/profile-page" onClick={toggleHamburger}>ProfilePage</Link>
+                        <Link to="/profile" onClick={toggleHamburger}>ProfilePage</Link>
                     </div>
                     <div></div>
                     <div></div>
