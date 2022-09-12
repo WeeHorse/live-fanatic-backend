@@ -1,0 +1,10 @@
+#home {
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+    top: 0;
+    #home-button {
+        max-width: 100px;
+        margin-left: 5vw;
+    }
+}
