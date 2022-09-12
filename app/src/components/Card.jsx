@@ -1,41 +1,73 @@
-import { Link } from 'react-router-dom';
-function Card(props) {
-  const data = props.data;
-  //   const data = {
-  //     title: 'Baby',
-  //     venue: 'Plan B',
-  //     date: '2022-10-09',
-  //     artist: 'Justin Bieber',
-  //     image:
-  //       'https://th.bing.com/th/id/OIP.wfg6sIM0YAd9wYn9Vj8QtwHaJf?pid=ImgDet&rs=1',
-  //   };
+import { Link } from "react-router-dom";
+function Card() {
+  // const [data] = props.data;
   return (
-    <>
-      {/* <div className='card'>
-        <img src={data.image} alt='' />
-        <div className='container'>
-          <h4>Justin Bieber</h4>
-          <p>Live at Plan B, 2022-10-08</p>
-          <button>Buy ticket</button>
+    <div className="col">
+      <div className="card">
+        <div className="header">
+          <img
+            src="https://media.gq.com/photos/56bcb218cdf2db6945d2ef93/4:3/w_2000,h_1500,c_limit/bieber-coverstory-square.jpg"
+            alt="photo"
+          />
         </div>
-      </div> */}
-      <div className='card'>
-        <div className='header'>{/* <img src={data.image} alt='' /> */}</div>
-        <div className='text'>
-          <h1 className='food'>{data.artist}</h1>
-          <i className='fa fa-clock-o'> 15 Mins</i>
-          <i className='fa fa-users'> Serves 2</i>
-
-          <p className='info'>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum,
-            temporibus.
-          </p>
+        <div className="text">
+          <h1 className="title">Justin Bieber</h1>
+          <span> Tickets available:</span>
+          <p className="info">Live at Plan B, 2022-10-08</p>
         </div>
-        <a href='#' className='btn'>
-          Let's Cook!
+        <a href="#" className="btn">
+          <span className="material-symbols-outlined">arrow_forward_ios</span>
         </a>
       </div>
-    </>
+      <div className="card">
+        <div className="header">
+          <img
+            src="https://media.gq.com/photos/56bcb218cdf2db6945d2ef93/4:3/w_2000,h_1500,c_limit/bieber-coverstory-square.jpg"
+            alt="photo"
+          />
+        </div>
+        <div className="text">
+          <h1 className="title">Justin Bieber</h1>
+          <span> Tickets available:</span>
+          <p className="info">Live at Plan B, 2022-10-08</p>
+        </div>
+        <a href="#" className="btn">
+          <span className="material-symbols-outlined">arrow_forward_ios</span>
+        </a>
+      </div>
+      <div className="card">
+        <div className="header">
+          <img
+            src="https://media.gq.com/photos/56bcb218cdf2db6945d2ef93/4:3/w_2000,h_1500,c_limit/bieber-coverstory-square.jpg"
+            alt="photo"
+          />
+        </div>
+        <div className="text">
+          <h1 className="title">Justin Bieber</h1>
+          <span> Tickets available:</span>
+          <p className="info">Live at Plan B, 2022-10-08</p>
+        </div>
+        <a href="#" className="btn">
+          <span className="material-symbols-outlined">arrow_forward_ios</span>
+        </a>
+      </div>
+      <div className="card">
+        <div className="header">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/d/da/Justin_Bieber_in_2015.jpg"
+            alt="photo"
+          />
+        </div>
+        <div className="text">
+          <h1 className="title">Justin Bieber</h1>
+          <span> Tickets available:</span>
+          <p className="info">Live at Plan B, 2022-10-08</p>
+        </div>
+        <a href="#" className="btn">
+          <span className="material-symbols-outlined">arrow_forward_ios</span>
+        </a>
+      </div>
+    </div>
   );
 }
 

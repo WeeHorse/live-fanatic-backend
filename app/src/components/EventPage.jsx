@@ -1,18 +1,18 @@
+import useFetch from "../hooks/useFetch";
 import Card from "./Card";
 
 function EventPage() {
-  const data = {
-    title: "Baby",
-    venue: "Plan B",
-    date: "2022-10-09",
-    artist: "Justin Bieber",
-    image:
-      "https://th.bing.com/th/id/OIP.wfg6sIM0YAd9wYn9Vj8QtwHaJf?pid=ImgDet&rs=1",
-  };
+  // const { error, isPending, data: concerts } = useFetch("/data/concerts");
+
   return (
     <>
-      <div className="container d-lg-flex">
-        <Card data={data} />
+      <div className="container">
+        <Card />
+        {/* {concerts && concerts.map((concert) => <p> {concert.venue.name}</p>)}
+        {error && <div>{error}</div>}
+        {isPending && <div>Loading...</div>} */}
+
+        {/* <Card data={concerts} /> */}
       </div>
     </>
   );
