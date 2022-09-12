@@ -1,8 +1,10 @@
 @import './stylesheets/normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Bevan&family=Heebo&display=swap&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0');
+@import url('https://fonts.googleapis.com/css2?family=Bevan&family=Heebo&display=swap');
 @import './app.scss';
 @import './stylesheets/login.scss';
-@import './stylesheets/hamburger.scss'
+@import './stylesheets/profilePage.scss';
+@import './stylesheets/hamburger.scss';
+@import './stylesheets/homeButton.scss';
 
 //Examples for implementing in stylesheets:
 //font-family: 'Bevan', cursive;
