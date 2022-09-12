@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function SignUp() {
+function SignUp(setIsSignUpOpen) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [verifyPassword, setVerifyPassword] = useState("");
@@ -40,6 +40,12 @@ function SignUp() {
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
         {error && <span className="login-form__login-error">{error}</span>}
+        <button
+          className="login-form__close-btn"
+          onClick={() => setIsSignUpOpen(false)}
+        >
+          x
+        </button>
         <label>Email</label>
         <input
           className="custom-input"
