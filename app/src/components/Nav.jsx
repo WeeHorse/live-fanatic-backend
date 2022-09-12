@@ -11,6 +11,7 @@ import ProfilePage from './ProfilePage';
 import EventPage from './EventPage';
 import TicketsPage from './TicketsPage';
 import SearchPage from './SearchPage';
+import Homebutton from './HomeButton';
 
 
 
@@ -26,6 +27,9 @@ function Nav() {
         <div>
             <div className="navigation">
                 <div className="insideHamburger">
+                    <div className="hamburgerbutton" id='ham-home' onClick={toggleHamburger}>
+                        <Homebutton />
+                    </div>
                     <div className="hamburgerbutton">
                         <Link to="/event-page" onClick={toggleHamburger}>EventPage</Link>
                     </div>
@@ -65,9 +69,10 @@ function Nav() {
                     padding-right: 10px;
                 }
                 .hamburger{
-                    display:fixed;
-                    padding-top: 10px;
-                    margin-left: 10px;
+                    position:fixed;
+                    bottom: 0;
+                    margin-right: 4vw;
+                    margin-bottom: 4vh;
                     z-index: 6;
                 }
             
@@ -80,7 +85,7 @@ function Nav() {
                         width: 80vw;
                               
                         position: fixed;
-                        grid-template-rows: 2fr 2fr 2fr 2fr 2fr 1fr;
+                        grid-template-rows: 2fr 2fr 2fr 2fr 2fr 1fr 1fr;
                         }
               
                 @media (min-width: 767px){

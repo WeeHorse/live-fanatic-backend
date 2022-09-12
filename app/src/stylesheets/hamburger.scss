@@ -11,6 +11,7 @@
     margin: 16px 16px 0 16px;
     overflow: hidden;
     text-decoration: none;
+    min-height: 24px;
 }
 
 .hamburgerbutton>a {
@@ -24,5 +25,10 @@
 
 #searchbar {
     background-color: #fafafa;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
+}
+
+#ham-home{
+    background-color: #fafafa;
+    border: none;
 }
