@@ -28,8 +28,8 @@ function SignUp() {
     };
     let response = await fetch("/data/users", requestOptions);
     if (response.ok) {
-      // response = await response.json();
-      console.log(response.headers);
+      response = await response.json();
+      console.log(response);
       // navigate("/");
     } else {
       setError(response.statusText);
