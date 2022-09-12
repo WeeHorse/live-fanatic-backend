@@ -52,6 +52,9 @@ require('./routes/login.js')(server, db)
 require('./routes/video-stream.js')(server, db)
 require('./routes/audio-stream.js')(server, db)
 
+// stripe payment api
+require('./routes/checkout.js')(server, db, host)
+
 // generic REST API one-to-one table mappings
 require('./routes/generic-routes.js')(server, db)
 
