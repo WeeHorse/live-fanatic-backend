@@ -9,11 +9,11 @@ function HomePage() {
 
   return (
     <>
-      <Logout />
       <button onClick={() => setIsLoginModalOpen(true)}>Login</button>
       {isLoginModalOpen && <Login setIsLoginModalOpen={setIsLoginModalOpen} />}
 
       <Link to="/signup">Sign up</Link>
+      <Link to="/profile"> Profile page</Link>
     </>
   );
 }
