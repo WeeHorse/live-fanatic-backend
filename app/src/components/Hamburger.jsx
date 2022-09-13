@@ -1,13 +1,13 @@
+import hamburgerSvg from '../assets/hamburger.svg'
+import closeSvg from '../assets/close.svg'
+
+
 function Hamburger({ isOpen }) {
   return (
     <>
       <div className="hamburger">
-        <span className="material-symbols-outlined" id="burger">
-          menu
-        </span>
-        <span className="material-symbols-outlined" id="cross">
-          close
-        </span>
+        <img src={hamburgerSvg} id="burger" alt="home button" />
+        <img src={closeSvg} id="cross" alt="close button" />
       </div>
 
       <style jsx="true">{`

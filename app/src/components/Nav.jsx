@@ -12,6 +12,11 @@ import EventPage from './EventPage';
 import TicketsPage from './TicketsPage';
 import SearchPage from './SearchPage';
 import Homebutton from './HomeButton';
+import HomeSvg from '../assets/home.svg'
+import EventSvg from '../assets/events.svg'
+import TicketSvg from '../assets/ticket.svg'
+import ProfileSvg from '../assets/profile.svg'
+
 
 
 
@@ -28,16 +33,20 @@ function Nav() {
             <div className="navigation">
                 <div className="insideHamburger">
                     <div className="hamburgerbutton" id='ham-home' onClick={toggleHamburger}>
+                        <img src={HomeSvg} alt="homebutton" />
                         <Homebutton />
                     </div>
                     <div className="hamburgerbutton">
+                        <img src={EventSvg} alt="eventbutton" />
                         <Link to="/event-page" onClick={toggleHamburger}>EventPage</Link>
                     </div>
 
                     <div className="hamburgerbutton">
+                        <img src={TicketSvg} alt="ticketbutton" />
                         <Link to="/tickets-page" onClick={toggleHamburger}>TicketsPage</Link>
                     </div>
                     <div className="hamburgerbutton" id="profile">
+                        <img src={ProfileSvg} alt="profile button" />
                         <Link to="/profile-page" onClick={toggleHamburger}>ProfilePage</Link>
                     </div>
                     <div></div>
