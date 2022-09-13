@@ -6,7 +6,7 @@ body {
         display: flex;
         flex-direction: column;
 
-        #home-link{
+        #home-link {
             align-self: center;
         }
 
@@ -41,6 +41,20 @@ body {
                     border-radius: 6px;
                     height: 3vh;
                 }
+
+                #email {
+                    background-color: gray;
+                    border-style: none;
+                    border: 1px solid black;
+                    padding: 2px 2px;
+                    border-radius: 2px;
+                    // all: unset;
+                   
+
+                    &:hover {
+                        cursor: not-allowed;
+                    }
+                }
             }
 
             #update {
@@ -60,14 +74,8 @@ body {
     }
 }
 
-@media screen and (min-width:760px) {
+@media screen and (min-width:760px) {}
 
-}
+@media screen and (min-width:1024px) {}
 
-@media screen and (min-width:1024px) {
- 
-}
-
-@media screen and (min-width:1536px) {
- 
-}
+@media screen and (min-width:1536px) {}
