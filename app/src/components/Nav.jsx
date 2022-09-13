@@ -79,6 +79,7 @@ function Nav() {
                 .hamburger{
                     position:fixed;
                     bottom: 0;
+                    right: 0;
                     margin-right: 4vw;
                     margin-bottom: 4vh;
                     z-index: 6;
@@ -90,7 +91,7 @@ function Nav() {
                         bottom: 0;
                         background-color: #fafafa;
                         height: 60vh;
-                        width: 40vw;
+                        width: 50vw;
                               
                         position: fixed;
                         grid-template-rows: 2fr 2fr 2fr 2fr 2fr 1fr;
