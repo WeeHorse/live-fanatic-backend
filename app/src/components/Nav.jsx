@@ -6,7 +6,11 @@ import ProfilePage from "./ProfilePage";
 import EventPage from "./EventPage";
 import TicketsPage from "./TicketsPage";
 import SearchPage from "./SearchPage";
-import Homebutton from "./HomeButton";
+import HomePage from "./HomePage";
+import HomeSvg from "../assets/home.svg";
+import EventSvg from "../assets/events.svg";
+import TicketSvg from "../assets/ticket.svg";
+import ProfileSvg from "../assets/profile.svg";
 import Login from "./Login";
 
 export const LOGIN = "login";
@@ -30,22 +34,27 @@ function Nav() {
               id="ham-home"
               onClick={toggleHamburger}
             >
-              <Homebutton />
+              <Link to="/" id="home-button">
+                <img src={HomeSvg} alt="home" />
+              </Link>
             </div>
             <div className="hamburgerbutton">
               <Link to="/event-page" onClick={toggleHamburger}>
-                EventPage
+                <img src={EventSvg} alt="eventbutton" />
+                <p>Events</p>
               </Link>
             </div>
 
             <div className="hamburgerbutton">
               <Link to="/tickets-page" onClick={toggleHamburger}>
-                TicketsPage
+                <img src={TicketSvg} alt="ticketbutton" />
+                <p>Tickets</p>
               </Link>
             </div>
             <div className="hamburgerbutton" id="profile">
               <Link to="/profile-page" onClick={toggleHamburger}>
-                ProfilePage
+                <img src={ProfileSvg} alt="profile button" />
+                <p>Profile</p>
               </Link>
             </div>
             <div id="modal">
@@ -102,6 +111,7 @@ function Nav() {
           .hamburger {
             position: fixed;
             bottom: 0;
+            right: 0;
             margin-right: 4vw;
             margin-bottom: 4vh;
             z-index: 6;
@@ -112,11 +122,11 @@ function Nav() {
             right: 0;
             bottom: 0;
             background-color: #fafafa;
-            height: 100vh;
-            width: 80vw;
+            height: 60vh;
+            width: 50vw;
 
             position: fixed;
-            grid-template-rows: 2fr 2fr 2fr 2fr 2fr 1fr 1fr;
+            grid-template-rows: 2fr 2fr 2fr 2fr 2fr 1fr;
           }
 
           button {
