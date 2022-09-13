@@ -12,8 +12,8 @@
     border-bottom-right-radius: 0px;
     font-size: 18px;
     padding: 15px;
-    height: 30px;
-    width: 300px;
+    height: 40px;
+    width: 200px;
 }
 
 .search {
@@ -21,10 +21,11 @@
     margin-bottom: 12vh;
     justify-content: center;
     flex-wrap: wrap;
+    width: 80vw;
 }
 
 .searchIcon {
-    height: 30px;
+    height: 10px;
     width: 50px;
     background-color: white;
     display: grid;
@@ -35,12 +36,12 @@ input:focus {
 }
 
 .searchIcon svg {
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .dataResult {
     margin-top: 5px;
-    width: 72vw;
+    width: 85vw;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     overflow: hidden;
@@ -52,7 +53,7 @@ input:focus {
 }
 
 .dataResult .dataItem {
-    width: 100%;
+    width: 80vw;
     height: 50px;
     display: flex;
     align-items: center;
