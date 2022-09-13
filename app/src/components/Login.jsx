@@ -5,18 +5,18 @@ import SignUp from "./SignUp";
 
 /*To use this component in a parent comp:
 Write in function:
-    const [isLoginModalOpen, setIsLoginOpen] = useState(false); // Method to toggle modal
+    const [isLoginModalOpen, setIsModalOpen] = useState(false); // Method to toggle modal
 
 Write in HTML:
-    <button onClick={() => setIsLoginOpen(true)}></button>
-    {isLoginModalOpen && <Login setIsLoginOpen={setIsLoginOpen} />}
+    <button onClick={() => setIsModalOpen(true)}></button>
+    {isLoginModalOpen && <Login setIsModalOpen={setIsModalOpen} />}
 */
 
-function Login({ setIsLoginOpen, defaultAccountState }) {
+function Login({ setIsModalOpen, modalType, setModalType }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [viewTab, setViewTab] = useState(defaultAccountState);
+  // const [viewTab, setViewTab] = useState(modalType);
 
   useEffect(() => {
     setTimeout(() => {
@@ -34,20 +34,20 @@ function Login({ setIsLoginOpen, defaultAccountState }) {
     let response = await fetch("/data/login", requestOptions);
     if (response.ok) {
       response = await response.json();
-      setIsLoginOpen(false);
+      setIsModalOpen(false);
     } else {
       setError("Invalid username or password");
     }
   };
 
-  if (viewTab === LOGIN) {
+  if (modalType === LOGIN) {
     return (
       <div className="login-container">
         <form onSubmit={handleSubmit} className="login-form" id="login">
           {error && <span className="login-form__login-error">{error}</span>}
           <button
             className="login-form__close-btn"
-            onClick={() => setIsLoginOpen(false)}
+            onClick={() => setIsModalOpen(false)}
           >
             x
           </button>
@@ -70,13 +70,13 @@ function Login({ setIsLoginOpen, defaultAccountState }) {
           <button className="custom-red-btn">Login</button>
           <span className="login-form__sign-up">
             Not a member?
-            <button onClick={() => setViewTab(SIGN_UP)}>Sign up</button>
+            <button onClick={() => setModalType(SIGN_UP)}>Sign up</button>
           </span>
         </form>
       </div>
     );
   }
-  return <SignUp />;
+  return <SignUp setIsModalOpen={setIsModalOpen} setModalType={setModalType} />;
 }
 
 export default Login;

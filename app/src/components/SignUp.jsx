@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { LOGIN } from "./HomePage";
 
-function SignUp(setIsSignUpOpen) {
+function SignUp({ setIsModalOpen, setModalType }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [verifyPassword, setVerifyPassword] = useState("");
@@ -40,12 +41,12 @@ function SignUp(setIsSignUpOpen) {
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
         {error && <span className="login-form__login-error">{error}</span>}
-        {/* <button
+        <button
           className="login-form__close-btn"
-          onClick={() => setIsSignUpOpen(false)}
+          onClick={() => setIsModalOpen(false)}
         >
           x
-        </button> */}
+        </button>
         <label>Email</label>
         <input
           className="custom-input"
@@ -71,6 +72,10 @@ function SignUp(setIsSignUpOpen) {
           onChange={(e) => setVerifyPassword(e.target.value)}
         />
         <button className="custom-red-btn">Sign up</button>
+        <span className="login-form__sign-up">
+          Already a member?
+          <button onClick={() => setModalType(LOGIN)}>Sign in</button>
+        </span>
         {confirmPasswordError && <span>{confirmPasswordError}</span>}
       </form>
     </div>
