@@ -33,15 +33,30 @@
             flex-direction: column;
             align-items: center;
 
-            #details {
+            #upcoming {
                 display: flex;
+                flex-direction: column;
                 width: 100%;
-                justify-content: space-around;
-            }
-
-            button {
-                border-radius: 6px;
+                align-items: center;
+                background-color:#659dbd;
                 margin-bottom: 3vh;
+                padding-bottom: 2vh;
+
+                >h1{
+                    font-size: 100%;
+                }
+
+                .artist-event{
+                    display: flex;
+                    justify-content: space-around;
+                    border: 1px solid gray;
+                    background-color: #f6f6f6;
+                    width: 90%;
+                    
+                    >p{
+                        font-size: 70%;
+                    }
+                }
             }
 
             #artist-bio {

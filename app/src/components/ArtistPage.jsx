@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ArtistEvents from "./ArtistEvents";
 
 
 function ArtistPage() {
@@ -7,6 +8,7 @@ function ArtistPage() {
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
     const [bio, setBio] = useState("");
+
 
     useEffect(() => {
         async function load() {
@@ -22,6 +24,9 @@ function ArtistPage() {
         load()
     }, [])
 
+    // If the fetching of the artist's name etc is not done yet, do not render anything..
+    if (!name) return <></>;
+
     return <>
         <div className="artist-page">
             <div className="artist-image">
@@ -30,12 +35,11 @@ function ArtistPage() {
             <div className="content">
                 <h1 id="artist-name">{name}</h1>
                 <div id="event-info">
-                    <div id="details">
-                        <p>Date and Time</p>
-                        <p>Venue and/or live</p>
+                    <div id="upcoming">
+                        <h1>Upcoming events</h1>
+                        <ArtistEvents name={name} />
                     </div>
 
-                    <button>Buy ticket</button>
                     <div id="artist-bio">
                         <p>{bio}</p>
                         <p>{bio}</p>
@@ -44,15 +48,6 @@ function ArtistPage() {
                 </div>
             </div>
         </div>
-
-        {/* <div id="artist-page">
-            <div className="mid" id="info">
-                
-
-                
-                
-            </div>
-        </div> */}
     </>
 
 }
