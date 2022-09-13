@@ -11,7 +11,7 @@ import ProfilePage from './ProfilePage';
 import EventPage from './EventPage';
 import TicketsPage from './TicketsPage';
 import SearchPage from './SearchPage';
-import Homebutton from './HomeButton';
+import HomePage from './HomePage';
 import HomeSvg from '../assets/home.svg'
 import EventSvg from '../assets/events.svg'
 import TicketSvg from '../assets/ticket.svg'
@@ -27,27 +27,33 @@ function Nav() {
         setHamburgerOpen(!hamburgerOpen)
     }
 
+
+
     return <>
 
         <div>
             <div className="navigation">
                 <div className="insideHamburger">
                     <div className="hamburgerbutton" id='ham-home' onClick={toggleHamburger}>
-                        <img src={HomeSvg} alt="homebutton" />
-                        <Homebutton />
+                        <Link to="/" id="home-button">
+                            <img src={HomeSvg} alt="home" />
+                        </Link>
                     </div>
                     <div className="hamburgerbutton">
-                        <img src={EventSvg} alt="eventbutton" />
-                        <Link to="/event-page" onClick={toggleHamburger}>EventPage</Link>
+                        <Link to="/event-page" onClick={toggleHamburger}>
+                            <img src={EventSvg} alt="eventbutton" /><p>Events</p></Link>
                     </div>
 
                     <div className="hamburgerbutton">
-                        <img src={TicketSvg} alt="ticketbutton" />
-                        <Link to="/tickets-page" onClick={toggleHamburger}>TicketsPage</Link>
+
+                        <Link to="/tickets-page" onClick={toggleHamburger}>
+                            <img src={TicketSvg} alt="ticketbutton" /><p>Tickets</p>
+                        </Link>
                     </div>
                     <div className="hamburgerbutton" id="profile">
-                        <img src={ProfileSvg} alt="profile button" />
-                        <Link to="/profile-page" onClick={toggleHamburger}>ProfilePage</Link>
+                        <Link to="/profile-page" onClick={toggleHamburger}>
+                            <img src={ProfileSvg} alt="profile button" />
+                            <p>Profile</p></Link>
                     </div>
                     <div></div>
                     <div className="hamburgerbutton" id="searchbar">
