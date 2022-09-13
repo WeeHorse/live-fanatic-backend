@@ -38,6 +38,8 @@ function ArtistPage() {
                     <button>Buy ticket</button>
                     <div id="artist-bio">
                         <p>{bio}</p>
+                        <p>{bio}</p>
+                        <p>{bio}</p>
                     </div>
                 </div>
             </div>
