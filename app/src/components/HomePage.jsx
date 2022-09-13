@@ -1,5 +1,6 @@
 import Login from "./Login";
 import { useState } from "react";
+import BuyButton from "./BuyButton";
 
 export const LOGIN = "login";
 export const SIGN_UP = "signup";
@@ -10,14 +11,7 @@ function HomePage() {
 
   return (
     <>
-      <button
-        onClick={() => {
-          setIsModalOpen(true);
-          setModalType(LOGIN);
-        }}
-      >
-        Login
-      </button>
+      <BuyButton />
       {isModalOpen && (
         <Login
           setIsModalOpen={setIsModalOpen}
@@ -25,15 +19,6 @@ function HomePage() {
           modalType={modalType}
         />
       )}
-
-      <button
-        onClick={() => {
-          setIsModalOpen(true);
-          setModalType(SIGN_UP);
-        }}
-      >
-        Sign up
-      </button>
     </>
   );
 }

@@ -5,7 +5,7 @@ import SearchPage from "./components/SearchPage";
 import TicketsPage from "./components/TicketsPage";
 import EventPage from "./components/EventPage";
 import Nav from "./components/Nav";
-import SignUp from "./components/SignUp";
+import SomeBuyPage from "./components/SomeBuyPage";
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
           <Route path="/ticket" element={<TicketsPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/search" element={<SearchPage />} />
+          <Route path="/some-buy-page" element={<SomeBuyPage />} />
         </Routes>
       </BrowserRouter>
     </>

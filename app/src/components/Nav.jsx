@@ -2,11 +2,6 @@ import { React, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Hamburger from "./Hamburger";
-import ProfilePage from "./ProfilePage";
-import EventPage from "./EventPage";
-import TicketsPage from "./TicketsPage";
-import SearchPage from "./SearchPage";
-import HomePage from "./HomePage";
 import HomeSvg from "../assets/home.svg";
 import EventSvg from "../assets/events.svg";
 import TicketSvg from "../assets/ticket.svg";
