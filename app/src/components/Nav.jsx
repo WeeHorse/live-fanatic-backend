@@ -7,6 +7,7 @@ import EventPage from "./EventPage";
 import TicketsPage from "./TicketsPage";
 import SearchPage from "./SearchPage";
 import Homebutton from "./HomeButton";
+import Login from "./Login";
 
 export const LOGIN = "login";
 export const SIGN_UP = "signup";
