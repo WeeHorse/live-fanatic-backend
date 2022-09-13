@@ -17,82 +17,86 @@ export const LOGIN = "login";
 export const SIGN_UP = "signup";
 
 function Nav() {
-  const [hamburgerOpen, setHamburgerOpen] = useState(false);
-  const toggleHamburger = () => {
-    setHamburgerOpen(!hamburgerOpen);
-  };
-  const [isModalOpen, setIsModalOpen] = useState(false); // Method to toggle modal
-  const [modalType, setModalType] = useState(LOGIN);
+    const [hamburgerOpen, setHamburgerOpen] = useState(false);
+    const toggleHamburger = () => {
+        setHamburgerOpen(!hamburgerOpen);
+    };
+    const [isModalOpen, setIsModalOpen] = useState(false); // Method to toggle modal
+    const [modalType, setModalType] = useState(LOGIN);
 
-  return (
-    <>
-      <div>
-        <div className="navigation">
-          <div className="insideHamburger">
-            <div
-              className="hamburgerbutton"
-              id="ham-home"
-              onClick={toggleHamburger}
-            >
-              <Link to="/" id="home-button">
-                <img src={HomeSvg} alt="home" />
-              </Link>
-            </div>
-            <div className="hamburgerbutton">
-              <Link to="/event-page" onClick={toggleHamburger}>
-                <img src={EventSvg} alt="eventbutton" />
-                <p>Events</p>
-              </Link>
-            </div>
+    return (
+        <>
+            <div>
+                {isModalOpen && (
+                    <Login
+                        setIsModalOpen={setIsModalOpen}
+                        setModalType={setModalType}
+                        modalType={modalType}
+                    />
+                )}
+                <div className="navigation">
 
-            <div className="hamburgerbutton">
-              <Link to="/tickets-page" onClick={toggleHamburger}>
-                <img src={TicketSvg} alt="ticketbutton" />
-                <p>Tickets</p>
-              </Link>
-            </div>
-            <div className="hamburgerbutton" id="profile">
-              <Link to="/profile-page" onClick={toggleHamburger}>
-                <img src={ProfileSvg} alt="profile button" />
-                <p>Profile</p>
-              </Link>
-            </div>
-            <div id="modal">
-              {isModalOpen && (
-                <Login
-                  setIsModalOpen={setIsModalOpen}
-                  setModalType={setModalType}
-                  modalType={modalType}
-                />
-              )}
-              <button
-                onClick={() => {
-                  setIsModalOpen(true);
-                  setModalType(LOGIN);
-                }}
-              >
-                Login
-              </button>
-              <button
-                onClick={() => {
-                  setIsModalOpen(true);
-                  setModalType(SIGN_UP);
-                }}
-              >
-                Sign up
-              </button>
-            </div>
-            <div className="hamburgerbutton" id="searchbar">
-              <Link to="/search-page" onClick={toggleHamburger}>
-                Search...
-              </Link>
-            </div>
-          </div>
-          <div className="hamburger" onClick={toggleHamburger}>
-            <Hamburger isOpen={hamburgerOpen} />
-          </div>
-        </div>
-        <style jsx="true">{`
+                    <div className="insideHamburger">
+                        <div
+                            className="hamburgerbutton"
+                            id="ham-home"
+                            onClick={toggleHamburger}
+                        >
+                            <Link to="/" id="home-button">
+                                <img src={HomeSvg} alt="home" />
+                            </Link>
+                        </div>
+                        <div className="hamburgerbutton">
+                            <Link to="/event" onClick={toggleHamburger}>
+                                <img src={EventSvg} alt="eventbutton" />
+                                <p>Events</p>
+                            </Link>
+                        </div>
+
+                        <div className="hamburgerbutton">
+                            <Link to="/ticket" onClick={toggleHamburger}>
+                                <img src={TicketSvg} alt="ticketbutton" />
+                                <p>Tickets</p>
+                            </Link>
+                        </div>
+                        <div className="hamburgerbutton" id="profile">
+                            <Link to="/profile" onClick={toggleHamburger}>
+                                <img src={ProfileSvg} alt="profile button" />
+                                <p>Profile</p>
+                            </Link>
+                        </div>
+                        <div id="modal">
+
+                            <button
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setModalType(LOGIN);
+                                    setHamburgerOpen(false);
+                                }}
+                            >
+                                Login
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setModalType(SIGN_UP);
+                                    setHamburgerOpen(false);
+                                }}
+                            >
+                                Sign up
+                            </button>
+                        </div>
+                        <div className="hamburgerbutton" id="searchbar">
+                            <Link to="/search" onClick={toggleHamburger}>
+                                Search...
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="hamburger" onClick={toggleHamburger}>
+                        <Hamburger isOpen={hamburgerOpen} />
+                    </div>
+                </div>
+                <style jsx="true">{`
           .navigation {
             display: flex;
             position: absolute;
@@ -122,8 +126,8 @@ function Nav() {
             right: 0;
             bottom: 0;
             background-color: #fafafa;
-            height: 60vh;
-            width: 50vw;
+            height: 70vh;
+            width: 60vw;
 
             position: fixed;
             grid-template-rows: 2fr 2fr 2fr 2fr 2fr 1fr;
@@ -140,9 +144,9 @@ function Nav() {
             }
           }
         `}</style>
-      </div>
-    </>
-  );
+            </div>
+        </>
+    );
 }
 
 export default Nav;
