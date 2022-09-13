@@ -16,7 +16,9 @@
 
 .hamburgerbutton>a {
     color: black;
-    padding: 10vh 32vw;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 }
 
 #profile {
@@ -26,9 +28,4 @@
 #searchbar {
     background-color: #fafafa;
     margin-bottom: 80px;
-}
-
-#ham-home{
-    background-color: #fafafa;
-    border: none;
 }
