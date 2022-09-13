@@ -1,10 +1,5 @@
-import { React, useState } from 'react'
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link
-} from 'react-router-dom'
+import { React, useState } from "react";
+import { Link } from "react-router-dom";
 
 import Hamburger from './Hamburger';
 import ProfilePage from './ProfilePage';
@@ -21,11 +16,11 @@ import ProfileSvg from '../assets/profile.svg'
 
 
 function Nav() {
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const toggleHamburger = () => {
+    setHamburgerOpen(!hamburgerOpen);
+  };
 
-    const [hamburgerOpen, setHamburgerOpen] = useState(false);
-    const toggleHamburger = () => {
-        setHamburgerOpen(!hamburgerOpen)
-    }
 
 
 
@@ -117,4 +112,4 @@ function Nav() {
 
 }
 
-export default Nav
+export default Nav;

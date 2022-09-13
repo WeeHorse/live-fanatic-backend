@@ -21,6 +21,11 @@
   background-color: #fafafa;
   padding: 32px;
   border-radius: 6px;
+
+  label{
+    margin-top: 8px;
+    margin-bottom: 4px;
+  }
   
   &__sign-up{
     display: block;
