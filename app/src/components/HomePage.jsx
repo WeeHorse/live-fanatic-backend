@@ -1,18 +1,39 @@
-import Logout from "./Logout";
 import Login from "./Login";
-import SignUp from "./SignUp";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
+export const LOGIN = "login";
+export const SIGN_UP = "signup";
 
 function HomePage() {
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false); // Method to toggle modal
+  const [isModalOpen, setIsModalOpen] = useState(false); // Method to toggle modal
+  const [modalType, setModalType] = useState(LOGIN);
 
   return (
     <>
-      <button onClick={() => setIsLoginModalOpen(true)}>Login</button>
-      {isLoginModalOpen && <Login setIsLoginModalOpen={setIsLoginModalOpen} />}
+      <button
+        onClick={() => {
+          setIsModalOpen(true);
+          setModalType(LOGIN);
+        }}
+      >
+        Login
+      </button>
+      {isModalOpen && (
+        <Login
+          setIsModalOpen={setIsModalOpen}
+          setModalType={setModalType}
+          modalType={modalType}
+        />
+      )}
 
-      <Link to="/signup">Sign up</Link>
+      <button
+        onClick={() => {
+          setIsModalOpen(true);
+          setModalType(SIGN_UP);
+        }}
+      >
+        Sign up
+      </button>
     </>
   );
 }

@@ -11,13 +11,21 @@
     margin: 16px 16px 0 16px;
     overflow: hidden;
     text-decoration: none;
-    min-height: 24px;
+    min-height: 32px;
 }
 
 .hamburgerbutton>a {
     color: black;
-    padding: 10vh 32vw;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
 }
+
+.hamburgerbutton>a>img {
+    object-fit: scale-down;
+
+}
+
 
 #profile {
     background-color: gray;
@@ -28,7 +36,14 @@
     margin-bottom: 80px;
 }
 
-#ham-home{
-    background-color: #fafafa;
-    border: none;
+#modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentTest {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 }

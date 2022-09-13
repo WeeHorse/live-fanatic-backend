@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ArtistEvents from "./ArtistEvents";
 
 
-function ArtistPage() {
+export default function ArtistPage() {
 
     const [artistId, setArtistId] = useState("");
     const [name, setName] = useState("");
@@ -51,5 +51,3 @@ function ArtistPage() {
     </>
 
 }
-
-export default ArtistPage
