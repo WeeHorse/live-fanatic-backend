@@ -27,3 +27,11 @@ async function checkout(e){
     $('#link-to-stripe').attr('href', result.url).show()
   }
 }
+
+async function getCheckoutResult(){
+  let response = await fetch('/data/checkout')
+  console.log('response', response)
+  let result = await response.json()
+  console.log('result', result)
+  $('#result').text('Status' + result.status)
+}
