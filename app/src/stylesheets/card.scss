@@ -72,7 +72,7 @@ $heart: #EF3E36;
    .info {
       margin-top: 8px;
    }
-   a.btn {
+   .btn {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -90,21 +90,13 @@ $heart: #EF3E36;
    }
 }
 
-@media screen and (min-width:760px) {
-}
-
 @media screen and (min-width:1024px) {
    // .container{
    //    width: fit-content;
    //    background-color: $white;
    //    box-shadow: 0px 0px 10px 1px rgb(155, 155, 155);
    // }
-   // .card{
-   //    flex-direction: column;
-   // }
-   
-}
-
-@media screen and (min-width:1536px) {
- 
+   .card{
+      min-width: 700px;
+   }   
 }

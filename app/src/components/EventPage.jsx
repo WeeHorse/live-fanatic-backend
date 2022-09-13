@@ -18,7 +18,8 @@ function EventPage() {
         {error && <div>{error}</div>}
         {isPending && <div>Loading...</div>} */}
 
-        {concerts && concerts.map((concert) => <Card props={concert} />)}
+        {concerts &&
+          concerts.map((concert) => <Card key={concert} props={concert} />)}
       </div>
     </>
   );
