@@ -10,14 +10,6 @@ function HomePage() {
 
   return (
     <>
-      <button
-        onClick={() => {
-          setIsModalOpen(true);
-          setModalType(LOGIN);
-        }}
-      >
-        Login
-      </button>
       {isModalOpen && (
         <Login
           setIsModalOpen={setIsModalOpen}
@@ -25,15 +17,6 @@ function HomePage() {
           modalType={modalType}
         />
       )}
-
-      <button
-        onClick={() => {
-          setIsModalOpen(true);
-          setModalType(SIGN_UP);
-        }}
-      >
-        Sign up
-      </button>
     </>
   );
 }

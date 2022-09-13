@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ArtistEvents from "./ArtistEvents";
+
 
 
 export default function ArtistPage() {
 
+    const { id } = useParams()
+    console.log(id);
     const [artistId, setArtistId] = useState("");
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
     const [bio, setBio] = useState("");
 
-
     useEffect(() => {
         async function load() {
-            let rawResponse = await fetch('/data/artists/1')
+            let rawResponse = await fetch(`/data/artists/${id}`)
             if (rawResponse.ok) {
                 let response = await rawResponse.json();
                 setArtistId(response.id)
@@ -22,7 +25,7 @@ export default function ArtistPage() {
             }
         }
         load()
-    }, [])
+    }, [id])
 
     // If the fetching of the artist's name etc is not done yet, do not render anything..
     if (!name) return <></>;

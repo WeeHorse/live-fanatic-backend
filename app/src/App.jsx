@@ -20,7 +20,7 @@ function App() {
           <Route path="/ticket" element={<TicketsPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/artist" element={<ArtistPage />} />
+          <Route path="/artist/:id" element={<ArtistPage />} />
         </Routes>
       </BrowserRouter>
     </>
