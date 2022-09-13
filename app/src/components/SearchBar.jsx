@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../stylesheets/searchBar.scss";
+import closeSvg from '../assets/close.svg'
+import SearchSvg from '../assets/search.svg'
 
 
 function SearchBar({ placeholder, data }) {
@@ -37,9 +39,9 @@ function SearchBar({ placeholder, data }) {
                 />
                 <div className="searchIcon">
                     {filteredData.length === 0 ? (
-                        <SearchIcon />
+                        <img src={SearchSvg} alt="home" />
                     ) : (
-                        <CloseIcon id="clearBtn" onClick={clearInput} />
+                        <img src={closeSvg} alt="home" />
                     )}
                 </div>
             </div>
@@ -59,10 +61,3 @@ function SearchBar({ placeholder, data }) {
 }
 
 export default SearchBar;
-
-
-// SKA LIGGA I NAV!
-// import Data from './mockData/Data.json'
-// import SearchBar from './components/SearchBar'
-// <SearchBar placeholder="Enter band" data={Data} />
-
