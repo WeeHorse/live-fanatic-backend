@@ -11,7 +11,7 @@
     margin: 16px 16px 0 16px;
     overflow: hidden;
     text-decoration: none;
-    min-height: 24px;
+    min-height: 32px;
 }
 
 .hamburgerbutton>a {
@@ -21,6 +21,12 @@
     justify-content: space-evenly;
 }
 
+.hamburgerbutton>a>img {
+    object-fit: scale-down;
+
+}
+
+
 #profile {
     background-color: gray;
 }
@@ -28,4 +34,16 @@
 #searchbar {
     background-color: #fafafa;
     margin-bottom: 80px;
+}
+
+#modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentTest {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 }
