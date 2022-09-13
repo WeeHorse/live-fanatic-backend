@@ -41,7 +41,6 @@ function Nav() {
                         <Link to="/profile-page" onClick={toggleHamburger}>ProfilePage</Link>
                     </div>
                     <div></div>
-                    <div></div>
                     <div className="hamburgerbutton" id="searchbar">
                         <Link to="/search-page" onClick={toggleHamburger}>Search...</Link>
                     </div>
@@ -81,11 +80,11 @@ function Nav() {
                         right: 0;
                         bottom: 0;
                         background-color: #fafafa;
-                        height: 100vh;
-                        width: 80vw;
+                        height: 60vh;
+                        width: 40vw;
                               
                         position: fixed;
-                        grid-template-rows: 2fr 2fr 2fr 2fr 2fr 1fr 1fr;
+                        grid-template-rows: 2fr 2fr 2fr 2fr 2fr 1fr;
                         }
               
                 @media (min-width: 767px){
