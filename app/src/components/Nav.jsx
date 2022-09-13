@@ -1,28 +1,30 @@
-import { React, useState } from 'react'
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link
-} from 'react-router-dom'
+import { React, useState } from "react";
+import { Link } from "react-router-dom";
 
 import Hamburger from './Hamburger';
 import ProfilePage from './ProfilePage';
 import EventPage from './EventPage';
 import TicketsPage from './TicketsPage';
-import SearchBar from "./SearchBar";
+import SearchPage from './SearchPage';
+import Homebutton from './HomeButton';
+
+
 
 function Nav() {
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const toggleHamburger = () => {
+    setHamburgerOpen(!hamburgerOpen);
+  };
 
-    const [hamburgerOpen, setHamburgerOpen] = useState(false);
-    const toggleHamburger = () => {
-        setHamburgerOpen(!hamburgerOpen)
-    }
 
-    return <Router>
+    return <>
+
         <div>
             <div className="navigation">
                 <div className="insideHamburger">
+                    <div className="hamburgerbutton" id='ham-home' onClick={toggleHamburger}>
+                        <Homebutton />
+                    </div>
                     <div className="hamburgerbutton">
                         <Link to="/event-page" onClick={toggleHamburger}>EventPage</Link>
                     </div>
@@ -36,9 +38,7 @@ function Nav() {
                     <div></div>
                     <div></div>
                     <div className="hamburgerbutton" id="searchbar">
-                        <div className="Search">
-                            <SearchBar />
-                        </div>
+                        <Link to="/search-page" onClick={toggleHamburger}>Search...</Link>
                     </div>
 
                 </div>
@@ -64,9 +64,10 @@ function Nav() {
                     padding-right: 10px;
                 }
                 .hamburger{
-                    display:fixed;
-                    padding-top: 10px;
-                    margin-left: 10px;
+                    position:fixed;
+                    bottom: 0;
+                    margin-right: 4vw;
+                    margin-bottom: 4vh;
                     z-index: 6;
                 }
             
@@ -79,7 +80,7 @@ function Nav() {
                         width: 80vw;
                               
                         position: fixed;
-                        grid-template-rows: 2fr 2fr 2fr 2fr 2fr 1fr;
+                        grid-template-rows: 2fr 2fr 2fr 2fr 2fr 1fr 1fr;
                         }
               
                 @media (min-width: 767px){
@@ -92,13 +93,8 @@ function Nav() {
                 
             `}</style>
         </div>
+    </>
 
-        <Routes>
-            <Route path="/event-page" element={<EventPage />} />
-            <Route path="/tickets-page" element={<TicketsPage />} />
-            <Route path="/profile-page" element={<ProfilePage />} />
-        </Routes>
-    </Router>
 }
 
-export default Nav
+export default Nav;

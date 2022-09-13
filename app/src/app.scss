@@ -4,7 +4,9 @@ $primary-color:#f6f6f6;
   font-family: 'Heebo', sans-serif;
   box-sizing: border-box;
 }
+
 body{
+  display: flex;
   margin: 0 auto;
   max-width: 1536px;
   padding: none;

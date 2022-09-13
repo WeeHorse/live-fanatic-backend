@@ -9,14 +9,14 @@
     border-left: 2px solid black;
     border-radius: 6px;
     margin: 16px 16px 0 16px;
+    overflow: hidden;
+    text-decoration: none;
+    min-height: 24px;
 }
 
-
-
-#bottomBar {
-    display: flex;
-
-
+.hamburgerbutton>a {
+    color: black;
+    padding: 10vh 32vw;
 }
 
 #profile {
@@ -25,4 +25,10 @@
 
 #searchbar {
     background-color: #fafafa;
+    margin-bottom: 80px;
+}
+
+#ham-home{
+    background-color: #fafafa;
+    border: none;
 }
