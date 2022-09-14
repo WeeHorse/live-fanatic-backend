@@ -2,17 +2,23 @@ import React, { useState } from "react";
 import "../stylesheets/searchBar.scss";
 import closeSvg from '../assets/close.svg'
 import SearchSvg from '../assets/search.svg'
+import useFetch from "../hooks/useFetch";
+import { Link } from 'react-router-dom';
 
 
-function SearchBar({ placeholder, data }) {
+
+function SearchBar({ placeholder }) {
     const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
+
+    const { error, isPending, data: artists } = useFetch("/data/artists");
+
 
     const handleFilter = (event) => {
         const searchWord = event.target.value;
         setWordEntered(searchWord);
-        const newFilter = data.filter((value) => {
-            return value.band.toLowerCase().includes(searchWord.toLowerCase());
+        const newFilter = artists.filter((value) => {
+            return value.name.toLowerCase().includes(searchWord.toLowerCase());
         });
 
         if (searchWord === "") {
@@ -46,11 +52,11 @@ function SearchBar({ placeholder, data }) {
                 </div>
             </div>
             {filteredData.length != 0 && (
-                <div className="dataResult">
+                <div className="dataResult" key={artists.id}>
                     {filteredData.slice(0, 15).map((value, key) => {
                         return (
                             <a className="dataItem" href={value.link} target="_blank">
-                                <p>{value.band} </p>
+                                <Link to={`/artist/${value.id}`}>{value.name}</Link>
                             </a>
                         );
                     })}
