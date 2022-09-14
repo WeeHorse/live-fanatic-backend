@@ -31,6 +31,7 @@ const Card = ({ props }) => {
           <img className="arrow-icon" src={ArrowIcon} />
         </Link>
       </div>
+      <span className="line-break"></span>
     </>
   );
 };

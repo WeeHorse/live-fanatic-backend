@@ -27,10 +27,8 @@ $heart: #EF3E36;
    max-height: 300px;
    width: auto;
    margin: 20px auto;
-   border-bottom: 1px solid #69697c;
    flex-grow: 1;
    flex: 1 1 0px;
-   // overflow: hidden;
 
 
    
@@ -88,6 +86,11 @@ $heart: #EF3E36;
          transition: 200ms;
       }
    }
+}
+
+.line-break{
+   display: block;
+   border-bottom: 1px solid #69697c;
 }
 
 @media screen and (min-width:1024px) {
