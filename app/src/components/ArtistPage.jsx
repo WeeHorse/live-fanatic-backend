@@ -7,8 +7,6 @@ import ArtistEvents from "./ArtistEvents";
 export default function ArtistPage() {
 
     const { id } = useParams()
-    console.log(id);
-    const [artistId, setArtistId] = useState("");
     const [name, setName] = useState("");
     const [image, setImage] = useState("");
     const [bio, setBio] = useState("");
@@ -18,7 +16,6 @@ export default function ArtistPage() {
             let rawResponse = await fetch(`/data/artists/${id}`)
             if (rawResponse.ok) {
                 let response = await rawResponse.json();
-                setArtistId(response.id)
                 setName(response.name)
                 setImage(response.image)
                 setBio(response.bio)
@@ -28,7 +25,7 @@ export default function ArtistPage() {
     }, [id])
 
     // If the fetching of the artist's name etc is not done yet, do not render anything..
-    if (!name) return <></>;
+    if (!id) return <></>;
 
     return <>
         <div className="artist-page">
@@ -40,7 +37,7 @@ export default function ArtistPage() {
                 <div id="event-info">
                     <div id="upcoming">
                         <h1>Upcoming events</h1>
-                        <ArtistEvents name={name} />
+                        <ArtistEvents id={id} />
                     </div>
 
                     <div id="artist-bio">
