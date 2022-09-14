@@ -13,8 +13,8 @@ function EventPage() {
   return (
     <>
       <div className="container">
+        <h1>Events</h1>
         <div className="card-container">
-          <h2>Events</h2>
           {error && <div>{error}</div>}
           {isPending && <div>Loading...</div>}
           {concerts &&
