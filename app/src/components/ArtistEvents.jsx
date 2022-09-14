@@ -6,7 +6,6 @@ import { useEffect } from "react";
 
 export default function ArtistEvents(props) {
     const [events, setEvents] = useState([])
-
     const id = props['id']
 
     useEffect(() => {
@@ -15,7 +14,7 @@ export default function ArtistEvents(props) {
             const rawResponse = await fetch('/data/concert_details')
             if (rawResponse.ok) {
                 const response = await rawResponse.json();
-                const newEvents = response.filter(event => event.artist_id);
+                const newEvents = response.filter(event => event.artist_id == id);
                 newEvents.shift()
                 setEvents(newEvents)
             }
@@ -23,9 +22,8 @@ export default function ArtistEvents(props) {
         load()
     }, [id])
 
-    console.log(events);
     return <>{events.map(event =>
-        <div className="artist-event" key={event}>
+        <div className="artist-event" key={event.concert_id}>
 
             <div className="info">
                 <p id="venue-name">{event.venue_name}</p>

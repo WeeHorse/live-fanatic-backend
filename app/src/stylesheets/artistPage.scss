@@ -17,8 +17,11 @@
         justify-content: center;
 
         >img {
+            object-fit: cover;
+            aspect-ratio: 16/9;
             width: 100%;
         }
+        
     }
 
     .content {
@@ -41,6 +44,8 @@
                 background-color: #659dbd;
                 margin-bottom: 3vh;
                 padding-bottom: 2vh;
+                padding-left: 2vh;
+                padding-right: 2vh;
 
                 >h1 {
                     font-size: 100%;

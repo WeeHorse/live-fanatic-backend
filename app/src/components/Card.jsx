@@ -19,11 +19,11 @@ const Card = ({ props }) => {
             </span>
           )}
           {data.venue_name == "ONLINE" && (
-            <p className="info">Livestream, {data["time-begin"]}</p>
+            <p className="info">Livestream, {data.time_start}</p>
           )}
           {data.venue_name != "ONLINE" && (
             <p className="info">
-              Live at {data.venue_name}, {data["time-begin"]}
+              Live at {data.venue_name}, {data.time_start}
             </p>
           )}
         </div>
