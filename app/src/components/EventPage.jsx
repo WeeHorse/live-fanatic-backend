@@ -29,5 +29,5 @@ function EventPage() {
     </ConcertContext.Provider>
   );
 }
+export default EventPage;
 
-export default EventPage
