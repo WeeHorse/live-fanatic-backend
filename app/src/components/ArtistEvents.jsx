@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import useFetch from "../hooks/useFetch";
+import Card from "./Card";
 
 
 
@@ -7,6 +9,13 @@ import { useEffect } from "react";
 export default function ArtistEvents(props) {
     const [events, setEvents] = useState([])
     const id = props['id']
+
+    const {
+        error,
+        isPending,
+        data: concerts,
+      } = useFetch("/data/concert_details");
+    
 
     useEffect(() => {
         if (!id) return;
@@ -22,20 +31,10 @@ export default function ArtistEvents(props) {
         load()
     }, [id])
 
-    return <>{events.map(event =>
-        <div className="artist-event" key={event.concert_id}>
-
-            <div className="info">
-                <p id="venue-name">{event.venue_name}</p>
-            </div>
-            <div className="info">
-                <p id="venue-location">{event.location}</p>
-            </div>
-            <div className="info">
-                <p id="date">{event.date}</p>
-            </div>
-            <div className="info">
-                <p id="time-start">{event.time_start}</p>
-            </div>
-        </div>)}</>
+    return <> <div className="card-container">
+    {error && <div>{error}</div>}
+    {isPending && <div>Loading...</div>}
+    {events &&
+      events.map((concert) => <Card key={concert} props={concert} />)}
+  </div></>
 }
