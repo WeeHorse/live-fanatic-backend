@@ -44,10 +44,10 @@ function SearchBar({ placeholder }) {
 
                 />
                 <div className="searchIcon">
-                    {filteredData.length === 0 ? (
-                        <img src={SearchSvg} alt="home" />
+                    {wordEntered.length > 0 ? (
+                        <img src={closeSvg} alt="closeIcon" onClick={clearInput} />
                     ) : (
-                        <img src={closeSvg} alt="home" />
+                        <img src={SearchSvg} alt="searchIcon" />
                     )}
                 </div>
             </div>
