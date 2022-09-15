@@ -7,14 +7,14 @@ import Card from "./Card";
 
 export default function ArtistEvents(props) {
     const [events, setEvents] = useState([])
-    const id = parseInt(props['id']) 
+    const id = parseInt(props['id'])
 
     const {
         error,
         isPending,
         data: concerts,
-      } = useFetch("/data/concert_details");
-    
+    } = useFetch("/data/concert_details");
+
 
     useEffect(() => {
         if (!id) return;
@@ -31,9 +31,9 @@ export default function ArtistEvents(props) {
     }, [id])
 
     return <> <div className="card-container">
-    {error && <div>{error}</div>}
-    {isPending && <div>Loading...</div>}
-    {events &&
-      events.map((concert) => <Card key={concert} props={concert} />)}
-  </div></>
+        {error && <div>{error}</div>}
+        {isPending && <div>Loading...</div>}
+        {events &&
+            events.map((concert) => <Card key={concert} props={concert} />)}
+    </div></>
 }
