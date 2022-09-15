@@ -19,7 +19,7 @@ function EventPage() {
           {isPending && <div>Loading...</div>}
           {concerts &&
             concerts.map((concert) => (
-              <Card key={concert.concert_id} concert={concert} />
+              <Card key={concert.id} concert={concert} />
             ))}
         </div>
       </div>
