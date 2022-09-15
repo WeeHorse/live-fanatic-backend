@@ -2,12 +2,17 @@ import { Link } from "react-router-dom";
 import TicketQuantityStatus from "./TicketQuantityStatus";
 import ArrowIcon from "../assets/arrow-forward.svg";
 const Card = ({ props }) => {
+
   const data = props;
+  const online = data.venue_name === "ONLINE"
+  const image = data.concert_image??data.artist_image;
+  const startTime = new Date(data.event_start).toString().substring(0, 21)
+
   return (
     <>
       <div className="card">
         <div className="header">
-          <img src={data.artist_image} alt={data.artist_name} />
+          <img src={image} alt={data.artist_name} />
         </div>
         <div className="text">
           <h1 className="title">{data.artist_name}</h1>
@@ -18,12 +23,12 @@ const Card = ({ props }) => {
               <TicketQuantityStatus quantity={data.tickets_left} />
             </span>
           )}
-          {data.venue_name == "ONLINE" && (
-            <p className="info">Livestream, {data.time_start}</p>
+          {online && (
+            <p className="info">Livestream, {startTime}</p>
           )}
-          {data.venue_name != "ONLINE" && (
+          {!online && (
             <p className="info">
-              Live at {data.venue_name}, {data.time_start}
+              Live at {data.venue_name}, {startTime}
             </p>
           )}
         </div>
