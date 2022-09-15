@@ -1,33 +1,26 @@
-import { createContext, useContext } from "react";
-import useFetch from "../hooks/useFetch";
 import Card from "./Card";
-
-export const ConcertContext = createContext();
-
-export const useConcertData = () => useContext(ConcertContext);
+import { useConcertData } from "../context/EventContext";
+import { useEffect } from "react";
 
 function EventPage() {
-  const {
-    error,
-    isPending,
-    data: concerts,
-  } = useFetch("/data/concert_details");
+  const { data: concerts, error, isPending, getEvents } = useConcertData();
+
+  useEffect(() => {
+    getEvents();
+  }, []);
 
   return (
-    <ConcertContext.Provider value={concerts}>
-      <div className="container">
-        <h1>Events</h1>
-        <div className="card-container">
-          {error && <div>{error}</div>}
-          {isPending && <div>Loading...</div>}
-          {concerts &&
-            concerts.map((concert) => (
-              <Card key={concert.concert_id} concert={concert} />
-            ))}
-        </div>
+    <div className="container">
+      <h1>Events</h1>
+      <div className="card-container">
+        {error && <div>{error}</div>}
+        {isPending && <div>Loading...</div>}
+        {concerts &&
+          concerts.map((concert) => (
+            <Card key={concert.concert_id} concert={concert} />
+          ))}
       </div>
-    </ConcertContext.Provider>
+    </div>
   );
 }
 export default EventPage;
-

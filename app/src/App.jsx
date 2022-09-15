@@ -6,21 +6,26 @@ import TicketsPage from "./components/TicketsPage";
 import EventPage from "./components/EventPage";
 import Nav from "./components/Nav";
 import EventDetails from "./components/EventDetails";
+import { EventContext } from "./context/EventContext";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/event" element={<EventPage />} />
-          <Route exact path="/event/:id" element={<EventDetails />} />
-          <Route path="/ticket" element={<TicketsPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/search" element={<SearchPage />} />
-        </Routes>
+        <EventContext>
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/event" element={<EventPage />} />
+
+            <Route exact path="/event/:id" element={<EventDetails />} />
+
+            <Route path="/ticket" element={<TicketsPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/search" element={<SearchPage />} />
+          </Routes>
+        </EventContext>
       </BrowserRouter>
     </>
   );
