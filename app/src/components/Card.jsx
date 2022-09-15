@@ -13,7 +13,7 @@ const Card = ({ concert }) => {
           <h1 className="title">{concert.artist_name}</h1>
 
           {concert.tickets_left >= 0 && (
-            <span>
+            <span className="ticket-content">
               Tickets available:
               <TicketQuantityStatus quantity={concert.tickets_left} />
             </span>
@@ -36,6 +36,15 @@ const Card = ({ concert }) => {
         </Link>
       </div>
       <span className="line-break"></span>
+      <style jsx="true">
+        {`
+          .quantity-status {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        `}
+      </style>
     </>
   );
 };

@@ -60,9 +60,13 @@ $heart: #EF3E36;
          text-transform: uppercase;
          letter-spacing: 0.1em;
       }
-      span {
+      .ticket-content {
+         display: flex;
          color: $gray;
          margin-top: 8px;
+      }
+      .quantity-status{
+         
       }
    }
 
