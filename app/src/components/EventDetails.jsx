@@ -50,12 +50,11 @@ function EventDetails() {
         return res.json();
       })
       .then((data) => {
-        window.location.href = data.session.url;
+        window.location.href = data.url;
       })
       .catch((err) => {
         if (err.name === "AbortError") {
           abortCont.abort();
-        } else {
         }
       });
   };

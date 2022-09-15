@@ -13,19 +13,21 @@ import { EventContext } from "./context/EventContext";
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/event" element={<EventPage />} />
-          <Route exact path="/event/:id" element={<EventDetails />} />
-          <Route path="/ticket" element={<TicketsPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/artist/:id" element={<ArtistPage />} />
-        </Routes>
-      </BrowserRouter>
+      <EventContext>
+        <BrowserRouter>
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/event" element={<EventPage />} />
+            <Route exact path="/event/:id" element={<EventDetails />} />
+            <Route path="/ticket" element={<TicketsPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/artist/:id" element={<ArtistPage />} />
+          </Routes>
+        </BrowserRouter>
+      </EventContext>
     </>
   );
 }
