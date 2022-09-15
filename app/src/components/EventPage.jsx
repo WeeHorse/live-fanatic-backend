@@ -13,12 +13,9 @@ function EventPage() {
   return (
     <>
       <div className="container">
-        <h1>Events</h1>
         <div className="card-container">
           {error && <div>{error}</div>}
           {isPending && <div>Loading...</div>}
-          {concerts &&
-            concerts.map((concert) => <Card key={concert} props={concert} />)}
           {concerts &&
             concerts.map((concert) => <Card key={concert} props={concert} />)}
         </div>
