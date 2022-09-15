@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LOGIN } from "./HomePage";
 
 function SignUp({ setIsModalOpen, setModalType }) {
   const [email, setEmail] = useState("");
