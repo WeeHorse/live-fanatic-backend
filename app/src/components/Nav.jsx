@@ -2,15 +2,10 @@ import { React, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Hamburger from "./Hamburger";
-import ProfilePage from "./ProfilePage";
-import EventPage from "./EventPage";
-import TicketsPage from "./TicketsPage";
-import SearchPage from "./SearchPage";
-import HomePage from "./HomePage";
-import HomeSvg from "../assets/home.svg";
-import EventSvg from "../assets/events.svg";
-import TicketSvg from "../assets/ticket.svg";
-import ProfileSvg from "../assets/profile.svg";
+import homeSvg from "../assets/home.svg";
+import eventSvg from "../assets/events.svg";
+import ticketSvg from "../assets/ticket.svg";
+import profileSvg from "../assets/profile.svg";
 import Login from "./Login";
 
 export const LOGIN = "login";
@@ -43,25 +38,25 @@ function Nav() {
                             onClick={toggleHamburger}
                         >
                             <Link to="/" id="home-button">
-                                <img src={HomeSvg} alt="home" />
+                                <img src={homeSvg} alt="home" />
                             </Link>
                         </div>
                         <div className="hamburgerbutton">
                             <Link to="/event" onClick={toggleHamburger}>
-                                <img src={EventSvg} alt="eventbutton" />
+                                <img src={eventSvg} alt="eventbutton" />
                                 <p>Events</p>
                             </Link>
                         </div>
 
                         <div className="hamburgerbutton">
                             <Link to="/ticket" onClick={toggleHamburger}>
-                                <img src={TicketSvg} alt="ticketbutton" />
+                                <img src={ticketSvg} alt="ticketbutton" />
                                 <p>Tickets</p>
                             </Link>
                         </div>
                         <div className="hamburgerbutton" id="profile">
                             <Link to="/profile" onClick={toggleHamburger}>
-                                <img src={ProfileSvg} alt="profile button" />
+                                <img src={profileSvg} alt="profile button" />
                                 <p>Profile</p>
                             </Link>
                         </div>

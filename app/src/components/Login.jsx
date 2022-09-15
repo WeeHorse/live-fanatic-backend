@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { LOGIN, SIGN_UP } from "./HomePage";
+import { LOGIN, SIGN_UP } from "./Nav";
 import SignUp from "./SignUp";
 
 /*To use this component in a parent comp:

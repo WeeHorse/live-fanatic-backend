@@ -1,18 +1,24 @@
 import React, { useState } from "react";
 import "../stylesheets/searchBar.scss";
 import closeSvg from '../assets/close.svg'
-import SearchSvg from '../assets/search.svg'
+import searchSvg from '../assets/search.svg'
+import useFetch from "../hooks/useFetch";
+import { Link } from 'react-router-dom';
 
 
-function SearchBar({ placeholder, data }) {
+
+function SearchBar({ placeholder }) {
     const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
+
+    const { error, isPending, data: artists } = useFetch("/data/artists");
+
 
     const handleFilter = (event) => {
         const searchWord = event.target.value;
         setWordEntered(searchWord);
-        const newFilter = data.filter((value) => {
-            return value.band.toLowerCase().includes(searchWord.toLowerCase());
+        const newFilter = artists.filter((artist) => {
+            return artist.name.toLowerCase().includes(searchWord.toLowerCase());
         });
 
         if (searchWord === "") {
@@ -38,20 +44,20 @@ function SearchBar({ placeholder, data }) {
 
                 />
                 <div className="searchIcon">
-                    {filteredData.length === 0 ? (
-                        <img src={SearchSvg} alt="home" />
+                    {wordEntered.length > 0 ? (
+                        <img src={closeSvg} alt="closeIcon" onClick={clearInput} />
                     ) : (
-                        <img src={closeSvg} alt="home" />
+                        <img src={searchSvg} alt="searchIcon" />
                     )}
                 </div>
             </div>
             {filteredData.length != 0 && (
-                <div className="dataResult">
-                    {filteredData.slice(0, 15).map((value, key) => {
+                <div className="dataResult" key={artists.id}>
+                    {filteredData.slice(0, 15).map((artist, key) => {
                         return (
-                            <a className="dataItem" href={value.link} target="_blank">
-                                <p>{value.band} </p>
-                            </a>
+                            <div className="dataItem">
+                                <Link to={`/artist/${artist.id}`}>{artist.name}</Link>
+                            </div>
                         );
                     })}
                 </div>
