@@ -15,15 +15,17 @@ const Card = ({ concert }) => {
           {concert.tickets_left >= 0 && (
             <span className="ticket-content">
               Tickets available:
-              <TicketQuantityStatus quantity={concert.tickets_left} />
+              <TicketQuantityStatus quantity={concert.tickets_left} className="status" />
             </span>
           )}
           {concert.venue_name == "ONLINE" && (
-            <p className="info">Livestream, {concert["time-begin"]}</p>
+            <p className="info">
+              Livestream, {concert.date} {concert.time_start}
+            </p>
           )}
           {concert.venue_name != "ONLINE" && (
             <p className="info">
-              Live at {concert.venue_name}, {concert["time-begin"]}
+              Live at {concert.venue_name}, {concert.date} {concert.time_start}
             </p>
           )}
         </div>
