@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../stylesheets/searchBar.scss";
 import closeSvg from '../assets/close.svg'
-import SearchSvg from '../assets/search.svg'
+import searchSvg from '../assets/search.svg'
 import useFetch from "../hooks/useFetch";
 import { Link } from 'react-router-dom';
 
@@ -17,8 +17,8 @@ function SearchBar({ placeholder }) {
     const handleFilter = (event) => {
         const searchWord = event.target.value;
         setWordEntered(searchWord);
-        const newFilter = artists.filter((value) => {
-            return value.name.toLowerCase().includes(searchWord.toLowerCase());
+        const newFilter = artists.filter((artist) => {
+            return artist.name.toLowerCase().includes(searchWord.toLowerCase());
         });
 
         if (searchWord === "") {
@@ -47,16 +47,16 @@ function SearchBar({ placeholder }) {
                     {wordEntered.length > 0 ? (
                         <img src={closeSvg} alt="closeIcon" onClick={clearInput} />
                     ) : (
-                        <img src={SearchSvg} alt="searchIcon" />
+                        <img src={searchSvg} alt="searchIcon" />
                     )}
                 </div>
             </div>
             {filteredData.length != 0 && (
                 <div className="dataResult" key={artists.id}>
-                    {filteredData.slice(0, 15).map((value, key) => {
+                    {filteredData.slice(0, 15).map((artist, key) => {
                         return (
-                            <div className="dataItem" href={value.link} target="_blank">
-                                <Link to={`/artist/${value.id}`}>{value.name}</Link>
+                            <div className="dataItem">
+                                <Link to={`/artist/${artist.id}`}>{artist.name}</Link>
                             </div>
                         );
                     })}
