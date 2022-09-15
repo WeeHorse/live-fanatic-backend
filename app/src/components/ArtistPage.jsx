@@ -33,10 +33,10 @@ export default function ArtistPage() {
                 <img src={image} alt="band picture" />
             </div>
             <div className="content">
-                <h1 id="artist-name">{name}</h1>
+                <h1>{name}</h1>
                 <div id="event-info">
                     <div id="upcoming">
-                        <h1>Upcoming events</h1>
+                        <h2>Upcoming events</h2>
                         <ArtistEvents id={id} />
                     </div>
 

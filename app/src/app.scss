@@ -14,10 +14,9 @@ body {
   padding: none;
   background-color: $primary-color;
 
-  h1 {
+  h1, h2, h3, h4, h5 {
     font-family: 'Bevan', cursive;
   }
-
 }
 
 custom-input {

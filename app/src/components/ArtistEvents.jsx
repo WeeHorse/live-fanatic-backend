@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import useFetch from "../hooks/useFetch";
 import Card from "./Card";
 
@@ -8,7 +7,7 @@ import Card from "./Card";
 
 export default function ArtistEvents(props) {
     const [events, setEvents] = useState([])
-    const id = props['id']
+    const id = parseInt(props['id']) 
 
     const {
         error,
@@ -23,7 +22,7 @@ export default function ArtistEvents(props) {
             const rawResponse = await fetch('/data/concert_details')
             if (rawResponse.ok) {
                 const response = await rawResponse.json();
-                const newEvents = response.filter(event => event.artist_id == id);
+                const newEvents = response.filter(event => event.artist_id === id);
                 newEvents.shift()
                 setEvents(newEvents)
             }
