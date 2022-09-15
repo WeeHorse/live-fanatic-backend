@@ -15,25 +15,18 @@ export default function ArtistEvents(props) {
         data: concerts,
     } = useFetch("/data/concert_details");
 
-
     useEffect(() => {
-        if (!id) return;
+        if (!concerts) return;
         async function load() {
-            const rawResponse = await fetch('/data/concert_details')
-            if (rawResponse.ok) {
-                const response = await rawResponse.json();
-                const newEvents = response.filter(event => event.artist_id === id);
-                newEvents.shift()
-                setEvents(newEvents)
-            }
+            setEvents(concerts.filter(event => event.artist_id === id))
         }
-        load()
-    }, [id])
+        void load()
+    }, [concerts])
 
     return <> <div className="card-container">
         {error && <div>{error}</div>}
         {isPending && <div>Loading...</div>}
         {events &&
-            events.map((concert) => <Card key={concert} props={concert} />)}
+            events.map((concert) => <Card key={concert.id} props={concert} />)}
     </div></>
 }

@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import TicketQuantityStatus from "./TicketQuantityStatus";
 import ArrowIcon from "../assets/arrow-forward.svg";
-
 const Card = ({ concert }) => {
+  const online = concert.venue_name === "ONLINE"
+  const image = concert.concert_image??concert.artist_image;
+  const startTime = new Date(concert.event_start).toString().substring(0, 21)
+
   return (
     <>
       <div className="card">
         <div className="header">
-          <img src={concert.artist_image} alt={concert.artist_name} />
+          <img src={image} alt={concert.artist_name} />
         </div>
         <div className="text">
           <h1 className="title">{concert.artist_name}</h1>
@@ -18,14 +21,12 @@ const Card = ({ concert }) => {
               <TicketQuantityStatus quantity={concert.tickets_left} className="status" />
             </span>
           )}
-          {concert.venue_name == "ONLINE" && (
-            <p className="info">
-              Livestream, {concert.date} {concert.time_start}
-            </p>
+          {online && (
+            <p className="info">Livestream, {startTime}</p>
           )}
-          {concert.venue_name != "ONLINE" && (
+          {!online && (
             <p className="info">
-              Live at {concert.venue_name}, {concert.date} {concert.time_start}
+              Live at {concert.venue_name}, {startTime}
             </p>
           )}
         </div>
