@@ -6,7 +6,7 @@ const Tickets = ({ props }) => {
 
     return (
         <>
-            <div className="card">
+            <div className="ticket">
                 <div className="text">
                     <div className="header">
                         <img src={image} alt={data.artist_name} />
@@ -28,14 +28,16 @@ const Tickets = ({ props }) => {
                     )}
                     {data.quantity >= 0 && (
                         <span>
-                            <p>Quantity: {data.quantity}</p>
+                            <p className="ticketInfo">{data.first_name} {data.last_name}</p>
+                            <p className="ticketInfo">Quantity: {data.quantity}</p>
+
                         </span>
                     )}
-                    <p>{data.first_name} {data.last_name}</p>
+
                 </div>
 
             </div>
-            <span className="line-break"></span>
+
         </>
     );
 };

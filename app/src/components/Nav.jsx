@@ -121,7 +121,8 @@ function Nav() {
             display: ${hamburgerOpen ? "grid" : "none"};
             right: 0;
             bottom: 0;
-            background-color: #fafafa;
+            background-color: #f6f6f6;
+            border-radius: 6px;
             height: 70vh;
             width: 60vw;
 

@@ -1,4 +1,4 @@
-$primary-color:#f6f6f6;
+$primary-color: #f6f6f6;
 
 *,
 *:after,
@@ -14,7 +14,11 @@ body {
   padding: none;
   background-color: $primary-color;
 
-  h1, h2, h3, h4, h5 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     font-family: 'Bevan', cursive;
   }
 }
