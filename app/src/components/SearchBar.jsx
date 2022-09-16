@@ -11,7 +11,7 @@ function SearchBar({ placeholder }) {
     const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
 
-    const { error, isPending, data: artists } = useFetch("/data/artists");
+    const { error, isPending, data: artists } = useFetch("/data/concert_details");
 
 
     const handleFilter = (event) => {
