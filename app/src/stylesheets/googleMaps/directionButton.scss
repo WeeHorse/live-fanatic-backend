@@ -1,0 +1,17 @@
+
+.direction-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid lightgrey;
+    border-radius: 6px;
+    box-shadow: 3px 3px 3px gray;
+    font-size: 110%;
+    width:fit-content;
+    padding: 6px;
+
+    img{
+        width: 25px;
+        padding-left: 10px;
+    }
+}
