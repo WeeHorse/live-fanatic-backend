@@ -29,11 +29,6 @@ function ProfilePage() {
         }
     };
 
-    const refreshPage = () => {
-        alert("Sign in to display your profile")
-        window.location.replace("http://127.0.0.1:5173/");
-    }
-
     useEffect(() => {
         async function load() {
             let rawResponse = await fetch('/data/login')
