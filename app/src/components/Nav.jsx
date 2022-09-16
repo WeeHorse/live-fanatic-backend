@@ -93,7 +93,7 @@ function Nav() {
                 </div>
                 <style jsx="true">{`
           .navigation {
-            display: flex;
+            display: flex};
             position: absolute;
             bottom: 10px;
             right: 25px;
@@ -101,6 +101,7 @@ function Nav() {
             width: 100%;
             height: 50px;
             text-align: center;
+            z-index: -1;
           }
 
           .navigation ul li {
