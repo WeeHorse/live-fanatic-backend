@@ -1,7 +1,7 @@
 import useFetch from "../hooks/useFetch";
 import Card from "./Card";
 
-function EventPage() {
+function EventsPage() {
   const {
     error,
     isPending,
@@ -23,4 +23,4 @@ function EventPage() {
     </>
   );
 }
-export default EventPage;
+export default EventsPage;

@@ -1,39 +1,40 @@
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import TicketQuantityStatus from "./TicketQuantityStatus";
 import ArrowIcon from "../assets/arrow-forward.svg";
-const Card = ({ props }) => {
-  const data = props;
-  return (
-    <>
-      <div className="card">
-        <div className="header">
-          <img src={data.artist_image} alt={data.artist_name} />
-        </div>
-        <div className="text">
-          <h1 className="title">{data.artist_name}</h1>
 
-          {data.tickets_left >= 0 && (
-            <span>
+const Card = ({props}) => {
+    const data = props;
+    return (
+        <>
+            <div className="card">
+                <div className="header">
+                    <img src={data["artist_image"]} alt={data["artist_name"]}/>
+                </div>
+                <div className="text">
+                    <h1 className="title">{data["artist_name"]}</h1>
+
+                    {data["tickets_left"] >= 0 && (
+                        <span>
               Tickets available:
-              <TicketQuantityStatus quantity={data.tickets_left} />
+              <TicketQuantityStatus quantity={data["tickets_left"]}/>
             </span>
-          )}
-          {data.venue_name == "ONLINE" && (
-            <p className="info">Livestream, {data.time_start}</p>
-          )}
-          {data.venue_name != "ONLINE" && (
-            <p className="info">
-              Live at {data.venue_name}, {data.time_start}
-            </p>
-          )}
-        </div>
-        <Link to="/" className="btn">
-          <img className="arrow-icon" src={ArrowIcon} />
-        </Link>
-      </div>
-      <span className="line-break"></span>
-    </>
-  );
+                    )}
+                    {data["venue_name"] === "ONLINE" && (
+                        <p className="info">Livestream, {data["time_start"]}</p>
+                    )}
+                    {data["venue_name"] !== "ONLINE" && (
+                        <p className="info">
+                            Live at {data["venue_name"]}, {data["time_start"]}
+                        </p>
+                    )}
+                </div>
+                <Link to="/" className="btn">
+                    <img className="arrow-icon" src={ArrowIcon} alt={'--->'}/>
+                </Link>
+            </div>
+            <span className="line-break"></span>
+        </>
+    );
 };
 
 export default Card;
