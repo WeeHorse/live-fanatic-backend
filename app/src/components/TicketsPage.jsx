@@ -1,10 +1,21 @@
 import useFetch from "../hooks/useFetch";
 import Ticket from "./Tickets";
+import { useEffect } from 'react';
 
 function TicketsPage() {
     const { error, isPending, data: tickets } = useFetch("/data/user_tickets_details");
 
     console.log(tickets);
+
+    useEffect(() => {
+        async function load() {
+            let rawResponse = await fetch('/data/login')
+            if (rawResponse.ok) {
+                let response = await rawResponse.json();
+            }
+        }
+        load()
+    }, [])
 
     return (
         <>
