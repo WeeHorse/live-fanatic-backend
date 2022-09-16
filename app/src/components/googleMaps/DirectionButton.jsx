@@ -1,36 +1,36 @@
 import { useEffect, useState } from "react";
 import ArrowCircleRight from "../../assets/arrow-circle-right.svg";
-import useFetch from "../../hooks/useFetch";
 import MapModal from "./MapModal";
 
+
+// To use the button from an events detail page
+// Write <DirectionButton id={int}/>
+// The int refers to the concert id in the concert_details db view
+
 export default function Directions(props) {
-    const [event, setEvent] = useState("");
     const id = parseInt(props['id']);
     const [show, setShow] = useState(false);
+    const [direction, setDirection] = useState("");
     
-    const {
-        error,
-        isPending,
-        data: concert,
-    } = useFetch("/data/concert_details");
-
     useEffect(() => {
-        if (!concert) return;
         async function load() {
-            setEvent(concert.filter(event => event.id === id));
-            console.log(event);
+            let rawResponse = await fetch('/data/concert_details');
+            if (rawResponse.ok) {
+                let response = await rawResponse.json();
+                setDirection(response.filter(event => event.id === id)[0].direction);
+                document.getElementById('map-view').src = direction;
+            }
         }
-        void load()
-    }, [concert])
+        load()
+    },[direction])
 
-    console.log(event.direction);
+
     return <>
         <div className="direction-button" onClick={() => setShow(true)}>Get Directions
-        <img src={ArrowCircleRight} id="arrow-circle-right" alt="icon" />
+            <img src={ArrowCircleRight} id="arrow-circle-right" alt="icon" />
         </div>
-        
         <MapModal title="My Modal" onClose={() => setShow(false)} show={show}>
-            
+            <iframe id="map-view" src="" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </MapModal>
     </>
 

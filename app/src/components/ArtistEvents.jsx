@@ -8,7 +8,6 @@ import Card from "./Card";
 export default function ArtistEvents(props) {
     const [events, setEvents] = useState([])
     const id = parseInt(props['id'])
-    console.log(id);
 
     const {
         error,

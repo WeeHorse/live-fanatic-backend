@@ -6,7 +6,6 @@ export default function HomePage() {
   return (
     <>
       <h1>Homepage</h1>
-      <DirectionButton id={2}/>
     </>
   );
 }
