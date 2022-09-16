@@ -9,6 +9,7 @@ import ArtistPage from "./components/ArtistPage";
 
 import EventDetails from "./components/EventDetails";
 import { EventContext } from "./context/EventContext";
+import OrderConfirmation from "./components/OrderConfirmation";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/artist/:id" element={<ArtistPage />} />
+          <Route path="/order-confirmation" element={<OrderConfirmation />} />
         </Routes>
       </BrowserRouter>
     </EventContext>

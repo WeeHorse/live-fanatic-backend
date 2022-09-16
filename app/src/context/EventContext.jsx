@@ -1,4 +1,3 @@
-import useFetch from "../hooks/useFetch";
 import { createContext, useContext, useState } from "react";
 
 export const ConcertContext = createContext();

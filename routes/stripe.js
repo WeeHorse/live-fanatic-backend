@@ -11,19 +11,25 @@ module.exports = function (server) {
       mode: "payment",
       success_url: request.body.successUrl,
       cancel_url: request.body.cancelUrl,
+      metadata: request.body.metadata,
     });
 
     // save current checkout session to user session, so we can check result after
     request.session.checkoutSession = session;
 
-    res.json({ url: session.url });
+    res.json({
+      url: session.url,
+    });
   });
 
   // route to retrieve checkout session to check result
   server.get("/data/checkout", async (request, res) => {
     try {
       const checkoutSession = await stripe.checkout.sessions.retrieve(
-        request.session.checkoutSession.id
+        request.session.checkoutSession.id,
+        {
+          expand: ["line_items"],
+        }
       );
       res.json({ checkoutSession });
     } catch (e) {

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useConcertData } from "../context/EventContext";
+import useFetch from "../hooks/useFetch";
 function EventDetails() {
   const { data, getEvents } = useConcertData();
   const { id } = useParams();
@@ -10,7 +11,7 @@ function EventDetails() {
   useEffect(() => getEvents(), []);
 
   const event = data?.find((c) => {
-    return c.concert_id === parseInt(id);
+    return c.id === parseInt(id);
   });
 
   if (!event) {
@@ -19,10 +20,11 @@ function EventDetails() {
 
   const handlePurchase = () => {
     const abortCont = new AbortController();
+    console.log(data);
 
     const payload = {
       cancelUrl: window.location.href,
-      successUrl: "http://localhost:5173/success",
+      successUrl: "http://localhost:5173/order-confirmation",
       line_items: [
         {
           price_data: {
@@ -35,6 +37,9 @@ function EventDetails() {
           quantity: quantity,
         },
       ],
+      metadata: {
+        ticket_id: event.ticket_id,
+      },
     };
 
     fetch("/data/checkout", {
