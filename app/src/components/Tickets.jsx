@@ -1,29 +1,27 @@
-import TicketQuantityStatus from "./TicketQuantityStatus";
-
 const Tickets = ({ props }) => {
 
     const data = props;
     return (
         <>
             <div className="card">
-                <div className="header">
-                    <img src={data.artist_image} alt={data.artist_name} />
-                </div>
                 <div className="text">
-                    <h1 className="title">{data.artist_name}</h1>
+                    <div className="header">
+                        <img src={data.artist_image} alt={data.artist_name} />
+                    </div>
+                    <h1 className="title">{data.ticket}</h1>
 
-                    {data.tickets_left >= 0 && (
+                    {data.quantity >= 0 && (
                         <span>
-                            Tickets available:
-                            <TicketQuantityStatus quantity={data.tickets_left} />
+                            Quantity:
+                            <p>{data.quantity}</p>
                         </span>
                     )}
-                    {data.venue_name == "ONLINE" && (
-                        <p className="info">Livestream, {data.time_start}</p>
+                    {data.venue_location == "ONLINE" && (
+                        <p className="info">Livestream, NO PLATIPUSSY {data.event_start}</p>
                     )}
-                    {data.venue_name != "ONLINE" && (
+                    {data.venue_location != "ONLINE" && (
                         <p className="info">
-                            Live at {data.venue_name}, {data.time_start}
+                            Live at {data.venue_location}, {data.event_start}
                         </p>
                     )}
                 </div>

@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from "./components/HomePage";
-import ProfilePage from "./components/profilePage";
+// import ProfilePage from "./components/profilePage";
+import ProfilePage from "./components/ProfilePage";
 import SearchPage from "./components/SearchPage";
 import TicketsPage from "./components/TicketsPage";
 import EventPage from "./components/EventPage";
