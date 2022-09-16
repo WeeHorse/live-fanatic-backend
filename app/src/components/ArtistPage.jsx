@@ -29,11 +29,12 @@ export default function ArtistPage() {
 
     return <>
         <div className="artist-page">
-            <div className="artist-image">
+            <h1>{name}</h1>
+            <img src={image} alt="band picture" />
+            {/* <div className="artist-image" style={{backgroundImage:'url(' + image + ')'}}>
                 <img src={image} alt="band picture" />
-            </div>
+            </div> */}
             <div className="content">
-                <h1>{name}</h1>
                 <div id="event-info">
                     <div id="upcoming">
                         <h2>Upcoming events</h2>
