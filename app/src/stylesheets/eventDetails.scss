@@ -48,14 +48,27 @@ section#event{
         
         
         .event-text{
-            margin-right: 16px;
+            max-width: 720px;
             background-color: #fafafa;
             flex-grow: 4;
             min-height: 30vh;
+            padding: 32px 48px;
+            display: flex;
+            justify-content: space-between;
+            gap: 32px;
+
+            @media screen and (max-width:768px) {
+                flex-direction: column;
+                 padding: 24px;
+            }
+        }
+
+        .event-info-column {
+            margin-bottom: 16px;
+            font-size: 18px;
         }
         
         .ticket{
-            flex-grow: 1;
             .buy-container{
                 display: flex;
                 .quantity-counter{
@@ -68,7 +81,7 @@ section#event{
                     padding: 4px 8px;
                     
                     button{
-                        color: #fafafa;
+                      
                         &:hover{
                             color: $dark;
                         }

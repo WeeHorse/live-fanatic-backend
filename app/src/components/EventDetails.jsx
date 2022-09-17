@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useConcertData } from "../context/EventContext";
 import shopSvg from "../assets/shop.svg";
-import calender from "../assets/events.svg";
 
 function EventDetails() {
   const { data, getEvents } = useConcertData();
@@ -73,71 +72,109 @@ function EventDetails() {
       });
   };
 
+  const formatStartDate = event.event_start.slice(0, 16);
+
   return (
     <>
-      <section id="header">
-        <div className="image">
-          <img
-            src="https://cdns-images.dzcdn.net/images/cover/bcc309522e7aea6bc32c3d22966559da/200x200.jpg"
-            alt=""
-          />
-        </div>
-        <h2>
-          {event.artist_name} live at {event.venue_name}
-        </h2>
-        <div>
-          <img src={calender} alt="" />
-          <span className="date">{event.event_start}</span>
-        </div>
-      </section>
+      <Banner event={event} formatStartDate={formatStartDate} />
 
       <section id="event">
         <div className="event-content">
           <div className="event-text">
-            <p>hej</p>
-          </div>
-          <div className="ticket">
-            <p>test</p>
-            {event.venue_name !== "ONLINE" && (
-              <div className="buy-container">
-                <div className="quantity-counter">
+            <div>
+              <p className="event-info-column">Event: {event.artist_name}</p>
+              <p className="event-info-column">Location: {event.location}</p>
+              <p className="event-info-column">Date: {formatStartDate}</p>
+              <p className="event-info-column">Venue: {event.venue_name}</p>
+            </div>
+            <div className="ticket">
+              <p style={{ fontWeight: "600", fontSize: 24, marginBottom: 24 }}>
+                {event.artist_name}
+              </p>
+              <span
+                style={{
+                  fontWeight: "600",
+                  fontSize: 18,
+                  marginBottom: 24,
+                  display: "block",
+                }}
+              >
+                {event.ticket_price} kr
+              </span>
+              {event.venue_name !== "ONLINE" && (
+                <div className="buy-container">
+                  <div className="quantity-counter">
+                    <button
+                      value={quantity}
+                      onClick={(e) => {
+                        setQuantity((quantity) => quantity - 1);
+                      }}
+                      disabled={quantity <= 1 || !quantity}
+                    >
+                      -
+                    </button>
+                    <span>{quantity}</span>
+                    <button
+                      value={quantity}
+                      onClick={(e) => setQuantity((quantity) => quantity + 1)}
+                      disabled={quantity === event.tickets_left}
+                    >
+                      +
+                    </button>
+                  </div>
                   <button
-                    value={quantity}
-                    onClick={(e) => {
-                      setQuantity((quantity) => quantity - 1);
-                    }}
-                    disabled={quantity <= 1 || !quantity}
+                    className="cart-button"
+                    onClick={handlePurchase}
+                    disabled={quantity < 1 || quantity > event.tickets_left}
                   >
-                    -
-                  </button>
-                  <span>{quantity}</span>
-                  <button
-                    value={quantity}
-                    onClick={(e) => setQuantity((quantity) => quantity + 1)}
-                    disabled={quantity === event.tickets_left}
-                  >
-                    +
+                    <img src={shopSvg} id="cart" alt="cart-button" />
                   </button>
                 </div>
-                <button
-                  className="cart-button"
-                  onClick={handlePurchase}
-                  disabled={quantity < 1 || quantity > event.tickets_left}
-                >
-                  <img src={shopSvg} id="cart" alt="cart-button" />
-                </button>
-              </div>
-            )}
+              )}
 
-            {event.venue_name == "ONLINE" && (
-              <>
-                <span>Watch livestream</span>
-              </>
-            )}
+              <p style={{ marginTop: 8 }}>Tickets left: {event.tickets_left}</p>
+
+              {event.venue_name == "ONLINE" && (
+                <>
+                  <span>Watch livestream</span>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </section>
     </>
   );
 }
+
+function CalendarIcon({ color }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" fill={color} height={48} width={48}>
+      <path d="m21.65 36.6-6.9-6.85 2.1-2.1 4.8 4.7 9.2-9.2 2.1 2.15ZM9 44q-1.2 0-2.1-.9Q6 42.2 6 41V10q0-1.2.9-2.1Q7.8 7 9 7h3.25V4h3.25v3h17V4h3.25v3H39q1.2 0 2.1.9.9.9.9 2.1v31q0 1.2-.9 2.1-.9.9-2.1.9Zm0-3h30V19.5H9V41Zm0-24.5h30V10H9Zm0 0V10v6.5Z" />
+    </svg>
+  );
+}
+
+function Banner({ formatStartDate, event }) {
+  return (
+    <section id="header">
+      <div className="image">
+        <img
+          src="https://cdns-images.dzcdn.net/images/cover/bcc309522e7aea6bc32c3d22966559da/200x200.jpg"
+          alt=""
+        />
+      </div>
+      <h2>
+        {event.artist_name} live at {event.venue_name}
+      </h2>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <CalendarIcon color={"white"} />
+        <span className="date" style={{ fontSize: 24, marginLeft: 16 }}>
+          {formatStartDate}
+        </span>
+      </div>
+    </section>
+  );
+}
+
 export default EventDetails;
