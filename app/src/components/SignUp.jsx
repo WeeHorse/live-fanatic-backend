@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { LOGIN } from "./SiteNavigation/Nav";
 import { useNavigate } from "react-router-dom";
 
 function SignUp({ setIsModalOpen, setModalType }) {

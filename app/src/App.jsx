@@ -5,7 +5,7 @@ import ProfilePage from "./components/ProfilePage";
 import SearchPage from "./components/SearchPage";
 import TicketsPage from "./components/TicketsPage";
 import EventPage from "./components/EventPage";
-import Nav from "./components/Nav";
+import Nav from "./components/SiteNavigation/Nav";
 import ArtistPage from "./components/ArtistPage";
 
 
