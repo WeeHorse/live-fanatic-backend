@@ -1,0 +1,108 @@
+section#header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: $dark;
+    height: auto;
+    padding: 32px 0;
+    
+    .image{
+        position: relative;
+        box-sizing: border-box;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 100%;
+            object-fit: cover;
+            aspect-ratio: 1/1;
+            box-shadow: 4px 4px 8px #191818;
+        } 
+    }
+    h2{
+        font-size: 46px;
+        margin: 16px;
+        text-transform: uppercase;
+        // position: absolute;
+        // top:50%;
+        // right: 50%;
+    }
+
+    .date{
+        color: white;
+    }
+}
+
+section#event{
+    // display: flex;
+    justify-content: center;
+    padding: 24px 24px;
+    background-color: $background-color;
+    height: 50vh;
+
+    .event-content{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        
+        
+        .event-text{
+            margin-right: 16px;
+            background-color: #fafafa;
+            flex-grow: 4;
+            min-height: 30vh;
+        }
+        
+        .ticket{
+            flex-grow: 1;
+            .buy-container{
+                display: flex;
+                .quantity-counter{
+                    font-weight: 500;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    // width: 10vw;
+                    background-color: $yellow;
+                    padding: 4px 8px;
+                    
+                    button{
+                        color: #fafafa;
+                        &:hover{
+                            color: $dark;
+                        }
+                    }
+
+                    span{
+                        display: inherit;
+                        width: 32px;
+                        height: 24px;
+                        justify-content: center;
+                        align-items: center;
+                        color: $dark;
+                    }
+                }
+                .cart-button{
+                    display: flex;
+                    padding: 4px 8px;
+                    margin: 0 8px;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: $yellow;
+                    img#cart{
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+            }
+        }
+
+        button{
+            text-decoration: none;
+            border: none;
+            background-color: inherit;
+        }
+    }
+
+}

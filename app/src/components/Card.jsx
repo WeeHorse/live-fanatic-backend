@@ -13,22 +13,20 @@ const Card = ({ concert }) => {
           <img src={image} alt={concert.artist_name} />
         </div>
         <div className="text">
-          <h1 className="title">{concert.artist_name}</h1>
+          <span className="datetime">{startTime}</span>
+          <h2 className="title">{concert.artist_name}</h2>
 
-          {concert.tickets_left >= 0 && (
-            <span className="ticket-content">
-              Tickets available:
-              <TicketQuantityStatus
-                quantity={concert.tickets_left}
-                className="status"
-              />
-            </span>
+          {concert.tickets_left <= -1 && (
+            <div className="ticket-content">
+              <span className="ticket-content__text-online">Livestream</span>
+            </div>
           )}
-          {online && <p className="info">Livestream, {startTime}</p>}
-          {!online && (
-            <p className="info">
-              Live at {concert.venue_name}, {startTime}
-            </p>
+          {!online && <p className="info">Live at {concert.venue_name}</p>}
+          {concert.tickets_left >= 0 && (
+            <div className="ticket-content">
+              <span className="ticket-content__text">Tickets available</span>
+              <TicketQuantityStatus quantity={concert.tickets_left} />
+            </div>
           )}
         </div>
         <Link
@@ -40,15 +38,6 @@ const Card = ({ concert }) => {
         </Link>
       </div>
       <span className="line-break"></span>
-      <style jsx="true">
-        {`
-          .quantity-status {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-        `}
-      </style>
     </>
   );
 };

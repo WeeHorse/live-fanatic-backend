@@ -13,7 +13,6 @@ function OrderConfirmation() {
 
   const postData = async () => {
     if (!data) return <></>;
-    console.log(data.checkoutSession.payment_status);
     if (
       data.checkoutSession.payment_status === "paid" &&
       data.checkoutSession.status === "complete"
@@ -32,12 +31,9 @@ function OrderConfirmation() {
       let response = await fetch("/data/users_tickets", requestOptions);
       if (response.ok) {
         response = await response.json();
-        console.log(response);
       } else {
         setError(response.statusText);
       }
-    } else {
-      console.log("error post");
     }
   };
 
@@ -48,6 +44,7 @@ function OrderConfirmation() {
   useEffect(() => {
     postData();
   }, [data]);
+
   return (
     <>
       <h1>hej</h1>
