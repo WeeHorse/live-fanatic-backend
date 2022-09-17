@@ -26,9 +26,9 @@ const DesktopNavigation = ({ setIsModalOpen }) => {
       <div>LOGO</div>
       <SearchBar placeholder={"Search"} />
       <div className="navigation-links">
-        {links.map((link) => {
+        {links.map((link, index) => {
           return (
-            <Link className="navigation-links__link" to={link.href}>
+            <Link className="navigation-links__link" to={link.href} key={index}>
               {link.name}
             </Link>
           );
@@ -43,13 +43,15 @@ const DesktopNavigation = ({ setIsModalOpen }) => {
           My Profile
           {showSubLinks && (
             <div className="sub-navigation">
-              {profileSubLinks.map((subLink) => {
+              {profileSubLinks.map((subLink, index) => {
                 return (
-                  <div>
-                    <Link className="sub-navigation__link" to={subLink.href}>
-                      {subLink.name}
-                    </Link>
-                  </div>
+                  <Link
+                    className="sub-navigation__link"
+                    to={subLink.href}
+                    key={index}
+                  >
+                    {subLink.name}
+                  </Link>
                 );
               })}
               <Logout />
