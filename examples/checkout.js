@@ -33,5 +33,5 @@ async function getCheckoutResult(){
   console.log('response', response)
   let result = await response.json()
   console.log('result', result)
-  $('#result').text('Status' + result.status)
+  $('#result').text('Status' + result.checkoutSession.status)
 }

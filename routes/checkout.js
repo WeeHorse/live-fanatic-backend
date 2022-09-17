@@ -2,7 +2,7 @@
 const Stripe = require('stripe')
 
 // stripe.com api secret key, https://dashboard.stripe.com/test/apikeys
-const stripe = new Stripe('StripeAPIkeyShouldGoHere') //
+const stripe = new Stripe('sk_test_NzHkwYglPCxxPr9NXGgBrhTy') //
 
 
 module.exports = function(server, db, host){
@@ -70,6 +70,7 @@ module.exports = function(server, db, host){
   server.get('/data/checkout', async (req, res) => {
     try {
       const checkoutSession = await stripe.checkout.sessions.retrieve(req.session.checkoutSession.id)
+      // save to db, like a ticket
       res.json({checkoutSession: checkoutSession})
     }catch (e){
       res.status(500).json({ error: e.message })
