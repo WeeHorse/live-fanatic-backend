@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import GlobalContext from "../GlobalContext";
+import Tidbit from "./Tidbit";
 
 export default function Tidbits(){
 
@@ -7,9 +8,6 @@ export default function Tidbits(){
 
     return <section id="tidbits">
         <h2>Tidbits</h2>
-        {tidbits.map(tidbit => <article key={tidbit.id}>
-            <h3>{tidbit.subject}</h3>
-            <p>{tidbit.content}</p>
-        </article>)}
+        {tidbits.map(tb => <Tidbit key={tb.id} tb={tb}/>)}
     </section>
 }
