@@ -1,11 +1,12 @@
 import React, {useState,} from "react";
-import DirectionButton from './googleMaps/DirectionButton';
+import AudioPlayer from "./AudioPlayer";
 
 export default function HomePage() {
 
     return (
         <>
             <h1>Homepage</h1>
+            <AudioPlayer id={1} />
         </>
     );
 }
