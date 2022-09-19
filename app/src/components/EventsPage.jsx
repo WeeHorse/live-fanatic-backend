@@ -1,7 +1,7 @@
 import useFetch from "../hooks/useFetch";
 import Card from "./Card";
 
-function EventPage() {
+function EventsPage() {
   const {
     error,
     isPending,
@@ -16,10 +16,10 @@ function EventPage() {
           {error && <div>{error}</div>}
           {isPending && <div>Loading...</div>}
           {concerts &&
-            concerts.map((concert) => <Card key={concert} props={concert} />)}
+            concerts.map((concert) => <Card key={concert.id} props={concert} />)}
         </div>
       </div>
     </>
   );
 }
-export default EventPage;
+export default EventsPage;

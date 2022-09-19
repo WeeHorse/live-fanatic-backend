@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-function useClickOutside(ref, handler) {
+export default function (ref, handler) {
   useEffect(() => {
     const listener = (event) => {
       // Do nothing if clicking ref's element or descendent elements
@@ -18,4 +18,3 @@ function useClickOutside(ref, handler) {
   }, [ref, handler]);
 }
 
-export default useClickOutside;
