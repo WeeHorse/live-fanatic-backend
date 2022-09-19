@@ -9,6 +9,8 @@ export default function Carousel(props) {
 
     const [index, setIndex] = useState(0)
 
+    const uid = props['uid']
+
     const [item, setItem] = useState(items[0])
 
 
@@ -32,23 +34,24 @@ export default function Carousel(props) {
         console.log(index)
     }, [index])
 
+    console.log(uid)
     if (!item) return <></>
 
     return <div className={'carousel'}>
-        <a className={'scroll-button'} onClick={decrementIndex} href={'#slide-' + index}>
+        <a className={'scroll-button'} onClick={decrementIndex} href={`#slide-${uid}-${index}`}>
             <img src={leftArrow} alt="<-"/>
         </a>
         {items.map((item, itemIndex) => {
             return <a className={'index'} onClick={() => {
                 setIndex(itemIndex)
-            }} href={'#slide-' + itemIndex}>{itemIndex}</a>
+            }} href={`#slide-${uid}-${itemIndex}`}>{itemIndex}</a>
         })}
         <div className="slides">
             {items.map((item, itemIndex) =>
-                <CarouselCard image={item["image"]} type={props['type']} id={itemIndex} itemId={item.id}/>
+                <CarouselCard image={item["image"]} type={props['type']} id={itemIndex} itemId={item.id} uid={uid}/>
             )}
         </div>
-        <a className={'scroll-button'} onClick={incrementIndex} href={'#slide-' + index}>
+        <a className={'scroll-button'} onClick={incrementIndex} href={`#slide-${uid}-${index}`}>
             <img src={rightArrow} alt=""/>
         </a>
     </div>

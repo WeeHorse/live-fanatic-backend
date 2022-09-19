@@ -9,14 +9,14 @@ export default function HomePage() {
 
     if (!concerts) return <></>
 
-    const onlineConcerts = concerts.filter(concert => concert['name'] === 'ONLINE')
-    const offlineConcerts = concerts.filter(concert => concert['name'] !== 'ONLINE')
+    const onlineConcerts = concerts.filter(concert => concert['venue_name'] === 'ONLINE')
+    const offlineConcerts = concerts.filter(concert => concert['venue_name'] !== 'ONLINE')
 
     return (
         <>
             <h1>Homepage</h1>
-            <Carousel items={onlineConcerts} type={'/event/'}/>
-            <Carousel items={offlineConcerts} type={'/event/'}/>
+            <Carousel items={onlineConcerts} type={'/event/'} uid={'online'}/>
+            <Carousel items={offlineConcerts} type={'/event/'} uid={'offline'}/>
         </>
     );
 }
