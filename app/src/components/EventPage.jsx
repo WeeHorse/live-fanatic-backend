@@ -8,7 +8,6 @@ function EventPage() {
     data: concerts,
   } = useFetch("/data/concert_details");
 
-  console.log(concerts);
 
   return (
     <>
