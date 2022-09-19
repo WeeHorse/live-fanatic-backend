@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Hamburger from "../Hamburger";
@@ -9,20 +9,28 @@ import profileSvg from "../../assets/profile.svg";
 import Login from "../Login";
 import DesktopNavigation from "./DesktopNavigation";
 import useMediaQuery from "../../hooks/useMediaQuery";
+import GlobalContext from "../../context/GlobalContext";
+import { useEffect } from "react";
 
 export const LOGIN = "login";
 export const SIGN_UP = "signup";
 
 function Nav() {
+  const { auth } = useContext(GlobalContext);
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const toggleHamburger = () => {
     setHamburgerOpen(!hamburgerOpen);
   };
   const [isModalOpen, setIsModalOpen] = useState(false); // Method to toggle modal
   const [modalType, setModalType] = useState(LOGIN);
-
   const isDesktop = useMediaQuery("(min-width: 768px)");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  useEffect(() => {
+    if (auth.loggedIn) {
+      setIsLoggedIn(true);
+    }
+  }, [auth.loggedIn]);
   return (
     <>
       {isDesktop && <DesktopNavigation setIsModalOpen={setIsModalOpen} />}
@@ -58,34 +66,38 @@ function Nav() {
                 <p>Tickets</p>
               </Link>
             </div>
-            <div className="hamburgerbutton" id="profile">
-              <Link to="/profile" onClick={toggleHamburger}>
-                <img src={profileSvg} alt="profile button" />
-                <p>Profile</p>
-              </Link>
-            </div>
-            <div id="modal">
-              <button
-                className="custom-button"
-                onClick={() => {
-                  setIsModalOpen(true);
-                  setModalType(LOGIN);
-                  setHamburgerOpen(false);
-                }}
-              >
-                Login
-              </button>
-              <button
-                className="custom-button"
-                onClick={() => {
-                  setIsModalOpen(true);
-                  setModalType(SIGN_UP);
-                  setHamburgerOpen(false);
-                }}
-              >
-                Sign up
-              </button>
-            </div>
+            {isLoggedIn && (
+              <div className="hamburgerbutton" id="profile">
+                <Link to="/profile" onClick={toggleHamburger}>
+                  <img src={profileSvg} alt="profile button" />
+                  <p>Profile</p>
+                </Link>
+              </div>
+            )}
+            {!isLoggedIn && (
+              <div id="modal">
+                <button
+                  className="custom-button"
+                  onClick={() => {
+                    setIsModalOpen(true);
+                    setModalType(LOGIN);
+                    setHamburgerOpen(false);
+                  }}
+                >
+                  Login
+                </button>
+                <button
+                  className="custom-button"
+                  onClick={() => {
+                    setIsModalOpen(true);
+                    setModalType(SIGN_UP);
+                    setHamburgerOpen(false);
+                  }}
+                >
+                  Sign up
+                </button>
+              </div>
+            )}
             <div className="hamburgerbutton" id="searchbar">
               <Link to="/search" onClick={toggleHamburger}>
                 Search...
