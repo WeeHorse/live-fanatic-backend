@@ -3,7 +3,7 @@ import GreenStatus from "../assets/GreenStatus.svg";
 function TicketQuantityStatus({ quantity }) {
   return (
     <div className="quantity-status">
-      {quantity == 0 && <span>sold out</span>}
+      {quantity === 0 && <span>sold out</span>}
       {quantity < 20 && quantity > 0 && (
         <img src={RedStatus} alt="greenstatus" />
       )}
