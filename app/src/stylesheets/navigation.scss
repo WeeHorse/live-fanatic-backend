@@ -1,6 +1,6 @@
 .site-navigation {
     background-color: black;
-    color: $primary-color;
+    color: $white;
     height: 70px;
     padding: 32px 64px;
     display: flex;
@@ -16,7 +16,7 @@
    
 
     &__link{
-        color: $primary-color;
+        color: $white;
         white-space: nowrap;
         &:hover {
             background-color: unset;
