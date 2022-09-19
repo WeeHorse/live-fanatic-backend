@@ -3,7 +3,7 @@ import { useConcertData } from "../context/EventContext";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function EventPage() {
+function EventsPage() {
   const { data: concerts, error, isPending, getEvents } = useConcertData();
   useEffect(() => {
     getEvents();
@@ -25,7 +25,7 @@ function EventPage() {
                 state={{ concert: concert }}
                 key={concert.id}
               >
-                <Card concert={concert} />
+                <Card concert={concert}/>
               </Link>
             ))}
         </div>
@@ -33,4 +33,4 @@ function EventPage() {
     </>
   );
 }
-export default EventPage;
+export default EventsPage;

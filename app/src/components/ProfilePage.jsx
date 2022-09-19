@@ -32,7 +32,6 @@ function ProfilePage() {
     useEffect(() => {
         async function load() {
             let rawResponse = await fetch('/data/login')
-            console.log(rawResponse.status.type);
             if (rawResponse.status === 401) {
                 alert("Sign in to display your profile!");
                 window.location.replace("http://127.0.0.1:5173/");

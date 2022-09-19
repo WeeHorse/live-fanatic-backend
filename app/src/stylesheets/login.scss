@@ -14,11 +14,13 @@
 }
 
 .login-form{
+  --login-form-width: auto;
+
 display: flex;
 flex-direction: column;
 position: relative;
-max-width: 500px;
 margin: 90px 16px;
+width: var(--login-form-width);
 background-color: #fafafa;
 padding: 32px;
 border-radius: 6px;
@@ -61,6 +63,10 @@ label{
   font-weight: 500;
   font-size: 14px;
 }
+
+  @media screen and (min-width:760px) {
+      --login-form-width: 400px;
+  }
 }
 
 .login-btn {

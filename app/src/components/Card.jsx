@@ -5,6 +5,7 @@ const Card = ({ concert }) => {
   const online = concert.venue_name === "ONLINE";
   const image = concert.concert_image ?? concert.artist_image;
   const startTime = new Date(concert.event_start).toString().substring(0, 21);
+  const image = data.image??data.artist_image;
 
   return (
     <>
