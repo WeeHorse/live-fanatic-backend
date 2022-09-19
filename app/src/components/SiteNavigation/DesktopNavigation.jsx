@@ -59,7 +59,9 @@ const DesktopNavigation = ({ setIsModalOpen }) => {
           )}
         </div>
 
-        <button onClick={() => setIsModalOpen(true)}>Login</button>
+        <button className="custom-button" onClick={() => setIsModalOpen(true)}>
+          Login
+        </button>
       </div>
     </div>
   );

@@ -75,7 +75,7 @@ function SignUp({ setIsModalOpen, setModalType }) {
           value={verifyPassword}
           onChange={(e) => setVerifyPassword(e.target.value)}
         />
-        <button className="custom-red-btn">Sign up</button>
+        <button className="custom-button">Sign up</button>
         <span className="login-form__sign-up">
           Already a member?
           <button onClick={() => setModalType(LOGIN)}>Sign in</button>

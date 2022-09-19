@@ -66,6 +66,7 @@ function Nav() {
             </div>
             <div id="modal">
               <button
+                className="custom-button"
                 onClick={() => {
                   setIsModalOpen(true);
                   setModalType(LOGIN);
@@ -75,6 +76,7 @@ function Nav() {
                 Login
               </button>
               <button
+                className="custom-button"
                 onClick={() => {
                   setIsModalOpen(true);
                   setModalType(SIGN_UP);
@@ -129,10 +131,6 @@ function Nav() {
 
             position: fixed;
             grid-template-rows: 2fr 2fr 2fr 2fr 2fr 1fr;
-          }
-
-          button {
-            margin: 8px;
           }
 
           @media (min-width: 767px) {

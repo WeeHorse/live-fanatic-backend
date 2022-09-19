@@ -76,7 +76,7 @@ function Login({ setIsModalOpen, modalType, setModalType }) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="custom-red-btn">Login</button>
+          <button className="custom-button">Login</button>
           <span className="login-form__sign-up">
             Not a member?
             <button onClick={() => setModalType(SIGN_UP)}>Sign up</button>
