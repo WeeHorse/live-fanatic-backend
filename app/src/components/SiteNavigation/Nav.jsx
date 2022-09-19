@@ -24,13 +24,7 @@ function Nav() {
   const [isModalOpen, setIsModalOpen] = useState(false); // Method to toggle modal
   const [modalType, setModalType] = useState(LOGIN);
   const isDesktop = useMediaQuery("(min-width: 768px)");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {
-    if (auth.loggedIn) {
-      setIsLoggedIn(true);
-    }
-  }, [auth.loggedIn]);
   return (
     <>
       {isDesktop && <DesktopNavigation setIsModalOpen={setIsModalOpen} />}
@@ -66,7 +60,7 @@ function Nav() {
                 <p>Tickets</p>
               </Link>
             </div>
-            {isLoggedIn && (
+            {auth.loggedIn && (
               <div className="hamburgerbutton" id="profile">
                 <Link to="/profile" onClick={toggleHamburger}>
                   <img src={profileSvg} alt="profile button" />
@@ -74,7 +68,7 @@ function Nav() {
                 </Link>
               </div>
             )}
-            {!isLoggedIn && (
+            {!auth.loggedIn && (
               <div id="modal">
                 <button
                   className="custom-button"
