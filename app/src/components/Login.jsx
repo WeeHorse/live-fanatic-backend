@@ -1,7 +1,8 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LOGIN, SIGN_UP } from "./SiteNavigation/Nav";
 import SignUp from "./SignUp";
+import { useRef } from "react";
+import useClickOutside from "../hooks/useClickOutside";
 
 /*To use this component in a parent comp:
 Write in function:
@@ -16,7 +17,10 @@ function Login({ setIsModalOpen, modalType, setModalType }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const containerRef = useRef(null);
   // const [viewTab, setViewTab] = useState(modalType);
+
+  useClickOutside(containerRef, () => setIsModalOpen(false));
 
   useEffect(() => {
     setTimeout(() => {
@@ -43,7 +47,12 @@ function Login({ setIsModalOpen, modalType, setModalType }) {
   if (modalType === LOGIN) {
     return (
       <div className="login-container">
-        <form onSubmit={handleSubmit} className="login-form" id="login">
+        <form
+          onSubmit={handleSubmit}
+          className="login-form"
+          id="login"
+          ref={containerRef}
+        >
           {error && <span className="login-form__login-error">{error}</span>}
           <button
             className="login-form__close-btn"
@@ -76,7 +85,13 @@ function Login({ setIsModalOpen, modalType, setModalType }) {
       </div>
     );
   }
-  return <SignUp setIsModalOpen={setIsModalOpen} setModalType={setModalType} />;
+  return (
+    <SignUp
+      setIsModalOpen={setIsModalOpen}
+      setModalType={setModalType}
+      ref={containerRef}
+    />
+  );
 }
 
 export default Login;

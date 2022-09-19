@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import useClickOutside from "../hooks/useClickOutside";
 import { LOGIN } from "./SiteNavigation/Nav";
 import { useNavigate } from "react-router-dom";
 
@@ -8,6 +9,9 @@ function SignUp({ setIsModalOpen, setModalType }) {
   const [verifyPassword, setVerifyPassword] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [error, setError] = useState("");
+  const containerRef = useRef(null);
+
+  useClickOutside(containerRef, () => setIsModalOpen(false));
 
   const navigate = useNavigate();
 
@@ -39,7 +43,7 @@ function SignUp({ setIsModalOpen, setModalType }) {
 
   return (
     <div className="login-container">
-      <form onSubmit={handleSubmit} className="login-form">
+      <form onSubmit={handleSubmit} className="login-form" ref={containerRef}>
         {error && <span className="login-form__login-error">{error}</span>}
         <button
           className="login-form__close-btn"
