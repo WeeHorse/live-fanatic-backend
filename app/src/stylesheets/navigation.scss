@@ -1,0 +1,50 @@
+.site-navigation {
+    background-color: black;
+    color: $primary-color;
+    height: 70px;
+    padding: 32px 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+.navigation-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+   
+
+    &__link{
+        color: $primary-color;
+        white-space: nowrap;
+        &:hover {
+            background-color: unset;
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            color: rgb(230, 126, 97);
+            position: relative;
+        }
+    }
+
+}
+
+.sub-navigation {
+     position: absolute;
+     top: 24px;
+     background-color: white;
+     padding: 16px 24px;
+     color: black;
+   
+
+     &__link {
+         color: black;
+         margin-bottom: 8px;
+         display: block;
+         &:hover {
+            background-color: unset;
+            color:rgb(230, 126, 97);
+         }
+     }
+
+}

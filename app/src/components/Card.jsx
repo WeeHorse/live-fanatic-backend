@@ -5,7 +5,7 @@ const Card = ({ props }) => {
 
   const data = props;
   const online = data.venue_name === "ONLINE"
-  const image = data.concert_image??data.artist_image;
+  const image = data.image??data.artist_image;
   const startTime = new Date(data.event_start).toString().substring(0, 21)
 
   return (
