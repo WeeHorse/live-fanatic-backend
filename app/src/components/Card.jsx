@@ -29,13 +29,9 @@ const Card = ({ concert }) => {
             </div>
           )}
         </div>
-        <Link
-          to={{ pathname: `/event/${concert.id}` }}
-          state={{ concert: concert }}
-          className="btn"
-        >
+        <button className="btn">
           <img className="arrow-icon" src={ArrowIcon} />
-        </Link>
+        </button>
       </div>
       <span className="line-break"></span>
     </>

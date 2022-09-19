@@ -8,18 +8,9 @@ function EventDetails() {
   const { data, getEvents } = useConcertData();
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
-  // const [formatDate, setFormatDate] = useState("");
-
   useEffect(() => getEvents(), []);
 
   const event = data?.find((c) => {
-    // const newDate = new Date(event.event_start).toLocaleDateString("en-GB", {
-    //   year: "numeric",
-    //   month: "2-digit",
-    //   day: "2-digit",
-    // });
-    // setFormatDate(newDate);
-    // console.log(formatDate);
     return c.id === parseInt(id);
   });
 
@@ -156,13 +147,11 @@ function CalendarIcon({ color }) {
 }
 
 function Banner({ formatStartDate, event }) {
+  const image = event.concert_image ?? event.artist_image;
   return (
     <section id="header">
       <div className="image">
-        <img
-          src="https://cdns-images.dzcdn.net/images/cover/bcc309522e7aea6bc32c3d22966559da/200x200.jpg"
-          alt=""
-        />
+        <img src={image} alt="" />
       </div>
       <h2>
         {event.artist_name} live at {event.venue_name}

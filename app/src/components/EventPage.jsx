@@ -1,6 +1,7 @@
 import Card from "./Card";
 import { useConcertData } from "../context/EventContext";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function EventPage() {
   const { data: concerts, error, isPending, getEvents } = useConcertData();
@@ -19,7 +20,13 @@ function EventPage() {
           {isPending && <div>Loading...</div>}
           {concerts &&
             concerts.map((concert) => (
-              <Card key={concert.id} concert={concert} />
+              <Link
+                to={{ pathname: `/event/${concert.id}` }}
+                state={{ concert: concert }}
+                key={concert.id}
+              >
+                <Card concert={concert} />
+              </Link>
             ))}
         </div>
       </div>

@@ -64,6 +64,7 @@ $black: #212129;
 
       .info{
          margin-bottom: 8px;
+         color: $dark
       }
 
       .ticket-content {
@@ -97,6 +98,8 @@ $black: #212129;
       letter-spacing: 0.1em;
       text-align: center;
       transition: 250ms;
+      border: unset;
+      cursor: pointer;
       &:hover {
          background: #d6500d;
          transition: 200ms;
