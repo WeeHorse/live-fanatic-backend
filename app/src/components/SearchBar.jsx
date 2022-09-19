@@ -1,25 +1,23 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../stylesheets/searchBar.scss";
 import closeSvg from "../assets/close.svg";
 import searchSvg from "../assets/search.svg";
 import useFetch from "../hooks/useFetch";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function SearchBar({placeholder}) {
+function SearchBar({ placeholder }) {
     const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
 
-    const {data: artists} = useFetch("/data/artists");
+    const { data: artists } = useFetch("/data/artists");
 
     const handleFilter = (event) => {
         const searchWord = event.target.value;
         setWordEntered(searchWord);
-        const newFilter = stuff.filter((artist) => {
-            if (searchToggle == false) {
-                return artist.artist_name.toLowerCase().includes(searchWord.toLowerCase())
-            } else {
-                return artist.venue_name.toLowerCase().includes(searchWord.toLowerCase())
-            }
+        const newFilter = artists.filter((artist) => {
+
+            return artist.name.toLowerCase().includes(searchWord.toLowerCase())
+
         });
 
         if (searchWord === "") {
@@ -43,8 +41,8 @@ function SearchBar({placeholder}) {
                 onChange={handleFilter}
             />
             <div className="searchIcon">
-                {wordEntered.length > 0 ? (<img src={closeSvg} alt="closeIcon" onClick={clearInput}/>) : (
-                    <img src={searchSvg} alt="searchIcon"/>)}
+                {wordEntered.length > 0 ? (<img src={closeSvg} alt="closeIcon" onClick={clearInput} />) : (
+                    <img src={searchSvg} alt="searchIcon" />)}
             </div>
         </div>
         {filteredData.length !== 0 && (<div className="dataResult" key={artists.id}>
