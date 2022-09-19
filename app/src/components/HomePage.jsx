@@ -1,12 +1,11 @@
-import React, { useState, } from "react";
+import React, {useState,} from "react";
 import DirectionButton from './googleMaps/DirectionButton';
 
 export default function HomePage() {
 
-  return (
-    <>
-      <h1>Homepage</h1>
-      <DirectionButton id={2}/>
-    </>
-  );
+    return (
+        <>
+            <h1>Homepage</h1>
+        </>
+    );
 }
