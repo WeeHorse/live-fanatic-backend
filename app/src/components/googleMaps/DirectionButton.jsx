@@ -9,14 +9,14 @@ import MapModal from "./MapModal";
 
 export default function Directions(props) {
     const id = parseInt(props['id']);
-    const [show, setShow] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
     const [direction, setDirection] = useState("");
     
     useEffect(() => {
         async function load() {
-            let rawResponse = await fetch('/data/concert_details');
+            const rawResponse = await fetch('/data/concert_details');
             if (rawResponse.ok) {
-                let response = await rawResponse.json();
+                const response = await rawResponse.json();
                 setDirection(response.filter(event => event.id === id)[0].direction);
                 document.getElementById('map-view').src = direction;
             }
@@ -26,10 +26,10 @@ export default function Directions(props) {
 
 
     return <>
-        <div className="direction-button" onClick={() => setShow(true)}>Get Directions
+        <div className="direction-button" onClick={() => setIsVisible(true)}>Get Directions
             <img src={ArrowCircleRight} id="arrow-circle-right" alt="icon" />
         </div>
-        <MapModal title="My Modal" onClose={() => setShow(false)} show={show}>
+        <MapModal title="My Modal" onClose={() => setIsVisible(false)} isVisible={isVisible}>
             <iframe id="map-view" src="" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </MapModal>
     </>

@@ -1,52 +1,55 @@
-.modal{
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-    pointer-events: none;
-    z-index: 6;
-
-    .modal-content{
-        background-color: #fff;
-        transform: translateY(-200px);
+.map-modal {
+    .modal {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
         transition: all 0.3s ease-in-out;
+        pointer-events: none;
+        z-index: 6;
 
-        .modal-header, .modal-footer{
-            padding: 10px;
+        .modal-content {
+            background-color: #fff;
+            transform: translateY(-200px);
+            transition: all 0.3s ease-in-out;
 
-            .modal-title{
-                margin: 0;
+            .modal-header,
+            .modal-footer {
+                padding: 10px;
+
+                .modal-title {
+                    margin: 0;
+                }
             }
-        }
 
-        .modal-body{
-            padding: 10px;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-        }
+            .modal-body {
+                padding: 10px;
+                border-top: 1px solid #eee;
+                border-bottom: 1px solid #eee;
+            }
 
-        
+
+        }
     }
-}
 
-.show{
-    opacity: 1;
-    pointer-events: visible;
+    .show {
+        opacity: 1;
+        pointer-events: visible;
 
-    .modal-content {
-        transform: translate(0);
+        .modal-content {
+            transform: translate(0);
 
-        iframe{
-            width: 60vw;
-            height: 60vh;
-            border: 0;
+            iframe {
+                width: 60vw;
+                height: 60vh;
+                border: 0;
+            }
         }
     }
 }
