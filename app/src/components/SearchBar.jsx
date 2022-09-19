@@ -14,22 +14,22 @@ function SearchBar({ placeholder }) {
 
     const { error, isPending, data: stuff } = useFetch("/data/concert_details");
 
-    const [oneOrTwo, setOneOrTwo] = useState(false);
-    const toggleOneOrTwo = () => {
-        setOneOrTwo(!oneOrTwo);
+    const [searchToggle, setSearchToggle] = useState(false);
+    const toggleSearchFalse = () => {
+        setSearchToggle(false);
     };
-
+    const toggleSearchTrue = () => {
+        setSearchToggle(true);
+    };
 
 
     const handleFilter = (event) => {
         const searchWord = event.target.value;
         setWordEntered(searchWord);
         const newFilter = stuff.filter((artist) => {
-            if (artist.artist_name.toLowerCase().includes(searchWord.toLowerCase())) {
-                setOneOrTwo(false);
+            if (searchToggle == false) {
                 return artist.artist_name.toLowerCase().includes(searchWord.toLowerCase())
-            } else if (artist.venue_name.toLowerCase().includes(searchWord.toLowerCase())) {
-                setOneOrTwo(true);
+            } else {
                 return artist.venue_name.toLowerCase().includes(searchWord.toLowerCase())
             }
         });
@@ -46,7 +46,8 @@ function SearchBar({ placeholder }) {
         setWordEntered("");
     };
 
-    return (
+    return <>
+
         <div className="search">
             <div className="searchInputs">
                 <input
@@ -70,11 +71,11 @@ function SearchBar({ placeholder }) {
                         return (
                             <div className="dataItem">
                                 <Link to={`/artist/${artist.artist_id}`}>
-                                    {oneOrTwo == false && (
+                                    {searchToggle == false && (
                                         artist.artist_name
                                     )
                                     }
-                                    {oneOrTwo == true && (
+                                    {searchToggle == true && (
                                         artist.venue_name
                                     )}
                                 </Link>
@@ -83,8 +84,25 @@ function SearchBar({ placeholder }) {
                     })}
                 </div>
             )}
+            <div className="toggleBox">
+                <div className="toggleSearchA" onClick={toggleSearchFalse}>PRESS ME FOR ARTISTS</div>
+                <div className="toggleSearchV" onClick={toggleSearchTrue}>PRESS ME FOR VENUES</div>
+            </div>
+            <style jsx="true">{`
+         .toggleSearchV {
+            color: ${searchToggle ? "gray" : "black"};
+            }
+
+
+         .toggleSearchA {
+           color: ${searchToggle ? "black" : "gray"}
+            }
+       
+         `}
+            </style>
         </div>
-    );
+
+    </>
 }
 
 export default SearchBar;
