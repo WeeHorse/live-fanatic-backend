@@ -38,14 +38,13 @@
         height: 100%;
          
     }
+    svg {
+        font-size: 30px;
+    }
 }
 
 input:focus {
     outline: none;
-}
-
-.searchIcon svg {
-    font-size: 30px;
 }
 
 .dataResult {
@@ -57,36 +56,35 @@ input:focus {
     position: absolute;
     top: 40px;
     align-self: center;
+
+    .dataItem {
+        display: flex;
+        width: 70vw;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        color: black;
+
+        a {
+            color: black;
+            margin-left: 8px;
+            width: 60vw;
+            padding: 8px 0 8px 0;
+            
+
+            
+                a:hover {
+                    background-color: lightgrey;
+                }
+
+        }
+    }
 }
 
 .dataResult::-webkit-scrollbar {
     display: none;
 }
 
-.dataResult .dataItem {
-    display: flex;
-    width: 70vw;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    color: black;
-}
-
-.dataItem a {
-    color: black;
-    margin-left: 8px;
-    width: 60vw;
-    padding: 8px 0 8px 0;
-
-}
-
-a {
-    text-decoration: none;
-}
-
-a:hover {
-    background-color: lightgrey;
-}
 
 #clearBtn {
     cursor: pointer;
