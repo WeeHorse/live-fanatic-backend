@@ -27,6 +27,13 @@ function ProfilePage() {
         post_code,
       }),
     };
+    let response = await fetch('/data/users/' + userId, requestOptions);
+    if (response.ok) {
+      await response.json();
+      alert("Profile has been updated!");
+    }
+  };
+
 
     useEffect(() => {
         async function load() {
