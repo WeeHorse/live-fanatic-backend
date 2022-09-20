@@ -28,33 +28,28 @@ function ProfilePage() {
       }),
     };
 
-    let response = await fetch("/data/users/" + userId, requestOptions);
-    if (response.ok) {
-      response = await response.json();
-      alert("Profile has been updated!");
-    }
-  };
+    useEffect(() => {
+        async function load() {
+            let rawResponse = await fetch('/data/login')
+            if (rawResponse.status === 401) {
+                alert("Sign in to display your profile!");
+                window.location.replace("/");
+            }
+            else if (rawResponse.ok) {
+                let response = await rawResponse.json();
+                setUserId(response.id)
+                setFirstName(response.first_name)
+                setLastName(response.last_name)
+                setEmail(response.email)
+                setCountry(response.country)
+                setCity(response.city)
+                setAddress(response.address)
+                setPostCode(response.post_code)
+            }
+        }
+        load()
+    }, [])
 
-  useEffect(() => {
-    async function load() {
-      let rawResponse = await fetch("/data/login");
-      if (rawResponse.status === 401) {
-        alert("Sign in to display your profile!");
-        window.location.replace("http://127.0.0.1:5173/");
-      } else if (rawResponse.ok) {
-        let response = await rawResponse.json();
-        setUserId(response.id);
-        setFirstName(response.first_name);
-        setLastName(response.last_name);
-        setEmail(response.email);
-        setCountry(response.country);
-        setCity(response.city);
-        setAddress(response.address);
-        setPostCode(response.post_code);
-      }
-    }
-    load();
-  }, []);
 
   return (
     <div className="profile-container">

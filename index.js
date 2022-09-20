@@ -55,7 +55,8 @@ require("./routes/login.js")(server, db);
 require("./routes/stripe.js")(server);
 
 // stream routes
-require("./routes/video-stream.js")(server, db);
+require('./routes/video-stream.js')(server, db)
+require('./routes/audio-stream.js')(server, db)
 
 // generic REST API one-to-one table mappings
 require("./routes/generic-routes.js")(server, db);
