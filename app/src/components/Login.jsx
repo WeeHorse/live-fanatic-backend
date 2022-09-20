@@ -19,20 +19,6 @@ export default function ({ setIsModalOpen, modalType, setModalType }) {
     }, 1);
   }, []);
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const requestOptions = {
-  //     method: "POST",
-  //     headers: { "Content-type": "application/json" },
-  //     body: JSON.stringify({ email, password }),
-  //   };
-  //   let response = await fetch("/data/login", requestOptions);
-  //   if (response.ok) {
-  //     setIsModalOpen(false);
-  //   } else {
-  //     setError("Invalid username or password");
-  //   }
-  // };
   const handleSubmit = (e) => {
     e.preventDefault();
     submitLogin(email, password);

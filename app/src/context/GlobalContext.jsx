@@ -5,7 +5,6 @@ const GlobalContext = createContext();
 export const GlobalProvider = ({ children }) => {
   // useState for all variables
   const [auth, setAuth] = useState({ loggedIn: false });
-  // const [tidbits, setTidbits] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   // useEffect to run methods upon load
@@ -47,15 +46,6 @@ export const GlobalProvider = ({ children }) => {
     setIsLoading(false);
     setAuth({ loggedIn: false });
   };
-
-  // const loadTidbits = async () => {
-  //   setIsLoading(true);
-  //   const response = await fetch("/data/tidbits");
-  //   const result = await response.json();
-  //   console.log(result);
-  //   setTidbits(result);
-  //   setIsLoading(false);
-  // };
 
   return (
     <GlobalContext.Provider
