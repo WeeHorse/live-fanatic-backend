@@ -7,23 +7,26 @@ import TicketsPage from "./components/TicketsPage";
 import EventsPage from "./components/EventsPage.jsx";
 import Nav from "./components/SiteNavigation/Nav";
 import ArtistPage from "./components/ArtistPage";
-
+import { GlobalProvider } from "./context/GlobalContext.jsx";
 
 function App() {
+
   return (
     <>
-      <BrowserRouter>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/events" element={<EventsPage />} />
-          <Route path="/ticket" element={<TicketsPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/search" element={<SearchPage />} />
-          <Route path="/artist/:id" element={<ArtistPage />} />
-        </Routes>
-      </BrowserRouter>
+      <GlobalProvider>
+        <BrowserRouter>
+          <Nav />
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/ticket" element={<TicketsPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/search" element={<SearchPage />} />
+            <Route path="/artist/:id" element={<ArtistPage />} />
+          </Routes>
+        </BrowserRouter>
+      </GlobalProvider>
     </>
   );
 }
