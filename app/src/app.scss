@@ -7,6 +7,16 @@ $primary-color: #f6f6f6;
   box-sizing: border-box;
 }
 
+ * {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+  }
 body {
   margin: 0 auto;
   max-width: 1536px;
