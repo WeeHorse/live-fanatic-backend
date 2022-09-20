@@ -80,7 +80,7 @@ function EventDetails() {
               <p className="event-info-column">Date: {formatStartDate}</p>
               <p className="event-info-column">Venue: {event.venue_name}</p>
             </div>
-            <div className="ticket">
+            <div className="buy-ticket">
               {event.venue_name !== "ONLINE" && (
                 <>
                   <p
