@@ -9,6 +9,10 @@ function EventsPage() {
     getEvents();
   }, []);
 
+  if (!concerts) {
+    return <></>;
+  }
+
   return (
     <>
       <div className="header-title">
@@ -25,7 +29,7 @@ function EventsPage() {
                 state={{ concert: concert }}
                 key={concert.id}
               >
-                <Card concert={concert}/>
+                <Card concert={concert} />
               </Link>
             ))}
         </div>

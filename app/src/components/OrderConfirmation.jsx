@@ -53,9 +53,11 @@ function OrderConfirmation() {
   }, [data]);
 
   return (
-    <section id="event">
-      <h1>hej</h1>
-    </section>
+    <div className="container" id="order">
+      <div className="order-content">
+        <h1>Order confirmation</h1>
+      </div>
+    </div>
   );
 }
 export default OrderConfirmation;
