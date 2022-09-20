@@ -22,6 +22,7 @@
   position: relative;
     flex-direction: column;
     align-content: center;
+    margin-top: 3vh;
 }
 
 .searchIcon {
@@ -55,6 +56,7 @@ input:focus {
     overflow-y: auto;
     position: absolute;
     top: 40px;
+    align-self: center;
 }
 
 .dataResult::-webkit-scrollbar {
