@@ -32,7 +32,11 @@ function ProfilePage() {
     useEffect(() => {
         async function load() {
             let rawResponse = await fetch('/data/login')
-            if (rawResponse.ok) {
+            if (rawResponse.status === 401) {
+                alert("Sign in to display your profile!");
+                window.location.replace("/");
+            }
+            else if (rawResponse.ok) {
                 let response = await rawResponse.json();
                 setUserId(response.id)
                 setFirstName(response.first_name)
@@ -46,6 +50,7 @@ function ProfilePage() {
         }
         load()
     }, [])
+
 
     return <>
         <div className="profile-page">

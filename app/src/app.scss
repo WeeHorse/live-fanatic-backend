@@ -1,4 +1,4 @@
-$primary-color:#f6f6f6;
+$primary-color: #f6f6f6;
 
 *,
 *:after,
@@ -8,20 +8,22 @@ $primary-color:#f6f6f6;
 }
 
 body {
-  display: flex;
   margin: 0 auto;
   max-width: 1536px;
-  padding: none;
   background-color: $primary-color;
 
-  h1, h2, h3, h4, h5 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     font-family: 'Bevan', cursive;
   }
 }
 
-custom-input {
+.custom-input {
   width: 100%;
-  padding: 12px 20px;
+  padding: 8px 16px;
   margin: 8px 0;
   border-radius: 6px;
   border: 1px solid #000;
@@ -31,9 +33,9 @@ custom-input {
   }
 }
 
-.custom-red-btn {
+.custom-button {
   width: 100%;
-  margin: 16px 0;
+  // margin: 16px 0;
   background-color: crimson;
   color: white;
   outline: none;
