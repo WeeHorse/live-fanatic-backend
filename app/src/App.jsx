@@ -9,6 +9,7 @@ import ArtistPage from "./components/ArtistPage";
 import EventDetails from "./components/EventDetails";
 import OrderConfirmation from "./components/OrderConfirmation";
 import { GlobalProvider } from "./context/GlobalContext.jsx";
+import RouteGuard from "./components/RouteGard";
 import { EventContext } from "./context/EventContext";
 
 function App() {
@@ -19,17 +20,23 @@ function App() {
           <BrowserRouter>
             <Nav />
             <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/profile" element={<ProfilePage />} />
-              <Route path="/events" element={<EventsPage />} />
-              <Route exact path="/event/:id" element={<EventDetails />} />
-              <Route path="/ticket" element={<TicketsPage />} />
-              <Route path="/search" element={<SearchPage />} />
-              <Route path="/artist/:id" element={<ArtistPage />} />
-              <Route
-                path="/order-confirmation"
-                element={<OrderConfirmation />}
-              />
+              <>
+                <Route path="/" element={<Homepage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/events" element={<EventsPage />} />
+                <Route exact path="/event/:id" element={<EventDetails />} />
+                <Route path="/ticket" element={<TicketsPage />} />
+                <Route path="/search" element={<SearchPage />} />
+                <Route path="/artist/:id" element={<ArtistPage />} />
+                <Route
+                  path="/order-confirmation"
+                  element={
+                    <RouteGuard>
+                      <OrderConfirmation />
+                    </RouteGuard>
+                  }
+                />
+              </>
             </Routes>
           </BrowserRouter>
         </EventContext>
