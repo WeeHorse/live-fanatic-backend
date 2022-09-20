@@ -8,23 +8,22 @@ audioPlayer.controls = true
 
 export default function (props) {
     const id = parseInt(props['id'])
-    console.log("id: " + id);
     const [currentSong, setCurrentSong] = useState(0)
     const [songs, setSongs] = useState(null)
 
     const playAudio = () => {
+        if (!currentSong) return
+
         audioPlayer.src = '/data/audio-stream/' + currentSong
         void audioPlayer.play()
     }
 
     useEffect(() => {
         async function loadAudios() {
-            let response = await fetch(`/data/audios/`)
+            let response = await fetch('/data/audios/')
             if (response.ok) {
                 response = await response.json()
-                console.log(response);
                 const artistSongs = response.filter(event => event.artist_id === id);
-                console.log(artistSongs);
                 setSongs(artistSongs)
             }
         }
@@ -35,9 +34,9 @@ export default function (props) {
     useEffect(playAudio, [currentSong])
 
     useEffect(() => {
-        if (songs)
+        if (songs && currentSong)
             document.querySelector('#audio-container').appendChild(audioPlayer)
-    }, [songs])
+    }, [songs, currentSong])
 
     if (!songs) return <></>
     return <div className="audio-player">
