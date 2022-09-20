@@ -14,8 +14,8 @@ function OrderConfirmation() {
   const postData = async () => {
     if (!data) return <></>;
     if (
-      data.checkoutSession.payment_status === "paid" &&
-      data.checkoutSession.status === "complete"
+      data.checkoutSession.payment_status == "paid" &&
+      data.checkoutSession.status == "complete"
     ) {
       const payload = {
         user: 1,
@@ -31,6 +31,11 @@ function OrderConfirmation() {
       let response = await fetch("/data/users_tickets", requestOptions);
       if (response.ok) {
         response = await response.json();
+        // data.checkoutSession.line_items[0].ti data.checkoutSession.quantity
+        // let putcall = await fetch(`/data/tickets/${data.checkoutSession.id}`, {
+        //   method: "PUT",
+        // });
+        // console.log(putcall);
       } else {
         setError(response.statusText);
       }
@@ -42,13 +47,15 @@ function OrderConfirmation() {
   }, []);
 
   useEffect(() => {
-    postData();
+    setTimeout(() => {
+      postData();
+    }, 1000);
   }, [data]);
 
   return (
-    <>
+    <section id="event">
       <h1>hej</h1>
-    </>
+    </section>
   );
 }
 export default OrderConfirmation;

@@ -4,7 +4,7 @@ section#header{
     justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: $dark;
+    background-color: $dark-grey;
     height: auto;
     padding: 32px 0;
     
@@ -38,7 +38,7 @@ section#event{
     // display: flex;
     justify-content: center;
     padding: 24px 24px;
-    background-color: $background-color;
+    background-color: $dark;
     height: 50vh;
 
     .event-content{
@@ -49,7 +49,7 @@ section#event{
         
         .event-text{
             max-width: 720px;
-            background-color: #fafafa;
+            background-color: #F0F0F1;
             flex-grow: 4;
             min-height: 30vh;
             padding: 32px 48px;

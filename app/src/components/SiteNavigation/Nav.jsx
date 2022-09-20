@@ -46,7 +46,7 @@ function Nav() {
               </Link>
             </div>
             <div className="hamburgerbutton">
-              <Link to="/event" onClick={toggleHamburger}>
+              <Link to="/events" onClick={toggleHamburger}>
                 <img src={eventSvg} alt="eventbutton" />
                 <p>Events</p>
               </Link>
@@ -74,16 +74,6 @@ function Nav() {
                 }}
               >
                 Login
-              </button>
-              <button
-                className="custom-button"
-                onClick={() => {
-                  setIsModalOpen(true);
-                  setModalType(SIGN_UP);
-                  setHamburgerOpen(false);
-                }}
-              >
-                Sign up
               </button>
             </div>
             <div className="hamburgerbutton" id="searchbar">
@@ -131,6 +121,10 @@ function Nav() {
 
             position: fixed;
             grid-template-rows: 2fr 2fr 2fr 2fr 2fr 1fr;
+          }
+
+          #modal {
+            margin: 16px;
           }
 
           @media (min-width: 767px) {

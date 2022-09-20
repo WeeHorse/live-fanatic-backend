@@ -1,9 +1,10 @@
 $background-color: #e6e6e6;
-$white: #fff;
+$white: #F0F0F1;
 $yellow: #ffc561;
 $light-grey:#ddd;
 $gray: #7c7c7c;
-$dark: #0E0E10;
+$dark: #141417;
+$dark-grey: #19191D;
 $orange: #f8671f;
 $purple: #9000B3;
 $error: rgb(194, 0, 0);
@@ -18,7 +19,7 @@ $error: rgb(194, 0, 0);
 body {
   max-width: 1920px;
   margin: 0 auto;
-  background-color: $background-color;
+  background-color: $dark;
 
   h1, h2, h3, h4, h5 {
     font-family: 'Fira Sans', sans-serif;
