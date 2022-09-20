@@ -1,41 +1,48 @@
-import { useEffect } from "react"
-import { useState } from "react"
+import {useEffect} from "react"
+import {useState} from "react"
+const audioPlayer = new Audio()
+    audioPlayer.controls = true
 
 export default function () {
 
-    const audioPlayer = new Audio()
-    audioPlayer.controls = true  // if we want to use our own controls, set this to false
+    const [currentSong, setCurrentSong] = useState(0)
+    const [songs, setSongs] = useState(null)
+    console.log(currentSong);
 
-    const [songId, setSongId] = useState(0)
-    console.log(songId);
-
-    function playAudio() {
-        audioPlayer.src = '/data/audio-stream/' + id
-        audioPlayer.play()
+    const playAudio = () => {
+        audioPlayer.src = '/data/audio-stream/' + currentSong
+        void audioPlayer.play()
     }
 
     useEffect(() => {
         async function loadAudios() {
-            const response = await fetch('/data/audios/')
+            let response = await fetch('/data/audios/')
             if (response.ok) {
-                const audios = await response.json()
-                for (let audio of audios) {
-                    const button = document.querySelector('#audios').insertAdjacentHTML("beforeend", `<a href="#" onclick="${setSongId(audio.id)}">${audio.name}</a><br>`)
-                }
-                document.querySelector('#audio-container').appendChild(audioPlayer)
+                response = await response.json()
+                setSongs(response)
             }
         }
-        loadAudios()
-    },[])
 
+        void loadAudios()
+    }, [])
 
+    useEffect(playAudio, [currentSong])
+
+    useEffect(() => {
+        if (songs)
+            document.querySelector('#audio-container').appendChild(audioPlayer)
+    }, [songs])
+
+    if (!songs) return <></>
     return <>
         <div id="audios">
+            {songs.map(song => <button onClick={() => setCurrentSong(song.id)}>{song.name}</button>)}
         </div>
         <div id="audio-container"></div>
     </>
 
 }
+
 
 
 
