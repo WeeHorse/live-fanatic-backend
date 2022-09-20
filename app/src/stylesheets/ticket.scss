@@ -5,16 +5,16 @@ $gray: #9B9B9B;
 $button: #026cdf;
 $heart: #EF3E36;
 
-* {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    text-decoration: none;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    box-sizing: border-box;
-}
+//* {
+   // margin: 0;
+   // padding: 0;
+    //list-style-type: none;
+    //text-decoration: none;
+    //-webkit-box-sizing: border-box;
+    //-moz-box-sizing: border-box;
+    //-o-box-sizing: border-box;
+  //  box-sizing: border-box;
+//}
 
 .ticket-header {
     text-align: center;
@@ -105,12 +105,12 @@ $heart: #EF3E36;
 }
 
 @media screen and (min-width:1024px) {
-    .card {
-        min-width: 900px;
-        max-height: 90px;
+    //.card {
+      //  min-width: 900px;
+      //  max-height: 90px;
 
-        img {
-            max-width: fit-content;
-        }
-    }
+        //img {
+         //   max-width: fit-content;
+       // }
+   // }
 }
