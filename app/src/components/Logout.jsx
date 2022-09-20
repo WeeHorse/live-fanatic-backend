@@ -1,18 +1,20 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function Logout() {
   const navigate = useNavigate();
   const handleLogout = async () => {
-    let response = await fetch('/data/login', { method: 'DELETE' });
+    let response = await fetch("/data/login", { method: "DELETE" });
     if (response.ok) {
       response = await response.json();
-      navigate('/');
+      navigate("/");
     }
   };
 
   return (
     <>
-      <button className="custom-red-btn" id="sign-out" onClick={handleLogout} >Sign out</button>
+      <button className="custom-button" id="sign-out" onClick={handleLogout}>
+        Sign out
+      </button>
     </>
   );
 }
