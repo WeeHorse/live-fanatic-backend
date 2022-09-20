@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+import Headphones from '../assets/headphones.svg';
 
 const audioPlayer = new Audio()
 audioPlayer.controls = true
@@ -40,6 +41,12 @@ export default function (props) {
 
     if (!songs) return <></>
     return <div className="audio-player">
+        <div id="user-info">
+            <div id="headphones-icon">
+                <img src={Headphones} alt="" />
+            </div>
+            <p>Listen to the artist!</p>
+        </div>
         <div id="audios">
             {songs.map(song => <button key={song.id} onClick={() => setCurrentSong(song.id)}>{song.name}</button>)}
         </div>
