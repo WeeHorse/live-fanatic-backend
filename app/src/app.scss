@@ -1,9 +1,18 @@
-$primary-color: #f6f6f6;
+$background-color: #e6e6e6;
+$white: #F0F0F1;
+$yellow: #ffc561;
+$light-grey:#ddd;
+$gray: #7c7c7c;
+$dark: #141417;
+$dark-grey: #1E1F24;
+$orange: #f8671f;
+$purple: #9000B3;
+$error: rgb(194, 0, 0);
 
 *,
 *:after,
 *:before {
-  font-family: 'Heebo', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   box-sizing: border-box;
 }
 
@@ -18,16 +27,13 @@ $primary-color: #f6f6f6;
     box-sizing: border-box;
   }
 body {
+  max-width: 1920px;
   margin: 0 auto;
-  max-width: 1536px;
-  background-color: $primary-color;
+  background-color: $dark-grey;
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    font-family: 'Bevan', cursive;
+  h1, h2, h3, h4, h5 {
+    font-family: 'Fira Sans', sans-serif;
+    color: $orange;
   }
 }
 
@@ -46,7 +52,7 @@ body {
 .custom-button {
   width: 100%;
   // margin: 16px 0;
-  background-color: crimson;
+  background-color: $orange;
   color: white;
   outline: none;
   padding: 8px 16px;
@@ -56,6 +62,11 @@ body {
   &:hover {
     filter: brightness(90%);
   }
+}
+
+button {
+  background-color: unset;
+  border: unset;
 }
 
 @media screen and (min-width:760px) {}
