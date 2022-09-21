@@ -30,9 +30,6 @@ export default function ArtistPage() {
       <section id="header">
         <div className="image">
             <img src={image} alt="band picture" />
-            {/* <div className="artist-image" style={{backgroundImage:'url(' + image + ')'}}>
-                <img src={image} alt="band picture" />
-            </div> */}
             <div className="content">
                 <AudioPlayer id={id} />
                 <div id="event-info">
@@ -40,25 +37,12 @@ export default function ArtistPage() {
                         <h2>Upcoming events</h2>
                         <ArtistEvents id={id} />
                     </div>
-
-      {/* <div className="artist-page">
-            
-            <img src={image} alt="band picture" />
-            
-            <div className="content">
-            <h1>{name}</h1>
-                <div id="event-info">
-                    <div id="artist-bio">
-                        <div id="upcoming">
-                            <h2>Upcoming events</h2>
-                        </div>
-                        <p>{bio}</p>
-                        <span className="line-break"></span>
-                        <ArtistEvents id={id} />
-                    </div>
-                </div>
+                </div> 
             </div>
-        </div> */}
+        </div> 
+      </section>
+      <section>
+        </section>   
     </>
   );
 }
