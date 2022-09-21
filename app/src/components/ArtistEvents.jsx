@@ -29,7 +29,7 @@ export default function ArtistEvents(props) {
         {events &&
           events.map((concert) => (
             <Link
-              to={{ pathname: `/event/${concert.id}` }}
+              to={{ pathname: `/events/${concert.id}` }}
               state={{ concert: concert }}
               key={concert.id}
             >

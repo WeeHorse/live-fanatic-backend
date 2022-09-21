@@ -7,7 +7,7 @@ import GlobalContext from "../../context/GlobalContext";
 
 export const links = [
   { href: "/events", name: "Events" },
-  { href: "/artists", name: "Artists" },
+  { href: "/venues", name: "Venues" },
 ];
 
 export const profileSubLinks = [

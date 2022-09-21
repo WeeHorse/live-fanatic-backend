@@ -25,7 +25,7 @@ function EventsPage() {
           {concerts &&
             concerts.map((concert) => (
               <Link
-                to={{ pathname: `/event/${concert.id}` }}
+                to={{ pathname: `/events/${concert.id}` }}
                 state={{ concert: concert }}
                 key={concert.id}
               >

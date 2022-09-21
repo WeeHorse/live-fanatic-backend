@@ -24,8 +24,8 @@ function App() {
                 <Route path="/" element={<Homepage />} />
                 <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/events" element={<EventsPage />} />
-                <Route exact path="/event/:id" element={<EventDetails />} />
-                <Route path="/ticket" element={<TicketsPage />} />
+                <Route exact path="/events/:id" element={<EventDetails />} />
+                <Route path="/my-tickets" element={<TicketsPage />} />
                 <Route path="/search" element={<SearchPage />} />
                 <Route path="/artists/:id" element={<ArtistPage />} />
                 <Route
