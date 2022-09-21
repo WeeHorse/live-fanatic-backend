@@ -35,8 +35,8 @@ export default function () {
         getEvents()
     }, [venue]);
 
-    if (!venue) {
-        return <></>
+    if (!venue || venue.location === 'ONLINE') {
+        return <><h1>No venue found</h1></>
     }
 
     return <>
