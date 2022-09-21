@@ -20,10 +20,10 @@ function App() {
             <Route path="/" element={<Homepage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/events" element={<EventsPage />} />
-            <Route path="/ticket" element={<TicketsPage />} />
+            <Route path="/my-tickets" element={<TicketsPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/search" element={<SearchPage />} />
-            <Route path="/artist/:id" element={<ArtistPage />} />
+            <Route path="/artists/:id" element={<ArtistPage />} />
           </Routes>
         </BrowserRouter>
       </GlobalProvider>
