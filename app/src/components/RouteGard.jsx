@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { Link, Route } from "react-router-dom";
 import GlobalContext from "../context/GlobalContext";
 
 const RouteGuard = ({ children }) => {

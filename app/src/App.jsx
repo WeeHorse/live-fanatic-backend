@@ -30,11 +30,7 @@ function App() {
                 <Route path="/artist/:id" element={<ArtistPage />} />
                 <Route
                   path="/order-confirmation"
-                  element={
-                    <RouteGuard>
-                      <OrderConfirmation />
-                    </RouteGuard>
-                  }
+                  element={<OrderConfirmation />}
                 />
               </>
             </Routes>
