@@ -8,6 +8,7 @@ import EventsPage from "./components/EventsPage.jsx";
 import Nav from "./components/SiteNavigation/Nav";
 import ArtistPage from "./components/ArtistPage";
 import { GlobalProvider } from "./context/GlobalContext.jsx";
+import VenuePage from "./components/VenuePage";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/artist/:id" element={<ArtistPage />} />
+            <Route path="/venue/:id" element={<VenuePage />} />
           </Routes>
         </BrowserRouter>
       </GlobalProvider>
