@@ -1,3 +1,4 @@
+$primary-color: #f6f6f6;
 $background-color: #e6e6e6;
 $white: #F0F0F1;
 $yellow: #ffc561;
@@ -12,7 +13,7 @@ $error: rgb(194, 0, 0);
 *,
 *:after,
 *:before {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Heebo', sans-serif;
   box-sizing: border-box;
 }
 
@@ -27,13 +28,16 @@ $error: rgb(194, 0, 0);
     box-sizing: border-box;
   }
 body {
-  max-width: 1920px;
   margin: 0 auto;
-  background-color: $dark-grey;
+  max-width: 1536px;
+  background-color: $primary-color;
 
-  h1, h2, h3, h4, h5 {
-    font-family: 'Fira Sans', sans-serif;
-    color: $orange;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: 'Bevan', cursive;
   }
 }
 
@@ -52,7 +56,7 @@ body {
 .custom-button {
   width: 100%;
   // margin: 16px 0;
-  background-color: $orange;
+  background-color: crimson;
   color: white;
   outline: none;
   padding: 8px 16px;
