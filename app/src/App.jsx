@@ -27,7 +27,7 @@ function App() {
                 <Route exact path="/event/:id" element={<EventDetails />} />
                 <Route path="/ticket" element={<TicketsPage />} />
                 <Route path="/search" element={<SearchPage />} />
-                <Route path="/artist/:id" element={<ArtistPage />} />
+                <Route path="/artists/:id" element={<ArtistPage />} />
                 <Route
                   path="/order-confirmation"
                   element={<OrderConfirmation />}
