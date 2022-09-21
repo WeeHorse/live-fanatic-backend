@@ -8,6 +8,7 @@ export default function () {
 
     const { id } = useParams()
     const [venue, setVenue] = useState({})
+    const [venueEvents, setVenueEvents] = useState([])
 
     useEffect(() => {
         async function getVenues() {
@@ -24,10 +25,15 @@ export default function () {
     }, [id])
 
     const { data: concerts, error, isPending, getEvents } = useConcertData();
+
     useEffect(() => {
         getEvents();
-    }, []);
-
+        if (concerts) {
+            const filterEvents = concerts.filter(concert => concert.venue_name === venue.name)
+            setVenueEvents(filterEvents)
+        }
+        getEvents()
+    }, [venue]);
 
     if (!venue) {
         return <></>
@@ -46,10 +52,11 @@ export default function () {
             </section>
             <div className="event-container">
                 <div className="card-container">
+                    <span className="line-break"></span>
                     {error && <div>{error}</div>}
                     {isPending && <div>Loading...</div>}
                     {concerts &&
-                        concerts.map((concert) => (
+                        venueEvents.map((concert) => (
                             <Link
                                 to={{ pathname: `/events/${concert.id}` }}
                                 state={{ concert: concert }}

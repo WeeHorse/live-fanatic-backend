@@ -1,24 +1,23 @@
-
-#venue-page{
+#venue-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    .header{
+
+    .header {
         display: flex;
         flex-direction: column;
         align-items: center;
 
-        h1{
+        h1 {
             font-size: 250%;
         }
 
-        #venue-info{
+        #venue-info {
             display: flex;
             align-items: center;
 
-            #address{
+            #address {
                 font-size: 24px;
                 margin-left: 16px;
                 color: $white;
@@ -26,9 +25,15 @@
         }
     }
 
-    .event-container{
-        .card-container{
-            
+    .event-container {
+        margin-top: 60px;
+
+        .card-container>a>.card {
+            display: flex;
+
+            .header {
+                align-self: center;
+            }
         }
     }
 }
