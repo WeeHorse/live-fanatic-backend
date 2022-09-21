@@ -15,8 +15,8 @@ export default function HomePage() {
     return (
         <>
             <h1>Homepage</h1>
-            <Carousel items={onlineConcerts} type={'/event/'} uid={'online'}/>
-            <Carousel items={offlineConcerts} type={'/event/'} uid={'offline'}/>
+            <Carousel items={onlineConcerts} style={'Buttons'} type={'/events/'} uid={'online'}/>
+            <Carousel items={offlineConcerts} style={'Counter'} type={'/events/'} uid={'offline'}/>
         </>
     );
 }
