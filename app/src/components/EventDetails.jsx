@@ -12,8 +12,8 @@ function EventDetails() {
   const [quantity, setQuantity] = useState(1);
   useEffect(() => getEvents(), []);
 
-  const event = data?.find((c) => {
-    return c.id === parseInt(id);
+  const event = data?.find((e) => {
+    return e.id === parseInt(id);
   });
 
   if (!event) {

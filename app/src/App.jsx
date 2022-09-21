@@ -9,24 +9,33 @@ import ArtistPage from "./components/ArtistPage";
 import EventDetails from "./components/EventDetails";
 import OrderConfirmation from "./components/OrderConfirmation";
 import { GlobalProvider } from "./context/GlobalContext.jsx";
+import RouteGuard from "./components/RouteGard";
 import { EventContext } from "./context/EventContext";
 
 function App() {
   return (
     <>
       <GlobalProvider>
-        <BrowserRouter>
-          <Nav />
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/events" element={<EventsPage />} />
-            <Route path="/my-tickets" element={<TicketsPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="/artists/:id" element={<ArtistPage />} />
-          </Routes>
-        </BrowserRouter>
+        <EventContext>
+          <BrowserRouter>
+            <Nav />
+            <Routes>
+              <>
+                <Route path="/" element={<Homepage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/events" element={<EventsPage />} />
+                <Route exact path="/events/:id" element={<EventDetails />} />
+                <Route path="/my-tickets" element={<TicketsPage />} />
+                <Route path="/search" element={<SearchPage />} />
+                <Route path="/artists/:id" element={<ArtistPage />} />
+                <Route
+                  path="/order-confirmation"
+                  element={<OrderConfirmation />}
+                />
+              </>
+            </Routes>
+          </BrowserRouter>
+        </EventContext>
       </GlobalProvider>
     </>
   );

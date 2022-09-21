@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import GlobalContext from "../context/GlobalContext";
 
 function OrderConfirmation() {
+  const { auth } = useContext(GlobalContext);
   const [data, setData] = useState({});
   const fetchData = async () => {
     let response = await fetch("/data/checkout");
@@ -18,7 +20,7 @@ function OrderConfirmation() {
       data.checkoutSession.status == "complete"
     ) {
       const payload = {
-        user: 1,
+        user: auth.id,
         ticket: data.checkoutSession.metadata.ticket_id,
         quantity: data.checkoutSession.line_items.data[0].quantity,
         session_id: data.checkoutSession.id,
@@ -31,11 +33,6 @@ function OrderConfirmation() {
       let response = await fetch("/data/users_tickets", requestOptions);
       if (response.ok) {
         response = await response.json();
-        // data.checkoutSession.line_items[0].ti data.checkoutSession.quantity
-        // let putcall = await fetch(`/data/tickets/${data.checkoutSession.id}`, {
-        //   method: "PUT",
-        // });
-        // console.log(putcall);
       } else {
         setError(response.statusText);
       }
