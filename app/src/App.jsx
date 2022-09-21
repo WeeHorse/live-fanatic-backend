@@ -29,7 +29,7 @@ function App() {
                 <Route path="/my-tickets" element={<TicketsPage />} />
                 <Route path="/search" element={<SearchPage />} />
                 <Route path="/artists/:id" element={<ArtistPage />} />
-                <Route path="/venue/:id" element={<VenuePage />} />
+                <Route path="/venues/:id" element={<VenuePage />} />
                 <Route
                   path="/order-confirmation"
                   element={<OrderConfirmation />}
