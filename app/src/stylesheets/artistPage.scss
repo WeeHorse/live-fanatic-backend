@@ -45,14 +45,13 @@ section#artist {
       }
 
     .artist-text{
-      max-width: 720px;
-      background-color: #f0f0f1;
+      background-color: $white;
       flex-grow: 4;
       min-height: 30vh;
       padding: 32px 48px;
-      display: flex;
-      justify-content: space-between;
-      gap: 32px;
+      .bio{
+        margin: 8px 0;
+      }
 
       @media screen and (max-width: 768px) {
         flex-direction: column;
@@ -63,6 +62,11 @@ section#artist {
     .artist-info{
         margin-bottom: 16px;
         font-size: 18px;
+  }
+  .event-title{
+    background-color: $white;
+    margin-top: 16px;
+    padding: 24px;
   }
 }
 
