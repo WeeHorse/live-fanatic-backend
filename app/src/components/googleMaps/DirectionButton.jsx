@@ -29,7 +29,7 @@ export default function Directions(props) {
     },[direction])
 
     if (!venue.direction) return <></>
-
+    
     return <>
         <div className="direction-button" onClick={() => setIsVisible(true)}>Get Directions
             <img src={ArrowCircleRight} id="arrow-circle-right" alt="icon" />
