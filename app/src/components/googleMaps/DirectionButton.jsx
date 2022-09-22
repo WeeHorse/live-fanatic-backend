@@ -20,11 +20,13 @@ export default function Directions(props) {
                 const response = await rawResponse.json();
                 setDirection(response.filter(event => event.id === id)[0].direction);
                 setVenue(response.filter(event => event.id === id)[0])
-                document.getElementById('map-view').src = direction;
+                if(direction){
+                   document.getElementById('map-view').src = direction; 
+                }
             }
         }
         load()
-    },[direction])
+    },[direction, id])
 
     if (!venue.direction) return <></>
     
