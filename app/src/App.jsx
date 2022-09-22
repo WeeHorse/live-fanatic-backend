@@ -11,6 +11,8 @@ import OrderConfirmation from "./components/OrderConfirmation";
 import { GlobalProvider } from "./context/GlobalContext.jsx";
 import RouteGuard from "./components/RouteGard";
 import { EventContext } from "./context/EventContext";
+import VenueDetails from "./components/VenueDetails";
+import VenuePage from "./components/VenuePage";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
                 <Route path="/my-tickets" element={<TicketsPage />} />
                 <Route path="/search" element={<SearchPage />} />
                 <Route path="/artists/:id" element={<ArtistPage />} />
+                <Route path="/venues/:id" element={<VenueDetails />} />
+                <Route path="/venues" element={<VenuePage />} />
                 <Route
                   path="/order-confirmation"
                   element={<OrderConfirmation />}
